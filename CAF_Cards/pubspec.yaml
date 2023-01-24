@@ -1,0 +1,391 @@
+name: myapp
+description: A exported flutter project from FUNCTION12
+
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  google_fonts: ^3.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/page-1/images/vector-8-stroke.png
+    - assets/page-1/images/vector-8-stroke-jxq.png
+    - assets/page-1/images/vector-8-stroke-Znd.png
+    - assets/page-1/images/vector-8-stroke-y3b.png
+    - assets/page-1/images/group-8.png
+    - assets/page-1/images/group-8-B65.png
+    - assets/page-1/images/vector-8-stroke-bx9.png
+    - assets/page-1/images/group-7.png
+    - assets/page-1/images/vector-8-stroke-mFK.png
+    - assets/page-1/images/vector-8-stroke-zVB.png
+    - assets/page-1/images/iconography-caesarzkn.png
+    - assets/page-1/images/group-8-j33.png
+    - assets/page-1/images/group-9.png
+    - assets/page-1/images/vector-8-stroke-SQM.png
+    - assets/page-1/images/vector-8-stroke-kgM.png
+    - assets/page-1/images/group-7-eWR.png
+    - assets/page-1/images/atomgood-2.png
+    - assets/page-1/images/monster-truck-fahren-fuerstenaux11-1.png
+    - assets/page-1/images/group-8-WDb.png
+    - assets/page-1/images/group-9-2ER.png
+    - assets/page-1/images/vector-8-stroke-Z4Z.png
+    - assets/page-1/images/vector-8-stroke-3VX.png
+    - assets/page-1/images/vector-8-stroke-2Wh.png
+    - assets/page-1/images/group-7-KVo.png
+    - assets/page-1/images/group-8-rkd.png
+    - assets/page-1/images/vector-8-stroke-nPP.png
+    - assets/page-1/images/vector-8-stroke-uD7.png
+    - assets/page-1/images/vector-8-stroke-C5j.png
+    - assets/page-1/images/group-7-W6R.png
+    - assets/page-1/images/vector-8-stroke-u5w.png
+    - assets/page-1/images/vector-8-stroke-18y.png
+    - assets/page-1/images/vector-8-stroke-jKs.png
+    - assets/page-1/images/vector-8-stroke-CjF.png
+    - assets/page-1/images/grafik-4.png
+    - assets/page-1/images/vector-8-stroke-dZf.png
+    - assets/page-1/images/group-7-uNm.png
+    - assets/page-1/images/vector-8-stroke-x69.png
+    - assets/page-1/images/vector-8-stroke-UaH.png
+    - assets/page-1/images/vector-8-stroke-zHj.png
+    - assets/page-1/images/group-7-vBP.png
+    - assets/page-1/images/group-8-SQd.png
+    - assets/page-1/images/vector-8-stroke-wRF.png
+    - assets/page-1/images/group-9-4Ey.png
+    - assets/page-1/images/vector-8-stroke-ycq.png
+    - assets/page-1/images/group-9-i4d.png
+    - assets/page-1/images/group-8-HX3.png
+    - assets/page-1/images/group-9-9ED.png
+    - assets/page-1/images/vector-8-stroke-qMw.png
+    - assets/page-1/images/vector-8-stroke-2aq.png
+    - assets/page-1/images/vector-8-stroke-Egu.png
+    - assets/page-1/images/vector-8-stroke-xN1.png
+    - assets/page-1/images/group-16-vWH.png
+    - assets/page-1/images/group-16.png
+    - assets/page-1/images/vector-8-stroke-rhb.png
+    - assets/page-1/images/group-9-7vM.png
+    - assets/page-1/images/vector-8-stroke-ooB.png
+    - assets/page-1/images/vector-8-stroke-gry.png
+    - assets/page-1/images/vector-8-stroke-Q2H.png
+    - assets/page-1/images/vector-8-stroke-Wb7.png
+    - assets/page-1/images/group-9-yUh.png
+    - assets/page-1/images/vector-8-stroke-Vxq.png
+    - assets/page-1/images/vector-8-stroke-E9j.png
+    - assets/page-1/images/vector-8-stroke-9Xb.png
+    - assets/page-1/images/vector-8-stroke-g1j.png
+    - assets/page-1/images/vector-8-stroke-o6M.png
+    - assets/page-1/images/group-8-iz1.png
+    - assets/page-1/images/group-7-d5P.png
+    - assets/page-1/images/vector-8-stroke-MXB.png
+    - assets/page-1/images/group-9-E5B.png
+    - assets/page-1/images/iconography-caesarzkn-9T3.png
+    - assets/page-1/images/vector-8-stroke-6yB.png
+    - assets/page-1/images/group-8-4pM.png
+    - assets/page-1/images/vector-8-stroke-YjX.png
+    - assets/page-1/images/j783yp-1.png
+    - assets/page-1/images/iconography-caesarzkn-SfX.png
+    - assets/page-1/images/auto-group-gqev.png
+    - assets/page-1/images/icons.png
+    - assets/page-1/images/vector-8-stroke-M8R.png
+    - assets/page-1/images/icons-RZX.png
+    - assets/page-1/images/vector-8-stroke-7x9.png
+    - assets/page-1/images/group-7-FHf.png
+    - assets/page-1/images/vector-8-stroke-RbT.png
+    - assets/page-1/images/icons-JpD.png
+    - assets/page-1/images/vector-8-stroke-cxd.png
+    - assets/page-1/images/vector-8-stroke-Fnd.png
+    - assets/page-1/images/group-7-JaZ.png
+    - assets/page-1/images/vector-8-stroke-xBF.png
+    - assets/page-1/images/vector-8-stroke-e45.png
+    - assets/page-1/images/icons-K8Z.png
+    - assets/page-1/images/icons-E5j.png
+    - assets/page-1/images/iconography-caesarzkn-HRw.png
+    - assets/page-1/images/vector-8-stroke-mPb.png
+    - assets/page-1/images/vector-8-stroke-pwX.png
+    - assets/page-1/images/vector-8-stroke-gpd.png
+    - assets/page-1/images/iconography-caesarzkn-yHw.png
+    - assets/page-1/images/group-9-3pq.png
+    - assets/page-1/images/vector-8-stroke-MKj.png
+    - assets/page-1/images/iconography-caesarzkn-bfB.png
+    - assets/page-1/images/grafik-4-4Hs.png
+    - assets/page-1/images/vector-8-stroke-iKX.png
+    - assets/page-1/images/group-8-BD7.png
+    - assets/page-1/images/vector-8-stroke-sbj.png
+    - assets/page-1/images/vector-8-stroke-UrR.png
+    - assets/page-1/images/vector-8-stroke-PCh.png
+    - assets/page-1/images/vector-8-stroke-Vu7.png
+    - assets/page-1/images/iconography-caesarzkn-n7X.png
+    - assets/page-1/images/iconography-caesarzkn-Sof.png
+    - assets/page-1/images/group-7-V9f.png
+    - assets/page-1/images/atomgood-2-kSH.png
+    - assets/page-1/images/bjarnestroustrup-1.png
+    - assets/page-1/images/group-8-Na1.png
+    - assets/page-1/images/vector-8-stroke-VuX.png
+    - assets/page-1/images/grafik-4-mMF.png
+    - assets/page-1/images/image-1.png
+    - assets/page-1/images/atomgood-2-5n5.png
+    - assets/page-1/images/atomgood-2-nZb.png
+    - assets/page-1/images/ae3a1d2aa08c5f2dc2a4481b25yyaynjq0ede0odcrmtiwkzewanjlide5mjagmta4mamxymfhmja1zge4mg-1.png
+    - assets/page-1/images/atomgood-2-e2h.png
+    - assets/page-1/images/image-1-ixd.png
+    - assets/page-1/images/icons-YNh.png
+    - assets/page-1/images/grafik-4-TCZ.png
+    - assets/page-1/images/icons-t7f.png
+    - assets/page-1/images/group-9-b5w.png
+    - assets/page-1/images/iconography-caesarzkn-R6u.png
+    - assets/page-1/images/group-9-q1X.png
+    - assets/page-1/images/icons-e7P.png
+    - assets/page-1/images/iconography-caesarzkn-QZB.png
+    - assets/page-1/images/iconography-caesarzkn-EGD.png
+    - assets/page-1/images/iconography-caesarzkn-p7w.png
+    - assets/page-1/images/group-8-m7K.png
+    - assets/page-1/images/icons-XeD.png
+    - assets/page-1/images/walle1-1.png
+    - assets/page-1/images/buttons-cell.png
+    - assets/page-1/images/iconography-caesarzkn-Edj.png
+    - assets/page-1/images/group-8-8Yu.png
+    - assets/page-1/images/vector-8-stroke-ANZ.png
+    - assets/page-1/images/vector-8-stroke-gcd.png
+    - assets/page-1/images/group-7-FbB.png
+    - assets/page-1/images/group-8-vDT.png
+    - assets/page-1/images/group-7-med.png
+    - assets/page-1/images/group-8-WQV.png
+    - assets/page-1/images/group-9-q3s.png
+    - assets/page-1/images/vector-8-stroke-8uT.png
+    - assets/page-1/images/vector-8-stroke-NUV.png
+    - assets/page-1/images/group-7-Gbo.png
+    - assets/page-1/images/iconography-caesarzkn-pWh.png
+    - assets/page-1/images/icons-EQV.png
+    - assets/page-1/images/icons-qMX.png
+    - assets/page-1/images/vector-8-stroke-Jo7.png
+    - assets/page-1/images/group-16-A8V.png
+    - assets/page-1/images/vector-8-stroke-ZUR.png
+    - assets/page-1/images/vector-8-stroke-Hx9.png
+    - assets/page-1/images/icons-zVB.png
+    - assets/page-1/images/buttons-cell-BZf.png
+    - assets/page-1/images/vector-8-stroke-DuX.png
+    - assets/page-1/images/group-16-KxZ.png
+    - assets/page-1/images/group-8-TJ5.png
+    - assets/page-1/images/group-23.png
+    - assets/page-1/images/vector-8-stroke-VUH.png
+    - assets/page-1/images/iconography-caesarzkn-14Z.png
+    - assets/page-1/images/vector-8-stroke-UWR.png
+    - assets/page-1/images/iconography-caesarzkn-gp5.png
+    - assets/page-1/images/icons-U69.png
+    - assets/page-1/images/vector-8-stroke-V9f.png
+    - assets/page-1/images/vector-8-stroke-ghB.png
+    - assets/page-1/images/group-7-4hj.png
+    - assets/page-1/images/icons-oKs.png
+    - assets/page-1/images/group-8-uth.png
+    - assets/page-1/images/group-7-qnM.png
+    - assets/page-1/images/iconography-caesarzkn-mAD.png
+    - assets/page-1/images/vector-8-stroke-Ff3.png
+    - assets/page-1/images/iconography-caesarzkn-BHo.png
+    - assets/page-1/images/group-9-7hF.png
+    - assets/page-1/images/group-9-rPw.png
+    - assets/page-1/images/vector-8-stroke-a53.png
+    - assets/page-1/images/iconography-caesarzkn-AJ9.png
+    - assets/page-1/images/vector-8-stroke-sCZ.png
+    - assets/page-1/images/group-7-zny.png
+    - assets/page-1/images/vector-8-stroke-8PP.png
+    - assets/page-1/images/icons-mhF.png
+    - assets/page-1/images/group-8-chs.png
+    - assets/page-1/images/iconography-caesarzkn-wEM.png
+    - assets/page-1/images/atomgood-2-rs7.png
+    - assets/page-1/images/vector-8-stroke-nEy.png
+    - assets/page-1/images/group-8-Z9F.png
+    - assets/page-1/images/walle1-1-XvV.png
+    - assets/page-1/images/group-9-cNq.png
+    - assets/page-1/images/group-9-3MF.png
+    - assets/page-1/images/iconography-caesarzkn-csP.png
+    - assets/page-1/images/vector-8-stroke-fHw.png
+    - assets/page-1/images/grafik-4-Z65.png
+    - assets/page-1/images/group-8-TSM.png
+    - assets/page-1/images/group-8-uZF.png
+    - assets/page-1/images/vector-8-stroke-pgD.png
+    - assets/page-1/images/group-9-4To.png
+    - assets/page-1/images/vector-8-stroke-2hT.png
+    - assets/page-1/images/group-9-vnq.png
+    - assets/page-1/images/iconography-caesarzkn-ded.png
+    - assets/page-1/images/grafik-4-jbB.png
+    - assets/page-1/images/group-23-vff.png
+    - assets/page-1/images/vector-8-stroke-6rR.png
+    - assets/page-1/images/walle1-1-Eey.png
+    - assets/page-1/images/group-8-9tH.png
+    - assets/page-1/images/vector-8-stroke-qQy.png
+    - assets/page-1/images/iconography-caesarzkn-sAD.png
+    - assets/page-1/images/vector-8-stroke-BfT.png
+    - assets/page-1/images/group-10.png
+    - assets/page-1/images/atomgood-2-QjP.png
+    - assets/page-1/images/group-8-rZ3.png
+    - assets/page-1/images/vector-8-stroke-mam.png
+    - assets/page-1/images/group-7-trh.png
+    - assets/page-1/images/group-7-94H.png
+    - assets/page-1/images/monster-truck-fahren-fuerstenaux11-1-xFw.png
+    - assets/page-1/images/bjarnestroustrup-1-opq.png
+    - assets/page-1/images/walle1-1-AVT.png
+    - assets/page-1/images/image-1-hND.png
+    - assets/page-1/images/ae3a1d2aa08c5f2dc2a4481b25yyaynjq0ede0odcrmtiwkzewanjlide5mjagmta4mamxymfhmja1zge4mg-1-E4m.png
+    - assets/page-1/images/j783yp-1-WdB.png
+    - assets/page-1/images/group-9-PCH.png
+    - assets/page-1/images/iconography-caesarzkn-ee1.png
+    - assets/page-1/images/walle1-1-ivR.png
+    - assets/page-1/images/group-7-FWM.png
+    - assets/page-1/images/iconography-caesarzkn-2Z3.png
+    - assets/page-1/images/icons-fPs.png
+    - assets/page-1/images/icons-B8y.png
+    - assets/page-1/images/group-16-Bxq.png
+    - assets/page-1/images/icons-LeH.png
+    - assets/page-1/images/iconography-caesarzkn-5th.png
+    - assets/page-1/images/rectangle-4.png
+    - assets/page-1/images/grafik-2.png
+    - assets/page-1/images/vector-8-stroke-Fss.png
+    - assets/page-1/images/group-8-FpZ.png
+    - assets/page-1/images/icons-vX7.png
+    - assets/page-1/images/group-23-DqF.png
+    - assets/page-1/images/grafik-4-yTT.png
+    - assets/page-1/images/vector-8-stroke-W8V.png
+    - assets/page-1/images/vector-8-stroke-vgd.png
+    - assets/page-1/images/action-close.png
+    - assets/page-1/images/vector-8-stroke-jJM.png
+    - assets/page-1/images/vector-8-stroke-sMP.png
+    - assets/page-1/images/sliders.png
+    - assets/page-1/images/icons-Ccu.png
+    - assets/page-1/images/action-close-ir1.png
+    - assets/page-1/images/iconography-caesarzkn-YKF.png
+    - assets/page-1/images/vector-8-stroke-Y2y.png
+    - assets/page-1/images/vector-8-stroke-Su3.png
+    - assets/page-1/images/iconography-caesarzkn-Gff.png
+    - assets/page-1/images/iconography-caesarzkn-egD.png
+    - assets/page-1/images/icons-Ns7.png
+    - assets/page-1/images/iconography-caesarzkn-6o7.png
+    - assets/page-1/images/icons-RqP.png
+    - assets/page-1/images/icons-bx9.png
+    - assets/page-1/images/iconography-caesarzkn-SpD.png
+    - assets/page-1/images/blogqrcodes800x533-1-bg.png
+    - assets/page-1/images/icons-mc9.png
+    - assets/page-1/images/icons-SQ5.png
+    - assets/page-1/images/exclude.png
+    - assets/page-1/images/typesteper-themedark.png
+    - assets/page-1/images/iconography-caesarzkn-6QV.png
+    - assets/page-1/images/typeprogress-line-themedark.png
+    - assets/page-1/images/typesteper-themelight.png
+    - assets/page-1/images/icons-qaD.png
+    - assets/page-1/images/icons-XT3.png
+    - assets/page-1/images/icons-DY9.png
+    - assets/page-1/images/sliders-9hX.png
+    - assets/page-1/images/icons-sFT.png
+    - assets/page-1/images/blogqrcodes800x533-1-bg-cL5.png
+    - assets/page-1/images/typeprogress-themedark.png
+    - assets/page-1/images/typeprogress-line-themelight.png
+    - assets/page-1/images/qr1-1.png
+    - assets/page-1/images/typeprogress-themelight.png
+    - assets/page-1/images/icons-K4h.png
+    - assets/page-1/images/atomgood-1.png
+    - assets/page-1/images/qr1-1-Lz1.png
+    - assets/page-1/images/grafik-3.png
+    - assets/page-1/images/icons-1kZ.png
+    - assets/page-1/images/vector-8-stroke-25K.png
+    - assets/page-1/images/iconography-caesarzkn-kJ9.png
+    - assets/page-1/images/icons-Znd.png
+    - assets/page-1/images/iconography-caesarzkn-Sah.png
+    - assets/page-1/images/separator.png
+    - assets/page-1/images/icons-wBB.png
+    - assets/page-1/images/separator-2uB.png
+    - assets/page-1/images/exclude-Fwb.png
+    - assets/page-1/images/separator-HJD.png
+    - assets/page-1/images/separator-iEH.png
+    - assets/page-1/images/separator-1z5.png
+    - assets/page-1/images/separator-56u.png
+    - assets/page-1/images/icons-hAm.png
+    - assets/page-1/images/separator-fLy.png
+    - assets/page-1/images/separator-htR.png
+    - assets/page-1/images/separator-DWd.png
+    - assets/page-1/images/separator-EAq.png
+    - assets/page-1/images/icons-kMT.png
+    - assets/page-1/images/separator-CfF.png
+    - assets/page-1/images/separator-rYd.png
+    - assets/page-1/images/atomgood-1-nyK.png
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
