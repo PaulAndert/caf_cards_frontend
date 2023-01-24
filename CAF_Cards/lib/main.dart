@@ -3,27 +3,33 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
-import 'package:myapp/page-1/trading-window.dart';
-// import 'package:myapp/page-1/trading-window-41b.dart';
-// import 'package:myapp/page-1/create-ability-list.dart';
-// import 'package:myapp/page-1/trading-window-ifX.dart';
-// import 'package:myapp/page-1/create-start.dart';
-// import 'package:myapp/page-1/create-points.dart';
-// import 'package:myapp/page-1/create-points-ii.dart';
-// import 'package:myapp/page-1/create-preview.dart';
-// import 'package:myapp/page-1/collection.dart';
-// import 'package:myapp/page-1/details.dart';
-// import 'package:myapp/page-1/fight-board.dart';
-// import 'package:myapp/page-1/fight-scan-code.dart';
-// import 'package:myapp/page-1/trade-scan-code.dart';
-// import 'package:myapp/page-1/fight-start.dart';
-// import 'package:myapp/page-1/trade-start.dart';
-// import 'package:myapp/page-1/home.dart';
-// import 'package:myapp/page-1/prototype-by-marius-pest-pascal-treue-paul-andert.dart';
-// import 'package:myapp/page-1/tab-bar-ios-5-tabs-handwriting.dart';
-// import 'package:myapp/page-1/other-slider.dart';
-// import 'package:myapp/page-1/inputs.dart';
-// import 'package:myapp/page-1/atomgood-1.dart';
+
+// import 'package:myapp/screens/home/atomgood-1.dart';
+import 'package:myapp/screens/home/home.dart';
+
+// import 'package:myapp/screens/collection/collection.dart';
+
+// import 'package:myapp/screens/create/start/create-start.dart';
+// import 'package:myapp/screens/create/points/create-points.dart';
+// import 'package:myapp/screens/create/ability_list/create-ability-list.dart';
+// import 'package:myapp/screens/create/points/create-points-ii.dart';
+// import 'package:myapp/screens/create/preview/create-preview.dart';
+
+// import 'package:myapp/screens/details/details.dart';
+
+// import 'package:myapp/screens/fight/start/fight-start.dart';
+// import 'package:myapp/screens/fight/qr_code/fight-scan-code.dart';
+// import 'package:myapp/screens/fight/board/fight-board.dart';
+
+// import 'package:myapp/screens/trade/start/trade-start.dart';
+// import 'package:myapp/screens/trade/qr_code/trade-scan-code.dart';
+// import 'package:myapp/screens/trade/select_card/trading-window-41b.dart';
+// import 'package:myapp/screens/trade/confirm_card/trading-window-ifX.dart';
+// import 'package:myapp/screens/trade/confirm_trade/trading-window.dart';
+
+// import 'package:myapp/widgets/inputs.dart';
+// import 'package:myapp/widgets/other-slider.dart';
+// import 'package:myapp/widgets/tab-bar-ios-5-tabs-handwriting.dart';
 
 void main() => runApp(MyApp());
 
