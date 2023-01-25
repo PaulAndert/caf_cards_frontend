@@ -38,34 +38,86 @@ import 'package:myapp/screens/home/home.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-	@override
-	Widget build(BuildContext context) {
-	return MaterialApp(
-		title: 'Flutter',
-		initialRoute: '/',
-		routes: {
-			// When navigating to the "/" route, build the FirstScreen widget.
-			//'/Home': (context) => Home(),
-			// When navigating to the "/second" route, build the SecondScreen widget.
-			'/CreateStart': (context) => CreateStart(),
-			'/FightStart': (context) => FightStart(),
-			'/TradeStart': (context) => TradeStart(),
-			'/TradeScanQR': (context) => TradeStart(),
-			'/TradeSelect': (context) => TradeStart(),
-			'/TradeConfirmCard': (context) => TradeStart(),
-			'/TradeConfirm': (context) => TradeStart(),
-			'/Collection': (context) => Collection(),
-		},
-		debugShowCheckedModeBanner: false,
-		scrollBehavior: MyCustomScrollBehavior(),
-		theme: ThemeData(
-		primarySwatch: Colors.blue,
-		),
-		home: Scaffold(
-		body: SingleChildScrollView(
-			child: Home(),
-		),
-		),
-	);
-	}
+  const MyApp({super.key});
+
+  static const String _title = 'Flutter Code Sample';
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: _title,
+      home: MyStatefulWidget(),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({super.key});
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidget();
+}
+
+class _MyStatefulWidget extends State<MyStatefulWidget> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  List pages = [
+    FightStart(),
+    TradeStart(),
+    Home(),
+    CreateStart(),
+    Collection()
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter',
+      initialRoute: '/',
+      routes: {
+// When navigating to the "/" route, build the FirstScreen widget.
+//'/Home': (context) => Home(),
+// When navigating to the "/second" route, build the SecondScreen widget.
+        '/CreateStart': (context) => CreateStart(),
+        '/FightStart': (context) => FightStart(),
+        '/TradeStart': (context) => TradeStart(),
+        '/TradeScanQR': (context) => TradeStart(),
+        '/TradeSelect': (context) => TradeStart(),
+        '/TradeConfirmCard': (context) => TradeStart(),
+        '/TradeConfirm': (context) => TradeStart(),
+        '/Collection': (context) => Collection(),
+      },
+      debugShowCheckedModeBanner: false,
+      scrollBehavior: MyCustomScrollBehavior(),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        body: pages[_selectedIndex],
+        bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: Color(0xff202024),
+            type: BottomNavigationBarType.fixed,
+            iconSize: 40,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.white30,
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.colorize_rounded), label: 'Fight'),
+              BottomNavigationBarItem(icon: Icon(Icons.wifi_protected_setup_rounded), label: 'Trade'),
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+              BottomNavigationBarItem(icon: Icon(Icons.add_circle_outline), label: 'Create'),
+              BottomNavigationBarItem(icon: Icon(Icons.apps), label: 'Collection') //apps, view_module_rounded
+            ]),
+      ),
+    );
+  }
 }

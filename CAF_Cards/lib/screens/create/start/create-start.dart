@@ -561,7 +561,7 @@ class CreateStart extends StatelessWidget {
             ),
             Container(
               // buttonsprimerym33 (111:1528)
-              margin: EdgeInsets.fromLTRB(107*fem, 0*fem, 105*fem, 19*fem),
+              margin: EdgeInsets.fromLTRB(107*fem, 0*fem, 105*fem, 10*fem),
               child: TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom (
@@ -592,7 +592,7 @@ class CreateStart extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
+            /*Container(
               // tabbarios5tabssfT4H (I10:11541;10:2672)
               margin: EdgeInsets.fromLTRB(1*fem, 0*fem, 0*fem, 0*fem),
               width: 375*fem,
@@ -623,7 +623,7 @@ class CreateStart extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
+            ),*/
           ],
         ),
       ),

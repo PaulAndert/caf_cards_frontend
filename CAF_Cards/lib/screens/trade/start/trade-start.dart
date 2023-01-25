@@ -124,7 +124,7 @@ class TradeStart extends StatelessWidget {
                 ),
                 child: Container(
                   width: double.infinity,
-                  height: 50*fem,
+                  height: 49*fem,
                   decoration: BoxDecoration (
                     color: Color(0xff000080),
                     borderRadius: BorderRadius.circular(12*fem),
@@ -147,7 +147,7 @@ class TradeStart extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
+            /*Container(
               // tabbarios5tabssfxFX (I16:796;10:2672)
               width: double.infinity,
               child: Column(
@@ -177,7 +177,7 @@ class TradeStart extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
+            ),*/
           ],
         ),
       ),

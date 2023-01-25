@@ -68,17 +68,18 @@ class _HomeState extends State<Home> {
               margin:
                   EdgeInsets.fromLTRB(32 * fem, 0 * fem, 32 * fem, 130 * fem),
               width: double.infinity,
-              height: 306 * fem,
+              height: 296 * fem,
               child: Stack(
                 children: [
                   Positioned(
-                    // fightswon35fightslost4cardscre (103:1203)
-                    left: 6 * fem,
-                    top: 0 * fem,
+                    // The text is in a stack to overlay the commented lines over the text
+                    // stack is used for that -> overlay children over each other
+                    left: 6 * fem, // padding
+                    top: 0 * fem, // padding
                     child: Align(
                       child: SizedBox(
-                        width: 293 * fem,
-                        height: 177 * fem,
+                        width: 293 * fem, // breite der text box
+                        height: 177 * fem, // höhe der text box
                         child: Text(
                           'Fights won:                      12\nFights lost:                           4\nCards created:                 14\nCards traded:                  56\nCards collected:              91',
                           style: SafeGoogleFont(
@@ -143,7 +144,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            Container(
+            /*Container(
               // tabbarios5tabshandwritingefF (10:11001)
               width: double.infinity,
               height: 87 * fem,
@@ -154,19 +155,20 @@ class _HomeState extends State<Home> {
                 // tabbarios5tabssf9ru (I10:11001;10:2672)
                 width: double.infinity,
                 height: double.infinity,
-                child: Column(
+                /*child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Navbar(fem: fem),
+                    //Navbar(fem: fem),
                     Container(
                       // ioshomeindicatorsfr8M (I10:11001;10:2672;17:132)
                       padding: EdgeInsets.fromLTRB(
-                          121 * fem, 21 * fem, 120 * fem, 8 * fem),
+                          121 * fem, 21 * fem, 120 * fem, 13 * fem),
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: Color(0xff202024),
                       ),
-                      child: Center(
+                      // The Home button bottom line
+                      /*child: Center(
                         // homeindicatorLJR (I10:11001;10:2672;17:132;2:2)
                         child: SizedBox(
                           width: double.infinity,
@@ -178,12 +180,12 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                         ),
-                      ),
+                      ),*/
                     ),
                   ],
-                ),
+                ),*/
               ),
-            ),
+            ),*/
           ],
         ),
       ),
