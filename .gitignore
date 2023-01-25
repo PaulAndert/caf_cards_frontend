@@ -1,4 +1,6 @@
 Dart_SDK.xml
+.flutter-plugins
+.flutter-plugins-dependencies
 
 # Miscellaneous
 *.class
