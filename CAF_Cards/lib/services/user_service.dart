@@ -1,17 +1,16 @@
+import 'dart:convert';
+
 import 'package:myapp/models/user.dart';
 import 'package:http/http.dart' as http;
 
 class UserService {
-  static const api = "http://localhost:8080/api/user";
+  static const api = "http://192.168.0.2:8080/api/user"; //Marius' IP
 
   Future<List<User>?> getUsers() async {
     var client = http.Client();
     var uri = Uri.parse(api);
 
-    var response = await client.get(uri,
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        });
+    var response = await client.get(uri);
     if(response.statusCode == 200) {
       var json = response.body;
       return userListFromJson(json);
@@ -20,13 +19,11 @@ class UserService {
   }
 
   Future<User?> getUserById(int id) async {
+
     var client = http.Client();
     var uri = Uri.parse("$api/$id");
 
-    var response = await client.get(uri,
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        });
+    var response = await client.get(uri);
     if(response.statusCode == 200) {
       var json = response.body;
       return userFromJson(json);
@@ -36,7 +33,7 @@ class UserService {
 
   Future<User?> getUserByDeviceId(String deviceId) async {
     var client = http.Client();
-    var uri = Uri.parse("$api/$deviceId");
+    var uri = Uri.parse("$api/deviceId/$deviceId");
 
     var response = await client.get(uri,
         headers: <String, String>{
