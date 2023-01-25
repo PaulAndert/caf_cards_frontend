@@ -63,7 +63,7 @@ class Navbar extends StatelessWidget {
                             ),
                             // Reroute to Trade Start
                             onPressed: () {
-                              Navigator.pop(context);
+                              //Navigator.pop(context);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -106,7 +106,7 @@ class Navbar extends StatelessWidget {
                             ),
                             // Reroute to Trade Start
                             onPressed: () {
-                              Navigator.pop(context);
+                              //Navigator.pop(context);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -140,7 +140,7 @@ class Navbar extends StatelessWidget {
                         ),
                         // Reroute to Trade Start
                         onPressed: () {
-                          Navigator.pop(context);
+                          //Navigator.pop(context);
                           /*Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => Home()),
@@ -179,7 +179,7 @@ class Navbar extends StatelessWidget {
                             ),
                             // Reroute to Trade Start
                             onPressed: () {
-                              Navigator.pop(context);
+                              //Navigator.pop(context);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -219,7 +219,7 @@ class Navbar extends StatelessWidget {
                           ),
                           // Reroute to Trade Start
                           onPressed: () {
-                            Navigator.pop(context);
+                            //Navigator.pop(context);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
