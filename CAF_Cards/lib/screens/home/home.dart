@@ -29,7 +29,6 @@ class _HomeState extends State<Home> {
     super.initState();
 
     getDeviceId();
-
   }
 
   getDeviceId() async {
@@ -45,7 +44,15 @@ class _HomeState extends State<Home> {
   getUser(deviceId) async {
     user = await UserService().getUserByDeviceId(deviceId);
 
-    user ??= await UserService().postUser(User(id: 0, deviceId: deviceId, wins: 0, losses: 0, created: 0, traded: 0, collected: 0, cardIds: []));
+    user ??= await UserService().postUser(User(
+        id: 0,
+        deviceId: deviceId,
+        wins: 0,
+        losses: 0,
+        created: 0,
+        traded: 0,
+        collected: 0,
+        cardIds: []));
     if (user != null) {
       setState(() {
         userLoaded = true;
@@ -98,7 +105,11 @@ class _HomeState extends State<Home> {
                         width: 293 * fem,
                         height: 177 * fem,
                         child: Text(
-                          'Fights won:$deviceId\nFights lost:${user?.deviceId}\nCards created:$userLoaded\nCards traded:\nCards collected:              91',
+                          'Fights won:                          ${user?.wins}\n'
+                          'Fights lost:                            ${user?.losses}\n'
+                          'Cards created:                     ${user?.created}\n'
+                          'Cards traded:                       ${user?.traded}\n'
+                          'Cards collected:                  ${user?.collected}',
                           style: SafeGoogleFont(
                             'SF Pro Display',
                             fontSize: 28 * ffem,
