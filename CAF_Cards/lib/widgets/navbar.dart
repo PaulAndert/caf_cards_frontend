@@ -55,8 +55,8 @@ class Navbar extends StatelessWidget {
                       child: Container(
                         margin: EdgeInsets.fromLTRB(
                             0 * fem, 0 * fem, 0 * fem, 15.95 * fem),
-                        child: IconButton(
-                            icon: Image.asset(
+                        child: ElevatedButton(
+                            child: Image.asset(
                               'assets/page-1/images/icons-Ns7.png',
                               width: 30 * fem,
                               height: 29.86 * fem,
