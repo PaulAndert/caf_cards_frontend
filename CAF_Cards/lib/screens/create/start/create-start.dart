@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
-class Scene extends StatelessWidget {
+class CreateStart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
@@ -690,10 +690,15 @@ class Scene extends StatelessWidget {
                                   height: 31.5*fem,
                                   child: Container(
                                     margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 17.5*fem),
-                                    child: Image.asset(
-                                      'assets/page-1/images/iconography-caesarzkn-yHw.png',
-                                      width: 29.95*fem,
-                                      height: 31.5*fem,
+                                    child: ElevatedButton(
+                                      child: Image.asset(
+                                        'assets/page-1/images/iconography-caesarzkn-yHw.png',
+                                        width: 29.95*fem,
+                                        height: 31.5*fem,
+                                      ),
+                                      onPressed: (){
+                                        Navigator.pop(context);
+                                      },
                                     ),
                                   ),
                                 ),

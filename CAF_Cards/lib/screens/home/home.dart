@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/screens/collection/collection.dart';
+import 'package:myapp/screens/create/start/create-start.dart';
+import 'package:myapp/screens/fight/start/fight-start.dart';
 import 'package:myapp/screens/trade/start/trade-start.dart';
 import 'package:myapp/utils.dart';
 
@@ -158,10 +161,19 @@ class Home extends StatelessWidget {
                                       height: 27.71*fem,
                                       child: Container(
                                         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 15.95*fem),
-                                        child: Image.asset(
-                                          'assets/page-1/images/icons-Ns7.png',
-                                          width: 27.71*fem,
-                                          height: 27.71*fem,
+                                        child: IconButton(
+                                            icon: Image.asset(
+                                              'assets/page-1/images/icons-Ns7.png',
+                                            ),
+                                          iconSize: 20,
+                                          color: Colors.white,
+                                          // Within the `FirstRoute` widget
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(builder: (context) => FightStart()),
+                                            );
+                                          }
                                         ),
                                       ),
                                     ),
@@ -189,7 +201,11 @@ class Home extends StatelessWidget {
                                       child: Container(
                                         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 16.15*fem),
                                         child: ElevatedButton(
-                                          child: const Text('trade'),
+                                            child: Image.asset(
+                                              'assets/page-1/images/iconography-caesarzkn-Sah.png',
+                                              width: 30*fem,
+                                              height: 29.86*fem,
+                                            ),
                                             // Within the `FirstRoute` widget
                                             onPressed: () {
                                               Navigator.push(
@@ -197,11 +213,6 @@ class Home extends StatelessWidget {
                                                 MaterialPageRoute(builder: (context) => TradeStart()),
                                               );
                                             }
-                                          /*child: Image.asset(
-                                            'assets/page-1/images/iconography-caesarzkn-Sah.png',
-                                            width: 30*fem,
-                                            height: 29.86*fem,
-                                        ),*/
                                         ),
                                       ),
                                     ),
@@ -249,10 +260,19 @@ class Home extends StatelessWidget {
                                       height: 29.25*fem,
                                       child: Container(
                                         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 15.94*fem),
-                                        child: Image.asset(
-                                          'assets/page-1/images/icons-RqP.png',
-                                          width: 29.25*fem,
-                                          height: 29.25*fem,
+                                        child: ElevatedButton(
+                                            child: Image.asset(
+                                              'assets/page-1/images/icons-RqP.png',
+                                              width: 29.25*fem,
+                                              height: 29.25*fem,
+                                            ),
+                                          // Within the `FirstRoute` widget
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(builder: (context) => CreateStart()),
+                                            );
+                                          }
                                         ),
                                       ),
                                     ),
@@ -277,10 +297,19 @@ class Home extends StatelessWidget {
                                     height: 28.8*fem,
                                     child: Container(
                                       margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 16*fem),
-                                      child: Image.asset(
-                                        'assets/page-1/images/icons-1kZ.png',
-                                        width: 29.34*fem,
-                                        height: 28.8*fem,
+                                      child: ElevatedButton(
+                                          child: Image.asset(
+                                            'assets/page-1/images/icons-1kZ.png',
+                                            width: 29.34*fem,
+                                            height: 28.8*fem,
+                                          ),
+                                        // Within the `FirstRoute` widget
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => Collection()),
+                                          );
+                                        }
                                       ),
                                     ),
                                   ),

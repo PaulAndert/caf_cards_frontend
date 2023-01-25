@@ -238,16 +238,15 @@ class TradeStart extends StatelessWidget {
                                     child: Container(
                                       margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 17.5*fem),
                                       child: ElevatedButton(
-                                        child: Text('Home'),
+                                        child: Image.asset(
+                                          'assets/page-1/images/iconography-caesarzkn-SpD.png',
+                                          width: 29.95*fem,
+                                          height: 31.5*fem,
+                                        ),
                                         onPressed: (){
                                           Navigator.pop(context);
                                         },
                                       ),
-                                      /*child: Image.asset(
-                                        'assets/page-1/images/iconography-caesarzkn-SpD.png',
-                                        width: 29.95*fem,
-                                        height: 31.5*fem,
-                                      ),*/
                                     ),
                                   ),
                                 ),
