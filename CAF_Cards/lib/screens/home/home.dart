@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/screens/trade/start/trade-start.dart';
 import 'package:myapp/utils.dart';
 
-class Scene extends StatelessWidget {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
@@ -187,10 +188,20 @@ class Scene extends StatelessWidget {
                                       height: 29.86*fem,
                                       child: Container(
                                         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 16.15*fem),
-                                        child: Image.asset(
-                                          'assets/page-1/images/iconography-caesarzkn-Sah.png',
-                                          width: 30*fem,
-                                          height: 29.86*fem,
+                                        child: ElevatedButton(
+                                          child: const Text('trade'),
+                                            // Within the `FirstRoute` widget
+                                            onPressed: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(builder: (context) => TradeStart()),
+                                              );
+                                            }
+                                          /*child: Image.asset(
+                                            'assets/page-1/images/iconography-caesarzkn-Sah.png',
+                                            width: 30*fem,
+                                            height: 29.86*fem,
+                                        ),*/
                                         ),
                                       ),
                                     ),
