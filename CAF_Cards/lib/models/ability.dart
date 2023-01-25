@@ -8,6 +8,10 @@ Ability abilityFromJson(String str) => Ability.fromJson(json.decode(str));
 
 String abilityToJson(Ability data) => json.encode(data.toJson());
 
+List<Ability> abilityListFromJson(String str) => List<Ability>.from(json.decode(str).map((x) => Ability.fromJson(x)));
+
+String abilityListToJson(List<Ability> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
 class Ability {
   Ability({
     required this.id,

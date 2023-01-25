@@ -8,6 +8,10 @@ Card cardFromJson(String str) => Card.fromJson(json.decode(str));
 
 String cardToJson(Card data) => json.encode(data.toJson());
 
+List<Card> cardListFromJson(String str) => List<Card>.from(json.decode(str).map((x) => Card.fromJson(x)));
+
+String cardListToJson(List<Card> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
 class Card {
   Card({
     required this.id,
