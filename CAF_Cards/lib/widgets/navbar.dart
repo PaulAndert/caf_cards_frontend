@@ -64,10 +64,8 @@ class Navbar extends StatelessWidget {
                             // Reroute to Trade Start
                             onPressed: () {
                               //Navigator.pop(context);
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => FightStart()),
+                              Navigator.pushNamed(
+                                  context,'/FightStart'
                               );
                             }),
                       ),
@@ -107,10 +105,8 @@ class Navbar extends StatelessWidget {
                             // Reroute to Trade Start
                             onPressed: () {
                               //Navigator.pop(context);
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TradeStart()),
+                              Navigator.pushNamed(
+                                  context,'/TradeStart'
                               );
                             }),
                       ),
@@ -140,11 +136,10 @@ class Navbar extends StatelessWidget {
                         ),
                         // Reroute to Trade Start
                         onPressed: () {
-                          //Navigator.pop(context);
-                          /*Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Home()),
-                          );*/
+                          Navigator.pop(context);
+                          Navigator.pushNamed(
+                            context,'/'
+                          );
                         }),
                   ),
                 ),
@@ -180,10 +175,8 @@ class Navbar extends StatelessWidget {
                             // Reroute to Trade Start
                             onPressed: () {
                               //Navigator.pop(context);
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CreateStart()),
+                              Navigator.pushNamed(
+                                context,'/CreateStart'
                               );
                             }),
                       ),
@@ -220,10 +213,8 @@ class Navbar extends StatelessWidget {
                           // Reroute to Trade Start
                           onPressed: () {
                             //Navigator.pop(context);
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Collection()),
+                            Navigator.pushNamed(
+                                context,'/Collection'
                             );
                           }),
                     ),
