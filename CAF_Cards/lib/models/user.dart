@@ -25,7 +25,7 @@ class User {
   });
 
   int id;
-  int deviceId;
+  String deviceId;
   int wins;
   int losses;
   int created;

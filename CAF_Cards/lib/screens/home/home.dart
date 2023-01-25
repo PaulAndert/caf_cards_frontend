@@ -7,8 +7,11 @@ import 'package:myapp/screens/create/start/create-start.dart';
 import 'package:myapp/screens/fight/start/fight-start.dart';
 import 'package:myapp/screens/trade/start/trade-start.dart';
 import 'package:myapp/services/helper_service.dart';
+import 'package:myapp/services/user_service.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/navbar.dart';
+
+import '../../models/user.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,7 +20,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   String? deviceId;
+  User? user;
   var deviceIdLoaded = false;
+  var userLoaded = false;
 
   @override
   void initState() {
@@ -31,6 +36,26 @@ class _HomeState extends State<Home> {
     if (deviceId != null) {
       setState(() {
         deviceIdLoaded = true;
+        getUser(deviceId);
+      });
+    }
+  }
+
+  getUser(deviceId) async {
+    user = await UserService().getUserByDeviceId(deviceId);
+
+    user ??= await UserService().postUser(User(
+        id: 0,
+        deviceId: deviceId,
+        wins: 0,
+        losses: 0,
+        created: 0,
+        traded: 0,
+        collected: 0,
+        cardIds: []));
+    if (user != null) {
+      setState(() {
+        userLoaded = true;
       });
     }
   }
@@ -81,7 +106,11 @@ class _HomeState extends State<Home> {
                         width: 293 * fem, // breite der text box
                         height: 177 * fem, // höhe der text box
                         child: Text(
-                          'Fights won:                      12\nFights lost:                           4\nCards created:                 14\nCards traded:                  56\nCards collected:              91',
+                          'Fights won:                          ${user?.wins}\n'
+                          'Fights lost:                            ${user?.losses}\n'
+                          'Cards created:                     ${user?.created}\n'
+                          'Cards traded:                       ${user?.traded}\n'
+                          'Cards collected:                  ${user?.collected}',
                           style: SafeGoogleFont(
                             'SF Pro Display',
                             fontSize: 28 * ffem,

@@ -1,22 +1,22 @@
-import 'package:myapp/models/user.dart';
+import '../models/card.dart';
 import 'package:http/http.dart' as http;
 
-class UserService {
-  static const api = "http://192.168.0.2:8080/api/user"; //Marius' IP
+class CardService {
+  static const api = "http://192.168.0.2:8080/api/card"; //Marius' IP
 
-  Future<List<User>?> getUsers() async {
+  Future<List<Card>?> getCards() async {
     var client = http.Client();
     var uri = Uri.parse(api);
 
     var response = await client.get(uri);
     if(response.statusCode == 200) {
       var json = response.body;
-      return userListFromJson(json);
+      return cardListFromJson(json);
     }
     return null;
   }
 
-  Future<User?> getUserById(int id) async {
+  Future<Card?> getCardById(int id) async {
 
     var client = http.Client();
     var uri = Uri.parse("$api/$id");
@@ -24,43 +24,28 @@ class UserService {
     var response = await client.get(uri);
     if(response.statusCode == 200) {
       var json = response.body;
-      return userFromJson(json);
+      return cardFromJson(json);
     }
     return null;
   }
 
-  Future<User?> getUserByDeviceId(String deviceId) async {
-    var client = http.Client();
-    var uri = Uri.parse("$api/deviceId/$deviceId");
-
-    var response = await client.get(uri,
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        });
-    if(response.statusCode == 200) {
-      var json = response.body;
-      return userFromJson(json);
-    }
-    return null;
-  }
-
-  Future<User?> postUser(User user) async {
+  Future<Card?> postCard(Card card) async {
     var client = http.Client();
     var uri = Uri.parse(api);
 
     var response = await client.post(uri,
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-        body:userToJson(user));
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body:cardToJson(card));
     if(response.statusCode == 200) {
       var json = response.body;
-      return userFromJson(json);
+      return cardFromJson(json);
     }
     return null;
   }
 
-  Future<User?> updateUser(User user) async {
+  Future<Card?> updateCard(Card card) async {
     var client = http.Client();
     var uri = Uri.parse(api);
 
@@ -68,25 +53,25 @@ class UserService {
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
-        body:userToJson(user));
+        body:cardToJson(card));
     if(response.statusCode == 200) {
       var json = response.body;
-      return userFromJson(json);
+      return cardFromJson(json);
     }
     return null;
   }
 
-  Future<User?> deleteUserById(int id) async {
+  Future<Card?> deleteCardById(int id) async {
     var client = http.Client();
     var uri = Uri.parse("$api/$id");
 
     var response = await client.delete(uri,
         headers: <String, String>{
-      'Content-Type': 'application/json; charset=UTF-8',
-    });
+          'Content-Type': 'application/json; charset=UTF-8',
+        });
     if(response.statusCode == 200) {
       var json = response.body;
-      return userFromJson(json);
+      return cardFromJson(json);
     }
     return null;
   }
