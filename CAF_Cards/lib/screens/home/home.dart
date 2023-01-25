@@ -6,14 +6,41 @@ import 'package:myapp/screens/collection/collection.dart';
 import 'package:myapp/screens/create/start/create-start.dart';
 import 'package:myapp/screens/fight/start/fight-start.dart';
 import 'package:myapp/screens/trade/start/trade-start.dart';
+import 'package:myapp/services/helper_service.dart';
 import 'package:myapp/utils.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  String? deviceId;
+  var deviceIdLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    getDeviceId();
+  }
+
+  getDeviceId() async {
+    deviceId = await HelperService().getUserId();
+    if (deviceId != null) {
+      setState(() {
+        deviceIdLoaded = true;
+      });
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
+
     return Container(
       width: double.infinity,
       child: Container(
@@ -52,7 +79,7 @@ class Home extends StatelessWidget {
                         width: 293*fem,
                         height: 177*fem,
                         child: Text(
-                          'Fights won:                       35\nFights lost:                           4\nCards created:                 14\nCards traded:                  56\nCards collected:              91',
+                          'Fights won:$deviceId\nFights lost:                           4\nCards created:                 14\nCards traded:                  56\nCards collected:              91',
                           style: SafeGoogleFont (
                             'SF Pro Display',
                             fontSize: 28*ffem,
