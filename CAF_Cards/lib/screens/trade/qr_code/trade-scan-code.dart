@@ -180,6 +180,6 @@ class TradeQR extends StatelessWidget {
           ),
         ),
       ),
-          );
+    );
   }
 }
