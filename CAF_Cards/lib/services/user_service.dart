@@ -17,7 +17,6 @@ class UserService {
   }
 
   Future<User?> getUserById(int id) async {
-
     var client = http.Client();
     var uri = Uri.parse("$api/$id");
 
