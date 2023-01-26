@@ -9,10 +9,22 @@ class CollectionCardWidget extends StatelessWidget {
     Key? key,
     required this.fem,
     required this.ffem,
+    required this.name,
+    required this.description,
+    required this.energy,
+    required this.strength,
+    required this.health,
+    required this.ability,
   }) : super(key: key);
 
   final double fem;
   final double ffem;
+  final String name;
+  final String description;
+  final int energy;
+  final int strength;
+  final int health;
+  final String ability;
 
   @override
   Widget build(BuildContext context) {
@@ -160,7 +172,7 @@ class CollectionCardWidget extends StatelessWidget {
                               width: 11*fem,
                               height: 22*fem,
                               child: Text(
-                                '1',
+                                energy.toString(),
                                 textAlign: TextAlign.center,
                                 style: SafeGoogleFont (
                                   'SF Pro Display',
@@ -188,7 +200,7 @@ class CollectionCardWidget extends StatelessWidget {
                       width: 108*fem,
                       height: 44*fem,
                       child: Text(
-                        'Draw 2 cards when played',
+                        ability,
                         textAlign: TextAlign.center,
                         style: SafeGoogleFont (
                           'SF Pro Display',
@@ -211,7 +223,7 @@ class CollectionCardWidget extends StatelessWidget {
                     width: 81*fem,
                     height: 22*fem,
                     child: Text(
-                      'Jar of Greed',
+                      name,
                       style: SafeGoogleFont (
                         'SF Pro Display',
                         fontSize: 15*ffem,
@@ -253,7 +265,7 @@ class CollectionCardWidget extends StatelessWidget {
                         child: Container(
                           margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 2.69*fem, 0*fem),
                           child: Text(
-                            '0',
+                            strength.toString(),
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont (
                               'SF Pro Display',
@@ -295,7 +307,7 @@ class CollectionCardWidget extends StatelessWidget {
                         child: Container(
                           margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 2.37*fem, 0*fem),
                           child: Text(
-                            '2',
+                            health.toString(),
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont (
                               'SF Pro Display',

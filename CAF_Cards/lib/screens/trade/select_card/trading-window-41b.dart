@@ -2,12 +2,89 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/models/ability.dart';
+import 'package:myapp/services/card_service.dart';
 import 'package:myapp/utils.dart';
-import '../../../widgets/ColectionCardWidget.dart';
+import '../../../widgets/CollectionCardWidget.dart';
 
 
-class TradeSelectCard extends StatelessWidget {
+import '../../../models/user.dart';
+import '../../../models/gamecard.dart';
+import '../../../services/helper_service.dart';
+import '../../../services/user_service.dart';
+
+class TradeSelectCard extends StatefulWidget {
   static const String routeName = "/TradeSelectCard";
+
+  @override
+  State<TradeSelectCard> createState() => _TradeSelectCardState();
+}
+
+class _TradeSelectCardState extends State<TradeSelectCard> {
+  String? deviceId;
+  User? user;
+  List<Gamecard>? cards;
+  List<Ability>? abilities;
+  var deviceIdLoaded = false;
+  var userLoaded = false;
+  var cardsLoaded = false;
+  var abilitiesLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    getDeviceId();
+  }
+
+  getDeviceId() async {
+    deviceId = await HelperService().getUserId();
+    if (deviceId != null) {
+      setState(() {
+        deviceIdLoaded = true;
+        getUser(deviceId);
+        getCardsByUser(deviceId);
+      });
+    }
+  }
+
+  getCardsByUser(deviceId) async {
+    cards = await GamecardService().getGamecardsByUser(deviceId);
+    if (cards != null) {
+      setState(() {
+        cardsLoaded = true;
+        // getAbilities();
+      });
+    } else {
+      setState(() {
+        cardsLoaded = false;
+      });
+    }
+  }
+
+  // getAbilities() {
+  //   Ability ability = await GamecardService().getGamecardsByUser(deviceId);
+  // }
+
+  getUser(deviceId) async {
+    user = await UserService().getUserByDeviceId(deviceId);
+
+    user ??= await UserService().postUser(User(
+        id: 0,
+        deviceId: deviceId,
+        wins: 0,
+        losses: 0,
+        created: 0,
+        traded: 0,
+        collected: 0,
+        cardIds: []));
+    if (user != null) {
+      setState(() {
+        userLoaded = true;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
@@ -54,7 +131,8 @@ class TradeSelectCard extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CollectionCardWidget(fem: fem, ffem: ffem),
+                  CollectionCardWidget(fem: fem, ffem: ffem, name: cards![0].name,description: cards![0].description,
+                  ability: "kek", energy:cards![0].energy, health: cards![0].health, strength: cards![0].strength),
                   Container(
                     // alpeideaZzM (111:1191)
                     padding: EdgeInsets.fromLTRB(0*fem, 3.22*fem, 0*fem, 0*fem),
