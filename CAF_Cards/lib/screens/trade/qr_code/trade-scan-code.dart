@@ -1,186 +1,192 @@
+import 'dart:developer';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
+import 'dart:io' show Platform;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
+import 'package:qr_code_scanner/qr_code_scanner.dart';
+
 class TradeQR extends StatelessWidget {
+  const TradeQR({Key? key}) : super(key: key);
   static const String routeName = "/TradeQR";
+
   @override
   Widget build(BuildContext context) {
-    double baseWidth = 393;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
-    return Container(
-      width: double.infinity,
-      child: Container(
-        // tradescancodeuXB (16:785)
-        width: double.infinity,
-        height: 852*fem,
-        decoration: BoxDecoration (
-          color: Color(0xffffffff),
-        ),
-        child: Container(
-          // group3261 (103:1254)
-          width: 822*fem,
-          height: 868*fem,
-          decoration: const BoxDecoration (
-            image: DecorationImage (
-              fit: BoxFit.cover,
-              image: AssetImage (
-                'assets/page-1/images/blogqrcodes800x533-1-bg-cL5.png',
-              ),
-            ),
-          ),
-          child: Stack(
-            children: [
-              Positioned(
-                // grafik3HXj (103:1269)
-                left: 91.6800537109*fem,
-                top: 185.6290893555*fem,
-                child: Align(
-                  child: SizedBox(
-                    width: 236.56*fem,
-                    height: 467.8*fem,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.only (
-                        bottomRight: Radius.circular(25*fem),
-                        bottomLeft: Radius.circular(25*fem),
-                      ),
-                      child: Image.asset(
-                        'assets/page-1/images/grafik-3.png',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                // exclude5yP (103:1257)
-                left: 0*fem,
-                top: 0*fem,
-                child: Align(
-                  child: SizedBox(
-                    width: 393*fem,
-                    height: 852*fem,
-                    child: Image.asset(
-                      'assets/page-1/images/exclude.png',
-                      width: 393*fem,
-                      height: 852*fem,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                // group2xGV (103:1260)
-                left: 30*fem,
-                top: 35*fem,
-                child: Container(
-                  width: 321*fem,
-                  height: 545*fem,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        // actionclose2GM (103:1261)
-                        margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 191*fem),
-                        child: TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom (
-                            padding: EdgeInsets.zero,
-                          ),
-                          child: Container(
-                            width: 46*fem,
-                            height: 46*fem,
-                            child: ElevatedButton(
-                                child: Image.asset(
-                                  'assets/page-1/images/action-close-ir1.png',
-                                  width: 46*fem,
-                                  height: 46*fem,
-                                ),
-                              onPressed: (){
-                                  Navigator.pop(context);
-                              },
-                              )
-                            /*Image.asset(
-                              'assets/page-1/images/action-close-ir1.png',
-                              width: 46*fem,
-                              height: 46*fem,
-                            ),
-                             */
-                          ),
-                        ),
-                      ),
-                      Container(
-                        // autogroupjwd3rmB (T1TNGDrv684b6Cqa4UJWD3)
-                        margin: EdgeInsets.fromLTRB(13*fem, 0*fem, 0*fem, 218*fem),
-                        width: double.infinity,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              // vector8strokeZvV (103:1266)
-                              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 218*fem, 0*fem),
-                              width: 45*fem,
-                              height: 45*fem,
-                              child: Image.asset(
-                                'assets/page-1/images/vector-8-stroke-sMP.png',
-                                width: 45*fem,
-                                height: 45*fem,
-                              ),
-                            ),
-                            Container(
-                              // vector8strokeqt1 (103:1267)
-                              width: 45*fem,
-                              height: 45*fem,
-                              child: Image.asset(
-                                'assets/page-1/images/vector-8-stroke-jJM.png',
-                                width: 45*fem,
-                                height: 45*fem,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        // autogrouphekfjCh (T1TNMtN9PKu1SH7kqUHeKF)
-                        margin: EdgeInsets.fromLTRB(13*fem, 0*fem, 0*fem, 0*fem),
-                        width: double.infinity,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              // vector8strokeRrD (103:1264)
-                              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 218*fem, 0*fem),
-                              width: 45*fem,
-                              height: 45*fem,
-                              child: Image.asset(
-                                'assets/page-1/images/vector-8-stroke-Y2y.png',
-                                width: 45*fem,
-                                height: 45*fem,
-                              ),
-                            ),
-                            Container(
-                              // vector8strokeKgh (103:1265)
-                              width: 45*fem,
-                              height: 45*fem,
-                              child: Image.asset(
-                                'assets/page-1/images/vector-8-stroke-25K.png',
-                                width: 45*fem,
-                                height: 45*fem,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+    return Scaffold(
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const MyQRView(),
+            ));
+          },
+          child: const Text('qrView'),
         ),
       ),
     );
   }
+}
+class MyQRView extends StatefulWidget {
+  const MyQRView({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _MyQRView();
+}
+
+class _MyQRView extends State<MyQRView> {
+  Barcode? result;
+  QRViewController? controller;
+  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    if (Platform.isAndroid) {
+      controller!.pauseCamera();
+    }
+    controller!.resumeCamera();
+  }
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          Expanded(flex: 4, child: _buildQrView(context)),
+          Expanded(
+            flex: 1,
+            child: FittedBox(
+              fit: BoxFit.contain,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  if (result != null)
+                    Text(
+                        'Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}')
+                  else
+                    const Text('Scan a code'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        margin: const EdgeInsets.all(8),
+                        child: ElevatedButton(
+                            onPressed: () async {
+                              await controller?.toggleFlash();
+                              setState(() {});
+                            },
+                            child: FutureBuilder(
+                              future: controller?.getFlashStatus(),
+                              builder: (context, snapshot) {
+                                return Text('Flash: ${snapshot.data}');
+                              },
+                            )),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(8),
+                        child: ElevatedButton(
+                            onPressed: () async {
+                              await controller?.flipCamera();
+                              setState(() {});
+                            },
+                            child: FutureBuilder(
+                              future: controller?.getCameraInfo(),
+                              builder: (context, snapshot) {
+                                if (snapshot.data != null) {
+                                  return Text(
+                                      'Camera facing ${describeEnum(snapshot.data!)}');
+                                } else {
+                                  return const Text('loading');
+                                }
+                              },
+                            )),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        margin: const EdgeInsets.all(8),
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            await controller?.pauseCamera();
+                          },
+                          child: const Text('pause',
+                              style: TextStyle(fontSize: 20)),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(8),
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            await controller?.resumeCamera();
+                          },
+                          child: const Text('resume',
+                              style: TextStyle(fontSize: 20)),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildQrView(BuildContext context) {
+    // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
+    var scanArea = (MediaQuery.of(context).size.width < 400 ||
+        MediaQuery.of(context).size.height < 400)
+        ? 150.0
+        : 300.0;
+    // To ensure the Scanner view is properly sizes after rotation
+    // we need to listen for Flutter SizeChanged notification and update controller
+    return QRView(
+      key: qrKey,
+      onQRViewCreated: _onQRViewCreated,
+      overlay: QrScannerOverlayShape(
+          borderColor: Colors.red,
+          borderRadius: 10,
+          borderLength: 30,
+          borderWidth: 10,
+          cutOutSize: scanArea),
+      onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
+    );
+  }
+
+  void _onQRViewCreated(QRViewController controller) {
+    setState(() {
+      this.controller = controller;
+    });
+    controller.scannedDataStream.listen((scanData) {
+      setState(() {
+        result = scanData;
+      });
+    });
+  }
+
+  void _onPermissionSet(BuildContext context, QRViewController ctrl, bool p) {
+    log('${DateTime.now().toIso8601String()}_onPermissionSet $p');
+    if (!p) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('no Permission')),
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
+  }
+
 }
