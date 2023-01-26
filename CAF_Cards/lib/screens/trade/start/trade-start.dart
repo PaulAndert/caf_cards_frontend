@@ -8,6 +8,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 class TradeStart extends StatelessWidget {
   const TradeStart({super.key});
+  static const String routeName = '/TradeStart';
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -95,8 +96,10 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                 // Scan QR Code Button
                 margin: EdgeInsets.fromLTRB(
                     106 * fem, 0 * fem, 105 * fem, 43 * fem),
-                child: TextButton(
-                  onPressed: () {},
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/TradeQR');
+                  },
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
                   ),
