@@ -6,6 +6,9 @@ import 'package:myapp/custom_icons_icons.dart';
 import 'package:myapp/screens/collection/collection.dart';
 import 'package:myapp/screens/create/start/create-start.dart';
 import 'package:myapp/screens/fight/start/fight-start.dart';
+import 'package:myapp/screens/trade/confirm_card/trading-window-ifX.dart';
+import 'package:myapp/screens/trade/qr_code/trade-scan-code.dart';
+import 'package:myapp/screens/trade/select_card/trading-window-41b.dart';
 import 'package:myapp/screens/trade/start/trade-start.dart';
 import 'package:myapp/utils.dart';
 
@@ -88,9 +91,9 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
         '/CreateStart': (context) => CreateStart(),
         '/FightStart': (context) => FightStart(),
         '/TradeStart': (context) => TradeStart(),
-        '/TradeScanQR': (context) => TradeStart(),
-        '/TradeSelect': (context) => TradeStart(),
-        '/TradeConfirmCard': (context) => TradeStart(),
+        '/TradeScanQR': (context) => TradeQR(),
+        '/TradeSelectCard': (context) => TradeSelectCard(),
+        '/TradeConfirmCard': (context) => TradeConfirmCard(),
         '/TradeConfirm': (context) => TradeStart(),
         '/Collection': (context) => Collection(),
       },

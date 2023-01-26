@@ -91,11 +91,22 @@ class TradeQR extends StatelessWidget {
                           child: Container(
                             width: 46*fem,
                             height: 46*fem,
-                            child: Image.asset(
+                            child: ElevatedButton(
+                                child: Image.asset(
+                                  'assets/page-1/images/action-close-ir1.png',
+                                  width: 46*fem,
+                                  height: 46*fem,
+                                ),
+                              onPressed: (){
+                                  Navigator.pop(context);
+                              },
+                              )
+                            /*Image.asset(
                               'assets/page-1/images/action-close-ir1.png',
                               width: 46*fem,
                               height: 46*fem,
                             ),
+                             */
                           ),
                         ),
                       ),

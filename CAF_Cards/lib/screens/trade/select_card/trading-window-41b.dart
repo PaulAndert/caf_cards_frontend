@@ -25,19 +25,21 @@ class TradeSelectCard extends StatelessWidget {
             Container(
               // iconographycaesarzknRam (26:599)
               margin: EdgeInsets.fromLTRB(1*fem, 0*fem, 0*fem, 45*fem),
-              child: TextButton(
-                onPressed: () {},
+              child: ElevatedButton(
+                onPressed: (){
+                  Navigator.pop(context);
+                },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
                 ),
                 child: Container(
-                  width: 32*fem,
-                  height: 32*fem,
-                  child: Image.asset(
-                    'assets/page-1/images/iconography-caesarzkn.png',
-                    width: 32*fem,
-                    height: 32*fem,
-                  ),
+                  width: 46*fem,
+                  height: 46*fem,
+                        child: Image.asset(
+                          'assets/page-1/images/iconography-caesarzkn.png',
+                          width: 46*fem,
+                          height: 46*fem,
+                        ),
                 ),
               ),
             ),
@@ -52,8 +54,10 @@ class TradeSelectCard extends StatelessWidget {
                   Container(
                     // jarofgreedgQD (110:1178)
                     margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 24.99*fem, 0*fem),
-                    child: TextButton(
-                      onPressed: () {},
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/TradeConfirmCard');
+                      },
                       style: TextButton.styleFrom (
                         padding: EdgeInsets.zero,
                       ),

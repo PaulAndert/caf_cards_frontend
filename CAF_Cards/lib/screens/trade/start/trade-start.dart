@@ -104,9 +104,12 @@ class TradeStart extends StatelessWidget {
                       child: SizedBox(
                         width: 301*fem,
                         height: 300*fem,
-                        child: Image.asset(
-                          'assets/page-1/images/qr1-1.png',
-                          fit: BoxFit.cover,
+                        child: ElevatedButton(
+                          child: Image.asset(
+                            'assets/page-1/images/qr1-1.png'),
+                          onPressed: (){
+                            Navigator.pushNamed(context, '/TradeSelectCard');
+                          },
                         ),
                       ),
                     ),
@@ -130,7 +133,7 @@ class TradeStart extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12*fem),
                   ),
                   child: Center(
-                    child: Center(
+                    child: ElevatedButton(
                       child: Text(
                         'Scan  QR-Code',
                         textAlign: TextAlign.center,
@@ -142,6 +145,9 @@ class TradeStart extends StatelessWidget {
                           color: Color(0xffffffff),
                         ),
                       ),
+                      onPressed: (){
+                        Navigator.pushNamed(context, '/TradeScanQR');
+                      },
                     ),
                   ),
                 ),
