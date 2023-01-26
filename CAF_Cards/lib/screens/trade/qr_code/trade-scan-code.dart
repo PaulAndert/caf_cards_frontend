@@ -24,7 +24,7 @@ class TradeQR extends StatelessWidget {
           // group3261 (103:1254)
           width: 822*fem,
           height: 868*fem,
-          decoration: BoxDecoration (
+          decoration: const BoxDecoration (
             image: DecorationImage (
               fit: BoxFit.cover,
               image: AssetImage (

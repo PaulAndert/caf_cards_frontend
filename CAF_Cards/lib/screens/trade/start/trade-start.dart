@@ -6,12 +6,36 @@ import 'package:myapp/utils.dart';
 
 import 'package:qr_flutter/qr_flutter.dart';
 
+import '../../collection/collection.dart';
+import '../../create/start/create-start.dart';
+import '../../fight/start/fight-start.dart';
+import '../../home/home.dart';
+import '../confirm_card/trading-window-ifX.dart';
+import '../confirm_trade/trading-window.dart';
+import '../qr_code/trade-scan-code.dart';
+import '../select_card/trading-window-41b.dart';
+
 class TradeStart extends StatelessWidget {
   const TradeStart({super.key});
+
   static const String routeName = '/TradeStart';
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      routes: <String, WidgetBuilder>{
+        FightStart.routeName: (BuildContext context) => FightStart(),
+        TradeStart.routeName: (BuildContext context) => const TradeStart(),
+        Home.routeName: (BuildContext context) => Home(),
+        CreateStart.routeName: (BuildContext context) => CreateStart(),
+        Collection.routeName: (BuildContext context) => Collection(),
+        TradeQR.routeName: (BuildContext context) => TradeQR(),
+        TradeSelectCard.routeName: (BuildContext context) => TradeSelectCard(),
+        TradeConfirmCard.routeName: (BuildContext context) =>
+            TradeConfirmCard(),
+        TradingConfirmTrade.routeName: (BuildContext context) =>
+            TradingConfirmTrade(),
+      },
       home: TradeStartWidget(),
     );
   }
@@ -99,17 +123,20 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/TradeQR');
+                    //Navigator.pushNamed(context, TradeQR.routeName);
+                    //Navigator.of(context).pushNamed();
                   },
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
+                    backgroundColor: Color(0xff000080),
                   ),
                   child: Container(
                     width: double.infinity,
                     height: 49 * fem,
-                    decoration: BoxDecoration(
+                    /*decoration: BoxDecoration(
                       color: Color(0xff000080),
                       borderRadius: BorderRadius.circular(12 * fem),
-                    ),
+                    ),*/
                     child: Center(
                       child: Center(
                         child: Text(

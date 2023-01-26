@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/custom_icons_icons.dart';
+import 'package:myapp/models/trade.dart';
 import 'package:myapp/screens/collection/collection.dart';
 import 'package:myapp/screens/create/start/create-start.dart';
 import 'package:myapp/screens/fight/start/fight-start.dart';
@@ -74,10 +75,11 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
 
   List pages = [
     FightStart(),
-    TradeStart(),
+    const TradeStart(),
     Home(),
     CreateStart(),
-    Collection()
+    Collection(),
+    TradeQR(),
   ];
 
   @override
@@ -91,7 +93,6 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
         Home.routeName: (BuildContext context) => Home(),
         CreateStart.routeName: (BuildContext context) => CreateStart(),
         Collection.routeName: (BuildContext context) => Collection(),
-
         TradeQR.routeName: (BuildContext context) => TradeQR(),
         TradeSelectCard.routeName: (BuildContext context) => TradeSelectCard(),
         TradeConfirmCard.routeName: (BuildContext context) => TradeConfirmCard(),
