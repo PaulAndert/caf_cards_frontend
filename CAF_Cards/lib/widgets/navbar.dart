@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/custom_icons_icons.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/screens/home/home.dart';
 import 'package:myapp/screens/create/start/create-start.dart';
@@ -55,28 +56,19 @@ class Navbar extends StatelessWidget {
                       child: Container(
                         margin: EdgeInsets.fromLTRB(
                             0 * fem, 0 * fem, 0 * fem, 15.95 * fem),
-                        child: ElevatedButton.icon(
-                            icon: Image.asset(
-                              'assets/page-1/images/icons-Ns7.png',
-                              width: 100 * fem,
-                              height: 100 * fem,
-
-                            ),
-                            label: Text(""),
-                            style: ElevatedButton.styleFrom(
-                                primary: Color(0xff202024), //elevated btton background color
-                            ),
-                            // Reroute to Trade Start
+                        child: IconButton(
+                            icon: const Icon(CustomIcons.sword),
                             onPressed: () {
-                              //Navigator.pop(context);
-                              Navigator.pushNamed(context, '/FightStart');
-                            }),
+                            //Navigator.pop(context);
+                            Navigator.pushNamed(context, '/FightStart');
+                               }),
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
+
             Container(
               // frame6vYD (I10:11001;10:2672;17:122)
               margin:

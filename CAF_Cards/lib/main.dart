@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/custom_icons_icons.dart';
 import 'package:myapp/screens/collection/collection.dart';
 import 'package:myapp/screens/create/start/create-start.dart';
 import 'package:myapp/screens/fight/start/fight-start.dart';
