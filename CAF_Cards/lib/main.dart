@@ -112,7 +112,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
             currentIndex: _selectedIndex,
             onTap: _onItemTapped,
             items: const [
-              BottomNavigationBarItem(icon: Icon(CustomIcons.sword), label: 'Fight'),
+              BottomNavigationBarItem(icon: Icon(Icons.colorize_rounded), label: 'Fight'),
               BottomNavigationBarItem(icon: Icon(Icons.wifi_protected_setup_rounded), label: 'Trade'),
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
               BottomNavigationBarItem(icon: Icon(Icons.add_circle_outline), label: 'Create'),
