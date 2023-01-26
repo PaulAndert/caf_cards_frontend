@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
@@ -31,10 +32,8 @@ class TradeStart extends StatelessWidget {
         Collection.routeName: (BuildContext context) => Collection(),
         TradeQR.routeName: (BuildContext context) => TradeQR(),
         TradeSelectCard.routeName: (BuildContext context) => TradeSelectCard(),
-        TradeConfirmCard.routeName: (BuildContext context) =>
-            TradeConfirmCard(),
-        TradingConfirmTrade.routeName: (BuildContext context) =>
-            TradingConfirmTrade(),
+        TradeConfirmCard.routeName: (BuildContext context) => TradeConfirmCard(),
+        TradingConfirmTrade.routeName: (BuildContext context) => TradingConfirmTrade(),
       },
       home: TradeStartWidget(),
     );
@@ -49,6 +48,16 @@ class TradeStartWidget extends StatefulWidget {
 }
 
 class _TradeStartWidget extends State<TradeStartWidget> {
+  String qrCode = "";
+  Future scanBarcode() async {
+    String barcodeScanRes;
+    barcodeScanRes = await FlutterBarcodeScanner.scanBarcode("#ff6666", "Cancel", true, ScanMode.QR);
+
+    setState(() {
+      qrCode = barcodeScanRes;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
@@ -125,11 +134,7 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                 margin: EdgeInsets.fromLTRB(
                     106 * fem, 0 * fem, 105 * fem, 43 * fem),
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/TradeQR');
-                    //Navigator.pushNamed(context, TradeQR.routeName);
-                    //Navigator.of(context).pushNamed();
-                  },
+                  onPressed: scanBarcode, //() {Navigator.pushNamed(context, '/TradeQR');},
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
                     backgroundColor: Color(0xff000080),
