@@ -2,7 +2,9 @@ import 'package:myapp/models/user.dart';
 import 'package:http/http.dart' as http;
 
 class UserService {
-  static const api = "http://192.168.0.2:8080/api/user"; //Marius' IP
+//  static const api = "http://192.168.0.2:8080/api/user"; //Marius' IP
+  static const api = "http://192.168.178.131:8080/api/user"; //Pascals IP
+
 
   Future<List<User>?> getUsers() async {
     var client = http.Client();
