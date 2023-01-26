@@ -8,6 +8,10 @@ Trade tradeFromJson(String str) => Trade.fromJson(json.decode(str));
 
 String tradeToJson(Trade data) => json.encode(data.toJson());
 
+List<Trade> tradeListFromJson(String str) => List<Trade>.from(json.decode(str).map((x) => Trade.fromJson(x)));
+
+String tradeListToJson(List<Trade> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
 class Trade {
   Trade({
     required this.id,
