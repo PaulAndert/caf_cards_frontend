@@ -18,6 +18,14 @@
 qr: https://pub.dev/packages/qr
 qr_code_scanner: https://pub.dev/packages/qr_code_scanner
 
+
+TODO for now:
+- neue API-Endpunkte (Trading und so)
+- QR-Code Funktionalität
+- Trading syncen und sowas
+- Create Textfelder als inputs in Obj und von Seite zu Seite übergeben
+
 TODO for later:
-- home screen: stats in eine tabelle
-- navbar: anstatt pipette ein schwert (https://www.fluttericon.com/)
+- Collection machen (gehöret nicht zum UseCase aber wäre schön)
+- home screen: stats in eine Tabelle
+- navbar: anstatt Pipette ein Schwert (https://www.fluttericon.com/)
