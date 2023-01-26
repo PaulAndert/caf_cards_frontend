@@ -14,3 +14,10 @@
 - services = everything that comes or goes outside the project (Firebase, DB, Microservices, ...)
 - models = like entitys in Spring = databundles that you can use everywhere in the project
 - main.dart = file that starts the whole app
+
+qr: https://pub.dev/packages/qr
+qr_code_scanner: https://pub.dev/packages/qr_code_scanner
+
+TODO for later:
+- home screen: stats in eine tabelle
+- navbar: anstatt pipette ein schwert (https://www.fluttericon.com/)

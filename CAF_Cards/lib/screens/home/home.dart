@@ -106,11 +106,11 @@ class _HomeState extends State<Home> {
                         width: 293 * fem, // breite der text box
                         height: 177 * fem, // höhe der text box
                         child: Text(
-                          'Fights won:                          ${user?.wins}\n'
-                          'Fights lost:                            ${user?.losses}\n'
-                          'Cards created:                     ${user?.created}\n'
-                          'Cards traded:                       ${user?.traded}\n'
-                          'Cards collected:                  ${user?.collected}',
+                          'Fights won:                    ${user?.wins}\n'
+                          'Fights lost:                      ${user?.losses}\n'
+                          'Cards created:              ${user?.created}\n'
+                          'Cards traded:              ${user?.traded}\n'
+                          'Cards collected:          ${user?.collected}',
                           style: SafeGoogleFont(
                             'SF Pro Display',
                             fontSize: 28 * ffem,
