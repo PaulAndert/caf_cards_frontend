@@ -169,6 +169,6 @@ class TradeQR extends StatelessWidget {
           ),
         ),
       ),
-          );
+    );
   }
 }

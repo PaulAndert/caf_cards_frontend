@@ -1,5 +1,9 @@
 # caf_cards_frontend
 
+Necessary:
+$ flutter pub add qr_flutter (in project root directory)
+$ flutter pub add flutter_barcode_scanner (in project root directory)
+in run config unter "Additional run args" --no-sound-null-safety packen
 
 -> root:
 - plattform specific folders (android, ios, windows, macos, linux, web)
