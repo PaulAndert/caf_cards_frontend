@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
 class TradeConfirmCard extends StatelessWidget {
+  static const String routeName = "/TradeConfirmCard";
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;

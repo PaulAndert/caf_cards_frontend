@@ -15,6 +15,7 @@ import '../../models/user.dart';
 
 class Home extends StatefulWidget {
   @override
+  static const String routeName = "/Home";
   State<Home> createState() => _HomeState();
 }
 

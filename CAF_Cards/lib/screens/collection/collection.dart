@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
 class Collection extends StatelessWidget {
+  static const String routeName = "/Collection";
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
