@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
 class TradeQR extends StatelessWidget {
+  static const String routeName = "/TradeQR";
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;

@@ -6,6 +6,7 @@ import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/navbar.dart';
 
 class FightStart extends StatelessWidget {
+  static const String routeName = "/FightStart";
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
