@@ -16,6 +16,18 @@ class CardService {
     return null;
   }
 
+  Future<List<Card>?> getCardsByUser(String deviceId) async {
+    var client = http.Client();
+    var uri = Uri.parse("$api/user/$deviceId");
+
+    var response = await client.get(uri);
+    if(response.statusCode == 200) {
+      var json = response.body;
+      return cardListFromJson(json);
+    }
+    return null;
+  }
+
   Future<Card?> getCardById(int id) async {
 
     var client = http.Client();

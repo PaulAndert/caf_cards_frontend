@@ -69,16 +69,20 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                 // Heading
                 margin:
                     EdgeInsets.fromLTRB(0 * fem, 0 * fem, 8 * fem, 22 * fem),
-                child: Text(
-                  'Start a trade',
-                  textAlign: TextAlign.center,
-                  style: SafeGoogleFont(
-                    'SF Pro Display',
-                    fontSize: 64 * ffem,
-                    fontWeight: FontWeight.w600,
-                    height: 1.2575 * ffem / fem,
-                    letterSpacing: -0.2399999946 * fem,
-                    color: Color(0xffffffff),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/TradeSelectCard');
+                  },
+                  child: Text('Start a trade',
+                    textAlign: TextAlign.center,
+                    style: SafeGoogleFont(
+                      'SF Pro Display',
+                      fontSize: 64 * ffem,
+                      fontWeight: FontWeight.w600,
+                      height: 1.2575 * ffem / fem,
+                      letterSpacing: -0.2399999946 * fem,
+                      color: Color(0xffffffff),
+                    ),
                   ),
                 ),
               ),
