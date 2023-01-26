@@ -24,7 +24,7 @@ qr_code_scanner: https://pub.dev/packages/qr_code_scanner
 
 
 TODO for now:
-- neue API-Endpunkte (Trading und so)
+- neue API-Endpunkte (getCardsByUser)
 - QR-Code Funktionalität
 - Trading syncen und sowas
 - Create Textfelder als inputs in Obj und von Seite zu Seite übergeben
