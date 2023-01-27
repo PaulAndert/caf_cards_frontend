@@ -16,6 +16,7 @@ import '../../models/user.dart';
 class Home extends StatefulWidget {
   @override
   static const String routeName = "/Home";
+
   State<Home> createState() => _HomeState();
 }
 
@@ -28,7 +29,6 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-
     getDeviceId();
   }
 
@@ -67,51 +67,68 @@ class _HomeState extends State<Home> {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
-    return Container(
-      width: double.infinity,
+    return Material(
       child: Container(
-        // homeksP (10:10933)
-        padding: EdgeInsets.fromLTRB(9 * fem, 57 * fem, 9 * fem, 0 * fem),
-        width: double.infinity,
-        decoration: BoxDecoration(
+        // Create a container where everything else is located
+        padding: EdgeInsets.fromLTRB(9 * fem, 79 * fem, 9 * fem, 0 * fem),
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
           color: Color(0xff202024),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              // Atom Logo
-              margin: EdgeInsets.fromLTRB(1 * fem, 0 * fem, 0 * fem, 22 * fem),
-              width: 250 * fem,
-              height: 250 * fem,
+            // Atom Logo Container
+            Expanded(
+              flex: 3,
               child: Image.asset(
                 'assets/page-1/images/atomgood-1.png',
                 fit: BoxFit.cover,
+                width: 250 * fem,
+                height: 250 * fem,
               ),
             ),
-            Container(
+            Expanded(
               // Stats Tabelle
-              margin:
-                  EdgeInsets.fromLTRB(32 * fem, 0 * fem, 32 * fem, 130 * fem),
-              width: double.infinity,
-              height: 296 * fem,
-              child: Stack(
-                children: [
-                  Positioned(
-                    // The text is in a stack to overlay the commented lines over the text
-                    // stack is used for that -> overlay children over each other
-                    left: 6 * fem, // padding
-                    top: 0 * fem, // padding
-                    child: Align(
-                      child: SizedBox(
-                        width: 293 * fem, // breite der text box
-                        height: 177 * fem, // höhe der text box
-                        child: Text(
-                          'Fights won:                    ${user?.wins}\n'
-                          'Fights lost:                      ${user?.losses}\n'
-                          'Cards created:              ${user?.created}\n'
-                          'Cards traded:              ${user?.traded}\n'
-                          'Cards collected:          ${user?.collected}',
+              flex: 5,
+              child: Container(
+                padding: EdgeInsets.fromLTRB(15 * fem, 0 * fem, 15 * fem, 0 * fem),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // Fights won:
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Fights won:',
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 28 * ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1.2575 * ffem / fem,
+                            color: const Color(0xffffffff),
+                          ),
+                        ),
+                        Text(
+                          '${user?.wins}',
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 28 * ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1.2575 * ffem / fem,
+                            color: const Color(0xffffffff),
+                          ),
+                        ),
+                      ],
+                    ),
+                    // Fights lost:
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Fights lost:',
                           style: SafeGoogleFont(
                             'SF Pro Display',
                             fontSize: 28 * ffem,
@@ -120,102 +137,100 @@ class _HomeState extends State<Home> {
                             color: Color(0xffffffff),
                           ),
                         ),
-                      ),
-                    ),
-                  ),
-                  /*Positioned(
-                    // Container mit den Lines drinnen
-                    left: 0 * fem,
-                    top: 40 * fem,
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(
-                          1 * fem, 65 * fem, 0 * fem, 67 * fem),
-                      width: 311 * fem,
-                      height: 266 * fem,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Container(
-                            // line2ZkH (103:1209)
-                            width: double.infinity,
-                            height: 2 * fem,
-                            decoration: BoxDecoration(
-                              color: Color(0xffffffff),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 64 * fem,
-                          ),
-                          Container(
-                            // line34h3 (103:1210)
-                            width: double.infinity,
-                            height: 2 * fem,
-                            decoration: BoxDecoration(
-                              color: Color(0xffffffff),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 64 * fem,
-                          ),
-                          Container(
-                            // line4ZNu (103:1211)
-                            margin: EdgeInsets.fromLTRB(
-                                0 * fem, 0 * fem, 0 * fem, 1 * fem),
-                            width: double.infinity,
-                            height: 2 * fem,
-                            decoration: BoxDecoration(
-                              color: Color(0xffffffff),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),*/
-                ],
-              ),
-            ),
-            /*Container(
-              // tabbarios5tabshandwritingefF (10:11001)
-              width: double.infinity,
-              height: 87 * fem,
-              decoration: BoxDecoration(
-                color: Color(0xff755b5b),
-              ),
-              child: Container(
-                // tabbarios5tabssf9ru (I10:11001;10:2672)
-                width: double.infinity,
-                height: double.infinity,
-                /*child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    //Navbar(fem: fem),
-                    Container(
-                      // ioshomeindicatorsfr8M (I10:11001;10:2672;17:132)
-                      padding: EdgeInsets.fromLTRB(
-                          121 * fem, 21 * fem, 120 * fem, 13 * fem),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Color(0xff202024),
-                      ),
-                      // The Home button bottom line
-                      /*child: Center(
-                        // homeindicatorLJR (I10:11001;10:2672;17:132;2:2)
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: 5 * fem,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(100 * fem),
-                              color: Color(0xffffffff),
-                            ),
+                        Text(
+                          '${user?.losses}',
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 28 * ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1.2575 * ffem / fem,
+                            color: Color(0xffffffff),
                           ),
                         ),
-                      ),*/
+                      ],
+                    ),
+                    // Cards created:
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Cards created:',
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 28 * ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1.2575 * ffem / fem,
+                            color: Color(0xffffffff),
+                          ),
+                        ),
+                        Text(
+                          '${user?.created}',
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 28 * ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1.2575 * ffem / fem,
+                            color: Color(0xffffffff),
+                          ),
+                        ),
+                      ],
+                    ),
+                    // Cards traded:
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Cards traded:',
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 28 * ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1.2575 * ffem / fem,
+                            color: Color(0xffffffff),
+                          ),
+                        ),
+                        Text(
+                          '${user?.traded}',
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 28 * ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1.2575 * ffem / fem,
+                            color: Color(0xffffffff),
+                          ),
+                        ),
+                      ],
+                    ),
+                    // Cards collected:
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Cards collected:',
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 28 * ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1.2575 * ffem / fem,
+                            color: Color(0xffffffff),
+                          ),
+                        ),
+                        Text(
+                          '${user?.collected}',
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 28 * ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1.2575 * ffem / fem,
+                            color: Color(0xffffffff),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
-                ),*/
+                ),
               ),
-            ),*/
+            ),
           ],
         ),
       ),
