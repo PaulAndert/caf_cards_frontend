@@ -4,16 +4,16 @@
 
 import 'dart:convert';
 
-Card cardFromJson(String str) => Card.fromJson(json.decode(str));
+Gamecard cardFromJson(String str) => Gamecard.fromJson(json.decode(str));
 
-String cardToJson(Card data) => json.encode(data.toJson());
+String cardToJson(Gamecard data) => json.encode(data.toJson());
 
-List<Card> cardListFromJson(String str) => List<Card>.from(json.decode(str).map((x) => Card.fromJson(x)));
+List<Gamecard> cardListFromJson(String str) => List<Gamecard>.from(json.decode(str).map((x) => Gamecard.fromJson(x)));
 
-String cardListToJson(List<Card> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String cardListToJson(List<Gamecard> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Card {
-  Card({
+class Gamecard {
+  Gamecard({
     required this.id,
     required this.name,
     required this.description,
@@ -33,7 +33,7 @@ class Card {
   List<int> userIds;
   int abilityId;
 
-  factory Card.fromJson(Map<String, dynamic> json) => Card(
+  factory Gamecard.fromJson(Map<String, dynamic> json) => Gamecard(
     id: json["id"],
     name: json["name"],
     description: json["description"],
