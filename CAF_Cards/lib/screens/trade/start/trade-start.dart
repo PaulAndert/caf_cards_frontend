@@ -6,6 +6,7 @@ import 'package:myapp/utils.dart';
 
 import 'package:qr_flutter/qr_flutter.dart';
 
+import '../../../services/helper_service.dart';
 import '../../collection/collection.dart';
 import '../../create/start/create-start.dart';
 import '../../fight/start/fight-start.dart';
@@ -48,6 +49,24 @@ class TradeStartWidget extends StatefulWidget {
 }
 
 class _TradeStartWidget extends State<TradeStartWidget> {
+  String? deviceId;
+  var deviceIdLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    getDeviceId();
+  }
+
+  getDeviceId() async {
+    deviceId = await HelperService().getUserId();
+    if (deviceId != null) {
+      setState(() {
+        deviceIdLoaded = true;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
@@ -106,10 +125,14 @@ class _TradeStartWidget extends State<TradeStartWidget> {
             Expanded(
               flex: 5,
               child: Center(
-                child: QrImage(
-                    data: 'this is different data',
-                    size: 300,
-                    backgroundColor: Colors.white),
+                child: Visibility(
+                  visible: deviceIdLoaded,
+                  replacement: const CircularProgressIndicator(),
+                  child: QrImage(
+                      data: deviceId ?? "dummy",
+                      size: 300,
+                      backgroundColor: Colors.white),
+                ),
               ),
             ),
             // Scan Qr Code button
