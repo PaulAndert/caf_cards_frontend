@@ -125,7 +125,7 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                   },
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
-                    backgroundColor: Color(0xff000080),
+                    backgroundColor: Colors.deepPurpleAccent,
                   ),
                   child: Container(
                     width: 200 * fem,
@@ -136,7 +136,7 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                         textAlign: TextAlign.center,
                         style: SafeGoogleFont(
                           'SF Pro Display',
-                          fontSize: 17 * ffem,
+                          fontSize: 25 * ffem,
                           fontWeight: FontWeight.w700,
                           height: 1.2941176471 * ffem / fem,
                           color: Color(0xffffffff),
