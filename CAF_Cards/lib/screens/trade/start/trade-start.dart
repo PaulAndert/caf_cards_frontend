@@ -96,11 +96,11 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                   textAlign: TextAlign.center,
                   style: SafeGoogleFont(
                     'SF Pro Display',
-                    fontSize: 64 * ffem,
+                    fontSize: 60 * ffem,
                     fontWeight: FontWeight.w600,
                     height: 1.2575 * ffem / fem,
                     letterSpacing: -0.2399999946 * fem,
-                    color: Color(0xffffffff),
+                    color: const Color(0xffffffff),
                   ),
                 ),
               ),

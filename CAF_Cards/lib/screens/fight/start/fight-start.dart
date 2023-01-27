@@ -4,180 +4,111 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/navbar.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+
+import '../qr_code/fight-scan-code.dart';
 
 class FightStart extends StatelessWidget {
   static const String routeName = "/FightStart";
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
-      width: double.infinity,
+
+    return Material(
       child: Container(
-        // fightstartsBj (10:10934)
+        // Create a container where everything else is located
         padding: EdgeInsets.fromLTRB(9 * fem, 79 * fem, 9 * fem, 0 * fem),
-        width: double.infinity,
-        decoration: BoxDecoration(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
           color: Color(0xff202024),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              // startafightiy3 (16:739)
-              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 9 * fem, 22 * fem),
-              child: Text(
-                'Start a fight',
-                textAlign: TextAlign.center,
-                style: SafeGoogleFont(
-                  'SF Pro Display',
-                  fontSize: 64 * ffem,
-                  fontWeight: FontWeight.w600,
-                  height: 1.2575 * ffem / fem,
-                  letterSpacing: -0.2399999946 * fem,
-                  color: Color(0xffffffff),
+            // Heading
+            Expanded(
+              flex: 2,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/FightBoard');
+                },
+                child: Text(
+                  'Start a fight',
+                  textAlign: TextAlign.center,
+                  style: SafeGoogleFont(
+                    'SF Pro Display',
+                    fontSize: 60 * ffem,
+                    fontWeight: FontWeight.w600,
+                    height: 1.2575 * ffem / fem,
+                    letterSpacing: -0.2399999946 * fem,
+                    color: const Color(0xffffffff),
+                  ),
                 ),
               ),
             ),
-            Container(
-              // letafriendscanthisqrcodeorscan (16:738)
-              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 3 * fem, 37 * fem),
-              constraints: BoxConstraints(
-                maxWidth: 293 * fem,
-              ),
+            Expanded(
+              flex: 2,
               child: Text(
                 'Let a friend scan this QR-code or scan a code yourself by clicking the button',
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'SF Pro Display',
-                  fontSize: 24 * ffem,
+                  fontSize: 20 * ffem,
                   fontWeight: FontWeight.w400,
                   height: 1.2575 * ffem / fem,
                   letterSpacing: -0.2399999946 * fem,
-                  color: Color(0xffffffff),
+                  color: const Color(0xffffffff),
                 ),
               ),
             ),
-            Container(
-              // autogroupbtxbvxd (T1TNfNrzyh6N2ydGhjbTXb)
-              margin:
-                  EdgeInsets.fromLTRB(38 * fem, 0 * fem, 36 * fem, 62 * fem),
-              width: double.infinity,
-              height: 300 * fem,
-              child: Stack(
-                children: [
-                  Positioned(
-                    // rectangle3Dwj (10:12258)
-                    left: 0 * fem,
-                    top: 0 * fem,
-                    child: TextButton(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                      ),
-                      child: Container(
-                        width: 300 * fem,
-                        height: 300 * fem,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Color(0xff212121)),
-                        ),
-                        child: Center(
-                          // rectangle26Eq (I10:12258;10:11775)
-                          child: SizedBox(
-                            width: double.infinity,
-                            height: 300 * fem,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xff212121)),
-                                color: Color(0xffffffff),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    // qr11AVb (103:1215)
-                    left: 0 * fem,
-                    top: 0 * fem,
-                    child: Align(
-                      child: SizedBox(
-                        width: 301 * fem,
-                        height: 300 * fem,
-                        child: Image.asset(
-                          'assets/page-1/images/qr1-1-Lz1.png',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+            // QR Code generation
+            Expanded(
+              flex: 5,
+              child: Center(
+                child: QrImage(
+                    data: 'this is different data',
+                    size: 300,
+                    backgroundColor: Colors.white),
               ),
             ),
-            Container(
-              // buttonsprimerydty (10:12253)
-              margin:
-                  EdgeInsets.fromLTRB(106 * fem, 0 * fem, 105 * fem, 43 * fem),
-              child: ElevatedButton(
-                onPressed: /**/ () {
-                },
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                  backgroundColor: Colors.deepPurpleAccent,
-                ),
-                child: Container(
-                  width: 200 * fem,
-                  height: 50 * fem,
-                  child: Center(
-                    child: Text(
-                      'Scan  QR-Code',
-                      textAlign: TextAlign.center,
-                      style: SafeGoogleFont(
-                        'SF Pro Display',
-                        fontSize: 25 * ffem,
-                        fontWeight: FontWeight.w700,
-                        height: 1.2941176471 * ffem / fem,
-                        color: Color(0xffffffff),
-                      ),
-                    ),
+            Expanded(
+              flex: 3,
+              child: Center(
+                child: ElevatedButton(
+                  onPressed: /**/ () {
+                    //Navigator.pushNamed(context, '/TradeQR');
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => FightQR(),
+                    ));
+                  },
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                    backgroundColor: Colors.deepPurpleAccent,
                   ),
-                ),
-              ),
-            ),
-            /*Container(
-              // tabbarios5tabssfNk5 (I10:11046;10:2672)
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Navbar(fem: fem),
-                  Container(
-                    // ioshomeindicatorsf2Db (I10:11046;10:2672;17:132)
-                    padding: EdgeInsets.fromLTRB(
-                        121 * fem, 21 * fem, 120 * fem, 8 * fem),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Color(0xff202024),
-                    ),
+                  child: Container(
+                    width: 200 * fem,
+                    height: 50 * fem,
                     child: Center(
-                      // homeindicatorv45 (I10:11046;10:2672;17:132;2:2)
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: 5 * fem,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100 * fem),
-                            color: Color(0xffffffff),
-                          ),
+                      child: Text(
+                        'Scan  QR-Code',
+                        textAlign: TextAlign.center,
+                        style: SafeGoogleFont(
+                          'SF Pro Display',
+                          fontSize: 25 * ffem,
+                          fontWeight: FontWeight.w700,
+                          height: 1.2941176471 * ffem / fem,
+                          color: Color(0xffffffff),
                         ),
                       ),
                     ),
                   ),
-                ],
+                ),
               ),
-            ),*/
+            ),
           ],
         ),
       ),
