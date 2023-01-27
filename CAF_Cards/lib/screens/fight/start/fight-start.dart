@@ -6,10 +6,35 @@ import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/navbar.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+import '../../../services/helper_service.dart';
 import '../qr_code/fight-scan-code.dart';
 
-class FightStart extends StatelessWidget {
+class FightStart extends StatefulWidget {
   static const String routeName = "/FightStart";
+
+  @override
+  State<FightStart> createState() => _FightStartState();
+}
+
+class _FightStartState extends State<FightStart> {
+  String? deviceId;
+
+  var deviceIdLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    getDeviceId();
+  }
+
+  getDeviceId() async {
+    deviceId = await HelperService().getUserId();
+    if (deviceId != null) {
+      setState(() {
+        deviceIdLoaded = true;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +95,7 @@ class FightStart extends StatelessWidget {
               flex: 5,
               child: Center(
                 child: QrImage(
-                    data: 'this is different data',
+                    data: deviceId ?? "dummy",
                     size: 300,
                     backgroundColor: Colors.white),
               ),
