@@ -94,10 +94,14 @@ class _FightStartState extends State<FightStart> {
             Expanded(
               flex: 5,
               child: Center(
-                child: QrImage(
-                    data: deviceId ?? "dummy",
-                    size: 300,
-                    backgroundColor: Colors.white),
+                child: Visibility(
+                  visible: deviceIdLoaded,
+                  replacement: const CircularProgressIndicator(),
+                  child: QrImage(
+                      data: deviceId ?? "dummy",
+                      size: 300,
+                      backgroundColor: Colors.white),
+                ),
               ),
             ),
             Expanded(
