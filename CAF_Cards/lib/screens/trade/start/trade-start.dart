@@ -12,12 +12,11 @@ import '../../fight/start/fight-start.dart';
 import '../../home/home.dart';
 import '../confirm_card/trading-window-ifX.dart';
 import '../confirm_trade/trading-window.dart';
-import '../qr_code/trade-scan-code.dart';
+import 'trade-scan-qr-code.dart';
 import '../select_card/trading-window-41b.dart';
 
 class TradeStart extends StatelessWidget {
   const TradeStart({super.key});
-
   static const String routeName = '/TradeStart';
 
   @override
@@ -29,10 +28,11 @@ class TradeStart extends StatelessWidget {
         Home.routeName: (BuildContext context) => Home(),
         CreateStart.routeName: (BuildContext context) => CreateStart(),
         Collection.routeName: (BuildContext context) => Collection(),
-        TradeQR.routeName: (BuildContext context) => TradeQR(),
         TradeSelectCard.routeName: (BuildContext context) => TradeSelectCard(),
-        TradeConfirmCard.routeName: (BuildContext context) => TradeConfirmCard(),
-        TradingConfirmTrade.routeName: (BuildContext context) => TradingConfirmTrade(),
+        TradeConfirmCard.routeName: (BuildContext context) =>
+            TradeConfirmCard(),
+        TradingConfirmTrade.routeName: (BuildContext context) =>
+            TradingConfirmTrade(),
       },
       home: TradeStartWidget(),
     );
@@ -41,7 +41,6 @@ class TradeStart extends StatelessWidget {
 
 class TradeStartWidget extends StatefulWidget {
   const TradeStartWidget({super.key});
-
   @override
   State<TradeStartWidget> createState() => _TradeStartWidget();
 }
@@ -56,24 +55,25 @@ class _TradeStartWidget extends State<TradeStartWidget> {
       child: Container(
         width: double.infinity,
         child: Container(
-          // tradestartfAd (16:795)
+          // Create a container where everything else is located
           padding: EdgeInsets.fromLTRB(9 * fem, 79 * fem, 9 * fem, 0 * fem),
-          width: double.infinity,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
             color: Color(0xff202024),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                // Heading
-                margin:
-                    EdgeInsets.fromLTRB(0 * fem, 0 * fem, 8 * fem, 22 * fem),
+              // Heading
+              Expanded(
+                flex: 2,
                 child: TextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/TradeSelectCard');
                   },
-                  child: Text('Start a trade',
+                  child: Text(
+                    'Start a trade',
                     textAlign: TextAlign.center,
                     style: SafeGoogleFont(
                       'SF Pro Display',
@@ -86,13 +86,9 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                   ),
                 ),
               ),
-              Container(
-                // Text BOX
-                margin:
-                    EdgeInsets.fromLTRB(0 * fem, 0 * fem, 3 * fem, 77 * fem),
-                constraints: BoxConstraints(
-                  maxWidth: 305 * fem,
-                ),
+              // Text BOX
+              Expanded(
+                flex: 2,
                 child: Text(
                   'Let a friend scan this QR-code or scan a code yourself by clicking the button',
                   textAlign: TextAlign.center,
@@ -102,40 +98,38 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                     fontWeight: FontWeight.w400,
                     height: 1.2575 * ffem / fem,
                     letterSpacing: -0.2399999946 * fem,
-                    color: Color(0xffffffff),
+                    color: const Color(0xffffffff),
                   ),
                 ),
               ),
-              Container(
-                // QR Code generation
-                margin:
-                    EdgeInsets.fromLTRB(38 * fem, 0 * fem, 36 * fem, 62 * fem),
-                width: double.infinity,
-                height: 300 * fem,
+              // QR Code generation
+              Expanded(
+                flex: 5,
                 child: Center(
-                    child: QrImage(
-                        data: 'this is different data',
-                        size: 300,
-                        backgroundColor: Colors.white)),
+                  child: QrImage(
+                      data: 'this is different data',
+                      size: 300,
+                      backgroundColor: Colors.white),
+                ),
               ),
-              Container(
-                // Scan QR Code Button
-                margin: EdgeInsets.fromLTRB(
-                    106 * fem, 0 * fem, 105 * fem, 43 * fem),
-                child: ElevatedButton(
-                  onPressed: /**/ () {Navigator.pushNamed(context, '/TradeQR');},
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    backgroundColor: Color(0xff000080),
-                  ),
-                  child: Container(
-                    width: double.infinity,
-                    height: 49 * fem,
-                    /*decoration: BoxDecoration(
-                      color: Color(0xff000080),
-                      borderRadius: BorderRadius.circular(12 * fem),
-                    ),*/
-                    child: Center(
+              // Scan Qr Code button
+              Expanded(
+                flex: 3,
+                child: Center(
+                  child: ElevatedButton(
+                    onPressed: /**/ () {
+                      //Navigator.pushNamed(context, '/TradeQR');
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const MyQRView(),
+                      ));
+                    },
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      backgroundColor: Color(0xff000080),
+                    ),
+                    child: Container(
+                      width: 200 * fem,
+                      height: 50 * fem,
                       child: Center(
                         child: Text(
                           'Scan  QR-Code',

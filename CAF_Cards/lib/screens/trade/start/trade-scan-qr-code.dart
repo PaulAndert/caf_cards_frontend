@@ -10,26 +10,7 @@ import 'package:myapp/utils.dart';
 
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-class TradeQR extends StatelessWidget {
-  const TradeQR({Key? key}) : super(key: key);
-  static const String routeName = "/TradeQR";
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const MyQRView(),
-            ));
-          },
-          child: const Text('qrView'),
-        ),
-      ),
-    );
-  }
-}
 class MyQRView extends StatefulWidget {
   const MyQRView({Key? key}) : super(key: key);
 

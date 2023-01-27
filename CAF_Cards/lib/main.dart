@@ -9,7 +9,7 @@ import 'package:myapp/screens/create/start/create-start.dart';
 import 'package:myapp/screens/fight/start/fight-start.dart';
 import 'package:myapp/screens/trade/confirm_card/trading-window-ifX.dart';
 import 'package:myapp/screens/trade/confirm_trade/trading-window.dart';
-import 'package:myapp/screens/trade/qr_code/trade-scan-code.dart';
+import 'package:myapp/screens/trade/start/trade-scan-qr-code.dart';
 import 'package:myapp/screens/trade/select_card/trading-window-41b.dart';
 import 'package:myapp/screens/trade/start/trade-start.dart';
 import 'package:myapp/utils.dart';
@@ -32,7 +32,7 @@ import 'package:myapp/screens/home/home.dart';
 // import 'package:myapp/screens/fight/board/fight-board.dart';
 
 // import 'package:myapp/screens/trade/start/trade-start.dart';
-// import 'package:myapp/screens/trade/qr_code/trade-scan-code.dart';
+// import 'package:myapp/screens/trade/qr_code/trade-scan-qr-code.dart';
 // import 'package:myapp/screens/trade/select_card/trading-window-41b.dart';
 // import 'package:myapp/screens/trade/confirm_card/trading-window-ifX.dart';
 // import 'package:myapp/screens/trade/confirm_trade/trading-window.dart';
@@ -79,7 +79,6 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
     Home(),
     CreateStart(),
     Collection(),
-    TradeQR(),
   ];
 
   @override
@@ -93,7 +92,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
         Home.routeName: (BuildContext context) => Home(),
         CreateStart.routeName: (BuildContext context) => CreateStart(),
         Collection.routeName: (BuildContext context) => Collection(),
-        TradeQR.routeName: (BuildContext context) => TradeQR(),
+        //TradeQR.routeName: (BuildContext context) => TradeQR(),
         TradeSelectCard.routeName: (BuildContext context) => TradeSelectCard(),
         TradeConfirmCard.routeName: (BuildContext context) => TradeConfirmCard(),
         TradingConfirmTrade.routeName: (BuildContext context) => TradingConfirmTrade(),
