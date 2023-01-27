@@ -81,7 +81,7 @@ class _HomeState extends State<Home> {
           children: [
             // Atom Logo Container
             Expanded(
-              flex: 3,
+              flex: 6,
               child: Image.asset(
                 'assets/page-1/images/atomgood-1.png',
                 fit: BoxFit.cover,
@@ -91,11 +91,12 @@ class _HomeState extends State<Home> {
             ),
             Expanded(
               // Stats Tabelle
-              flex: 5,
+              flex: 6,
               child: Container(
-                padding: EdgeInsets.fromLTRB(15 * fem, 0 * fem, 15 * fem, 0 * fem),
+                padding: EdgeInsets.fromLTRB(20 * fem, 30 * fem, 20 * fem, 0 * fem),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     // Fights won:
                     Row(
@@ -231,6 +232,10 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
+            Expanded(
+              flex: 4,
+              child: Container(),
+            )
           ],
         ),
       ),
