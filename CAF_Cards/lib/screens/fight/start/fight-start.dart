@@ -120,30 +120,26 @@ class FightStart extends StatelessWidget {
               // buttonsprimerydty (10:12253)
               margin:
                   EdgeInsets.fromLTRB(106 * fem, 0 * fem, 105 * fem, 43 * fem),
-              child: TextButton(
-                onPressed: () {},
+              child: ElevatedButton(
+                onPressed: /**/ () {
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
+                  backgroundColor: Colors.deepPurpleAccent,
                 ),
                 child: Container(
-                  width: double.infinity,
+                  width: 200 * fem,
                   height: 50 * fem,
-                  decoration: BoxDecoration(
-                    color: Color(0xff000080),
-                    borderRadius: BorderRadius.circular(12 * fem),
-                  ),
                   child: Center(
-                    child: Center(
-                      child: Text(
-                        'Scan  QR-Code',
-                        textAlign: TextAlign.center,
-                        style: SafeGoogleFont(
-                          'SF Pro Display',
-                          fontSize: 17 * ffem,
-                          fontWeight: FontWeight.w700,
-                          height: 1.2941176471 * ffem / fem,
-                          color: Color(0xffffffff),
-                        ),
+                    child: Text(
+                      'Scan  QR-Code',
+                      textAlign: TextAlign.center,
+                      style: SafeGoogleFont(
+                        'SF Pro Display',
+                        fontSize: 25 * ffem,
+                        fontWeight: FontWeight.w700,
+                        height: 1.2941176471 * ffem / fem,
+                        color: Color(0xffffffff),
                       ),
                     ),
                   ),
