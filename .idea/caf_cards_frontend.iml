@@ -24,6 +24,33 @@
       <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/path_provider_ios/example/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/path_provider_ios/example/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/path_provider_ios/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/qr_code_scanner/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/qr_code_scanner/build" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/qr_code_scanner/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/linux/flutter/ephemeral/.plugin_symlinks/device_info_plus_linux/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/linux/flutter/ephemeral/.plugin_symlinks/device_info_plus_linux/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/linux/flutter/ephemeral/.plugin_symlinks/device_info_plus_linux/build" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/build" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/device_info_plus/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/device_info_plus/build" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/device_info_plus/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/qr_code_scanner/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/qr_code_scanner/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/qr_code_scanner/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/macos/Flutter/ephemeral/.symlinks/plugins/device_info_plus_macos/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/macos/Flutter/ephemeral/.symlinks/plugins/device_info_plus_macos/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/macos/Flutter/ephemeral/.symlinks/plugins/device_info_plus_macos/build" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/device_info_plus/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/device_info_plus/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/ios/.symlinks/plugins/device_info_plus/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/windows/flutter/ephemeral/.plugin_symlinks/device_info_plus_windows/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/windows/flutter/ephemeral/.plugin_symlinks/device_info_plus_windows/build" />
+      <excludeFolder url="file://$MODULE_DIR$/CAF_Cards/windows/flutter/ephemeral/.plugin_symlinks/device_info_plus_windows/.pub" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

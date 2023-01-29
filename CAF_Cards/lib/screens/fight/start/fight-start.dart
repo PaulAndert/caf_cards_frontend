@@ -105,10 +105,7 @@ class _FightStartState extends State<FightStart> {
               child: Center(
                 child: ElevatedButton(
                   onPressed: /**/ () {
-                    //Navigator.pushNamed(context, '/TradeQR');
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => FightQR(),
-                    ));
+                    //Navigator.of(context).push(MaterialPageRoute(builder: (context) => FightQR(),));
                   },
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
@@ -119,7 +116,7 @@ class _FightStartState extends State<FightStart> {
                     height: 50 * fem,
                     child: Center(
                       child: Text(
-                        'Scan  QR-Code',
+                        'Scan QR-Code',
                         textAlign: TextAlign.center,
                         style: SafeGoogleFont(
                           'SF Pro Display',

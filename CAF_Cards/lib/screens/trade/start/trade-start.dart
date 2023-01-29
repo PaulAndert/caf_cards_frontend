@@ -155,7 +155,7 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                     height: 50 * fem,
                     child: Center(
                       child: Text(
-                        'Scan  QR-Code',
+                        'Scan QR-Code',
                         textAlign: TextAlign.center,
                         style: SafeGoogleFont(
                           'SF Pro Display',
