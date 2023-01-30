@@ -2,9 +2,8 @@ import '../models/trade.dart';
 import 'package:http/http.dart' as http;
 
 class TradeService {
-  //static const api = "http://192.168.0.2:8080/api/trade"; //Marius IP
-  //static const api = "http://192.168.178.131:8080/api/trade"; //Pascals IP
-  static const api = "http://192.168.178.110:8080/api/trade"; //Pauls IP
+  static const IP = String.fromEnvironment('IP', defaultValue: '0.0.0.0');
+  static const api = "http://$IP:8080/api/trade";
 
   Future<List<Trade>?> getTrades() async {
     var client = http.Client();

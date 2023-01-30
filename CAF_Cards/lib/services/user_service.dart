@@ -1,12 +1,12 @@
 import 'package:myapp/models/user.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../models/trade.dart';
 
 class UserService {
-  //static const api = "http://192.168.0.2:8080/api/user"; //Marius IP
-  static const api = "http://192.168.178.131:8080/api/user"; //Pascals IP
-  //static const api = "http://192.168.178.110:8080/api/user"; //Pauls IP
+  static const IP = String.fromEnvironment('IP', defaultValue: '0.0.0.0');
+  static const api = "http://$IP:8080/api/user";
 
 
   Future<List<User>?> getUsers() async {
