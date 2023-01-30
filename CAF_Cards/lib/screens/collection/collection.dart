@@ -81,6 +81,10 @@ class GridBuilderState extends State<GridBuilder> {
           return GridTile(
             child: Container(
               color: Colors.blue,
+              alignment: Alignment.center,
+              child: Text(
+                cards![index].name,
+              ),
             ),
           );
         }
