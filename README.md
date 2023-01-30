@@ -33,3 +33,4 @@ TODO for later:
 - Collection machen (gehöret nicht zum UseCase aber wäre schön)
 - home screen: stats in eine Tabelle
 - navbar: anstatt Pipette ein Schwert (https://www.fluttericon.com/)
+- 
