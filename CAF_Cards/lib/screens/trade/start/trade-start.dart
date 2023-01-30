@@ -130,7 +130,7 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                   replacement: const CircularProgressIndicator(),
                   child: QrImage(
                       data: deviceId ?? "dummy",
-                      size: 300,
+                      size: 250 * fem,
                       backgroundColor: Colors.white),
                 ),
               ),

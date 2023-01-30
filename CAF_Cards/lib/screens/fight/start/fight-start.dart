@@ -99,7 +99,7 @@ class _FightStartState extends State<FightStart> {
                   replacement: const CircularProgressIndicator(),
                   child: QrImage(
                       data: deviceId ?? "dummy",
-                      size: 300,
+                      size: 250 * fem,
                       backgroundColor: Colors.white),
                 ),
               ),
