@@ -3,9 +3,9 @@ import 'package:http/http.dart' as http;
 import '../models/ability.dart';
 
 class AbilityService {
-  //static const api = "http://192.168.0.2:8080/api/user"; //Marius IP
-  //static const api = "http://192.168.178.131:8080/api/user"; //Pascals IP
-  static const api = "http://192.168.178.110:8080/api/user"; //Pauls IP
+  //static const api = "http://192.168.0.2:8080/api/ability"; //Marius IP
+  //static const api = "http://192.168.178.131:8080/api/ability"; //Pascals IP
+  static const api = "http://192.168.178.110:8080/api/ability"; //Pauls IP
 
   Future<List<Ability>?> getAbilities() async {
     var client = http.Client();

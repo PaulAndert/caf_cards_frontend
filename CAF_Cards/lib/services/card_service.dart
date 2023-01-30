@@ -2,9 +2,9 @@ import '../models/gamecard.dart';
 import 'package:http/http.dart' as http;
 
 class GamecardService {
-  //static const api = "http://192.168.0.2:8080/api/user"; //Marius IP
-  //static const api = "http://192.168.178.131:8080/api/user"; //Pascals IP
-  static const api = "http://192.168.178.110:8080/api/user"; //Pauls IP
+  //static const api = "http://192.168.0.2:8080/api/card"; //Marius IP
+  //static const api = "http://192.168.178.131:8080/api/card"; //Pascals IP
+  static const api = "http://192.168.178.110:8080/api/card"; //Pauls IP
 
   Future<List<Gamecard>?> getGamecards() async {
     var client = http.Client();
