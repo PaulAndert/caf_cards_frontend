@@ -77,28 +77,37 @@ class GridBuilderState extends State<GridBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-        itemCount: cards?.length,
-        gridDelegate:
-        const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemBuilder: (_, int index) {
-          return GridTile(
-            child: Container(
-              padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
-              alignment: Alignment.center,
-              child: CollectionCardWidget(
-                fem: fem,
-                ffem: ffem,
-                name: cards?[index].name ?? "...",
-                description: cards?[index].description ?? "...",
-                energy: cards?[index].energy ?? 0,
-                strength: cards?[index].strength ?? 0,
-                health: cards?[index].health ?? 0,
-                ability: "...",
-              ),
-            ),
-          );
-        }
+    return Material(
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: Color(0xff202024),
+        ),
+        child: GridView.builder(
+            itemCount: cards?.length ?? 0,
+            gridDelegate:
+            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            itemBuilder: (_, int index) {
+              return GridTile(
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(25, 10, 0, 10),
+                  alignment: Alignment.center,
+                  child: CollectionCardWidget(
+                    fem: fem,
+                    ffem: ffem,
+                    name: cards?[index].name ?? "...",
+                    description: cards?[index].description ?? "...",
+                    energy: cards?[index].energy ?? 0,
+                    strength: cards?[index].strength ?? 0,
+                    health: cards?[index].health ?? 0,
+                    ability: "...",
+                  ),
+                ),
+              );
+            }
+        ),
+      ),
     );
   }
 }
