@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
+import 'package:myapp/widgets/CollectionCardWidget.dart';
 
 import '../../models/ability.dart';
 import '../../models/gamecard.dart';
@@ -10,13 +11,16 @@ import '../../models/user.dart';
 import '../../services/card_service.dart';
 import '../../services/helper_service.dart';
 
+var fem;
+var ffem;
+
 class Collection extends StatelessWidget {
   static const String routeName = "/Collection";
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
+    fem = MediaQuery.of(context).size.width / baseWidth;
+    ffem = fem * 0.97;
     return
         GridBuilder();
   }
@@ -80,10 +84,17 @@ class GridBuilderState extends State<GridBuilder> {
         itemBuilder: (_, int index) {
           return GridTile(
             child: Container(
-              color: Colors.blue,
+              padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
               alignment: Alignment.center,
-              child: Text(
-                cards![index].name,
+              child: CollectionCardWidget(
+                fem: fem,
+                ffem: ffem,
+                name: cards?[index].name ?? "...",
+                description: cards?[index].description ?? "...",
+                energy: cards?[index].energy ?? 0,
+                strength: cards?[index].strength ?? 0,
+                health: cards?[index].health ?? 0,
+                ability: "...",
               ),
             ),
           );
