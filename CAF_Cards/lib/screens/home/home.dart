@@ -113,7 +113,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                         Text(
-                          '${user?.wins}',
+                          '${user?.wins ?? "..."}',
                           style: SafeGoogleFont(
                             'SF Pro Display',
                             fontSize: 28 * ffem,
@@ -139,7 +139,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                         Text(
-                          '${user?.losses}',
+                          '${user?.losses ?? "..."}',
                           style: SafeGoogleFont(
                             'SF Pro Display',
                             fontSize: 28 * ffem,
@@ -165,7 +165,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                         Text(
-                          '${user?.created}',
+                          '${user?.created ?? "..."}',
                           style: SafeGoogleFont(
                             'SF Pro Display',
                             fontSize: 28 * ffem,
@@ -191,7 +191,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                         Text(
-                          '${user?.traded}',
+                          '${user?.traded ?? "..."}',
                           style: SafeGoogleFont(
                             'SF Pro Display',
                             fontSize: 28 * ffem,
@@ -217,7 +217,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                         Text(
-                          '${user?.collected}',
+                          '${user?.collected ?? "..."}',
                           style: SafeGoogleFont(
                             'SF Pro Display',
                             fontSize: 28 * ffem,
@@ -228,6 +228,31 @@ class _HomeState extends State<Home> {
                         ),
                       ],
                     ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     Text(
+                    //       'Device ID:',
+                    //       style: SafeGoogleFont(
+                    //         'SF Pro Display',
+                    //         fontSize: 28 * ffem,
+                    //         fontWeight: FontWeight.w400,
+                    //         height: 1.2575 * ffem / fem,
+                    //         color: const Color(0xffffffff),
+                    //       ),
+                    //     ),
+                    //     Text(
+                    //       '$deviceId',
+                    //       style: SafeGoogleFont(
+                    //         'SF Pro Display',
+                    //         fontSize: 28 * ffem,
+                    //         fontWeight: FontWeight.w400,
+                    //         height: 1.2575 * ffem / fem,
+                    //         color: const Color(0xffffffff),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
               ),
