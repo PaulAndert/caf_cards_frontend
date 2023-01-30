@@ -65,7 +65,7 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidget extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -84,7 +84,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter',
+      title: 'CAF',
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
         FightStart.routeName: (BuildContext context) => FightStart(),
@@ -92,24 +92,10 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
         Home.routeName: (BuildContext context) => Home(),
         CreateStart.routeName: (BuildContext context) => CreateStart(),
         Collection.routeName: (BuildContext context) => Collection(),
-        //TradeQR.routeName: (BuildContext context) => TradeQR(),
         TradeSelectCard.routeName: (BuildContext context) => TradeSelectCard(),
         TradeConfirmCard.routeName: (BuildContext context) => TradeConfirmCard(),
         TradingConfirmTrade.routeName: (BuildContext context) => TradingConfirmTrade(),
       },
-// When navigating to the "/" route, build the FirstScreen widget.
-//'/Home': (context) => Home(),
-// When navigating to the "/second" route, build the SecondScreen widget.
-        /*'/CreateStart': (context) => CreateStart(),
-        '/FightStart': (context) => FightStart(),
-        '/TradeStart': (context) => TradeStart(),
-        '/TradeScanQR': (context) => TradeQR(),
-        '/TradeSelectCard': (context) => TradeSelectCard(),
-        '/TradeConfirmCard': (context) => TradeConfirmCard(),
-        '/TradeConfirm': (context) => TradeStart(),
-        '/Collection': (context) => Collection(),
-      },*/
-
       debugShowCheckedModeBanner: false,
       scrollBehavior: MyCustomScrollBehavior(),
       theme: ThemeData(
