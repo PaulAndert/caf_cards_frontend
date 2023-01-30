@@ -4,7 +4,7 @@ Necessary:
 - ($ flutter pub add qr_flutter (in project root directory))
 - ($ flutter pub add flutter_barcode_scanner (in project root directory))
 - in run config at "Additional run args" insert "--no-sound-null-safety"
-- since localhost doesnt work with flutter at "Additional run args" insert "--dart-define=IP=192.168.0.2"
+- since localhost doesnt work with flutter at "Additional run args" insert "--dart-define=IP=YOUR_IP_ADDRESS"
 
 -> root:
 - platform specific folders (android, ios, windows, macos, linux, web)
