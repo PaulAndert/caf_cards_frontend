@@ -6,7 +6,7 @@ import '../models/trade.dart';
 class UserService {
   //static const api = "http://192.168.0.2:8080/api/user"; //Marius IP
   //static const api = "http://192.168.178.131:8080/api/user"; //Pascals IP
-  static const api = "http://192.168.178.100:8080/api/user"; //Pauls IP
+  static const api = "http://192.168.178.110:8080/api/user"; //Pauls IP
 
 
   Future<List<User>?> getUsers() async {

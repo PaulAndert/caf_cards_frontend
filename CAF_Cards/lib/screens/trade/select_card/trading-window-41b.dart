@@ -96,7 +96,7 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
         // tradingwindowPty (26:586)
         padding: EdgeInsets.fromLTRB(27*fem, 31*fem, 26.25*fem, 6*fem),
         width: double.infinity,
-        decoration: BoxDecoration (
+        decoration: const BoxDecoration (
           color: Color(0xff202024),
         ),
         child: Column(
