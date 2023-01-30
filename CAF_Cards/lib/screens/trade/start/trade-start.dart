@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/models/trade.dart';
+import 'package:myapp/services/trade_service.dart';
 import 'package:myapp/utils.dart';
 
 import 'package:qr_flutter/qr_flutter.dart';
@@ -51,12 +55,8 @@ class TradeStartWidget extends StatefulWidget {
 class _TradeStartWidget extends State<TradeStartWidget> {
   String? deviceId;
   var deviceIdLoaded = false;
-
-  @override
-  void initState() {
-    super.initState();
-    getDeviceId();
-  }
+  Trade? trade;
+  var tradeLoaded = false;
 
   getDeviceId() async {
     deviceId = await HelperService().getUserId();
@@ -65,19 +65,49 @@ class _TradeStartWidget extends State<TradeStartWidget> {
         deviceIdLoaded = true;
       });
     }
+    while (tradeLoaded == false) {
+      getTrade();
+      await Future.delayed(Duration(seconds: 1));
+    }
+  }
+
+  getTrade() async {
+    if (deviceIdLoaded == true) {
+      trade = await TradeService().getTradeByReceiverDeviceId(deviceId!);
+      if (trade != null) {
+        setState(() {
+          tradeLoaded = true;
+        });
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDeviceId();
   }
 
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
+    double fem = MediaQuery
+        .of(context)
+        .size
+        .width / baseWidth;
     double ffem = fem * 0.97;
     return Material(
       child: Container(
         // Create a container where everything else is located
         padding: EdgeInsets.fromLTRB(9 * fem, 79 * fem, 9 * fem, 0 * fem),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+        width: MediaQuery
+            .of(context)
+            .size
+            .width,
+        height: MediaQuery
+            .of(context)
+            .size
+            .height,
         decoration: const BoxDecoration(
           color: Color(0xff202024),
         ),
@@ -139,30 +169,60 @@ class _TradeStartWidget extends State<TradeStartWidget> {
             Expanded(
               flex: 3,
               child: Center(
-                child: ElevatedButton(
-                  onPressed: /**/ () {
-                    //Navigator.pushNamed(context, '/TradeQR');
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const MyQRView(),
-                    ));
-                  },
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    backgroundColor: Colors.deepPurpleAccent,
+                child: Visibility(
+                  visible: tradeLoaded,
+                  replacement:ElevatedButton(
+                    onPressed: /**/ () {
+                      //Navigator.pushNamed(context, '/TradeQR');
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const MyQRView(),
+                      ));
+                    },
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      backgroundColor: Colors.deepPurpleAccent,
+                    ),
+                    child: Container(
+                      width: 200 * fem,
+                      height: 50 * fem,
+                      child: Center(
+                        child: Text(
+                          "Scan QR-Code",
+                          textAlign: TextAlign.center,
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 25 * ffem,
+                            fontWeight: FontWeight.w700,
+                            height: 1.2941176471 * ffem / fem,
+                            color: const Color(0xffffffff),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                  child: Container(
-                    width: 200 * fem,
-                    height: 50 * fem,
-                    child: Center(
-                      child: Text(
-                        'Scan QR-Code',
-                        textAlign: TextAlign.center,
-                        style: SafeGoogleFont(
-                          'SF Pro Display',
-                          fontSize: 25 * ffem,
-                          fontWeight: FontWeight.w700,
-                          height: 1.2941176471 * ffem / fem,
-                          color: Color(0xffffffff),
+                  child: ElevatedButton(
+                    onPressed: /**/ () {
+                      //Navigator.pushNamed(context, '/TradeQR');
+                      Navigator.pushNamed(context, '/TradeSelectCard');
+                    },
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      backgroundColor: Colors.deepPurpleAccent,
+                    ),
+                    child: Container(
+                      width: 200 * fem,
+                      height: 50 * fem,
+                      child: Center(
+                        child: Text(
+                          "Start trade",
+                          textAlign: TextAlign.center,
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 25 * ffem,
+                            fontWeight: FontWeight.w700,
+                            height: 1.2941176471 * ffem / fem,
+                            color: const Color(0xffffffff),
+                          ),
                         ),
                       ),
                     ),
