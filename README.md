@@ -1,12 +1,13 @@
 # caf_cards_frontend
 
 Necessary:
-$ flutter pub add qr_flutter (in project root directory)
-$ flutter pub add flutter_barcode_scanner (in project root directory)
-in run config unter "Additional run args" --no-sound-null-safety packen
+- ($ flutter pub add qr_flutter (in project root directory))
+- ($ flutter pub add flutter_barcode_scanner (in project root directory))
+- in run config at "Additional run args" insert "--no-sound-null-safety"
+- since localhost doesnt work with flutter at "Additional run args" insert "--dart-define=IP=192.168.0.2"
 
 -> root:
-- plattform specific folders (android, ios, windows, macos, linux, web)
+- platform specific folders (android, ios, windows, macos, linux, web)
 - assets = images and other static stuff
 - fonts = all the fonts for this project
 
@@ -24,12 +25,10 @@ qr_code_scanner: https://pub.dev/packages/qr_code_scanner
 
 
 TODO for now:
-- neue API-Endpunkte (getCardsByUser)
-- QR-Code Funktionalität
 - Trading syncen und sowas
+- Card collection als dynamic list
 - Create Textfelder als inputs in Obj und von Seite zu Seite übergeben
 
 TODO for later:
 - Collection machen (gehöret nicht zum UseCase aber wäre schön)
-- home screen: stats in eine Tabelle
 - navbar: anstatt Pipette ein Schwert (https://www.fluttericon.com/)
