@@ -131,8 +131,8 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CollectionCardWidget(fem: fem, ffem: ffem, name: cards![0].name,description: cards![0].description,
-                  ability: "kek", energy:cards![0].energy, health: cards![0].health, strength: cards![0].strength),
+                  CollectionCardWidget(fem: fem, ffem: ffem, name: cards?[0].name ?? "loading",description: cards?[0].description ?? "loading",
+                  ability: "kek", energy:cards?[0].energy ?? 0, health: cards?[0].health ?? 0, strength: cards?[0].strength ?? 0),
                   Container(
                     // alpeideaZzM (111:1191)
                     padding: EdgeInsets.fromLTRB(0*fem, 3.22*fem, 0*fem, 0*fem),
