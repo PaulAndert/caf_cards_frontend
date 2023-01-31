@@ -239,7 +239,7 @@ class CollectionCardWidget extends StatelessWidget {
                 width: 131.98 * fem,
                 height: 82.06 * fem,
                 child: Image.asset(
-                  'assets/page-1/images/grafik-4.png',
+                  'assets/page-1/images/Foto-Platzhalter-klein.png',
                   fit: BoxFit.cover,
                 ),
               ),
