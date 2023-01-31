@@ -157,16 +157,19 @@ class CollectionCardWidget extends StatelessWidget {
                     // Ability Text
                     Expanded(
                       flex: 3,
-                      child: Center(
-                        child: Text(
-                          ability,
-                          textAlign: TextAlign.center,
-                          style: SafeGoogleFont(
-                            'SF Pro Display',
-                            fontSize: fontsize * ffem,
-                            fontWeight: FontWeight.w700,
-                            height: 1.6923076923 * ffem / fem,
-                            color: const Color(0xffffffff),
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(5 * fem, 0 * fem, 5 * fem, 0 * fem),
+                        child: Center(
+                          child: Text(
+                            ability,
+                            textAlign: TextAlign.center,
+                            style: SafeGoogleFont(
+                              'SF Pro Display',
+                              fontSize: fontsize * ffem,
+                              fontWeight: FontWeight.w700,
+                              height: 1.6923076923 * ffem / fem,
+                              color: const Color(0xffffffff),
+                            ),
                           ),
                         ),
                       ),
@@ -213,8 +216,7 @@ class CollectionCardWidget extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Container(
-              margin: EdgeInsets.fromLTRB(
-                  16 * fem, 0 * fem, 16 * fem, 2 * fem),
+              margin: EdgeInsets.fromLTRB(16 * fem, 0 * fem, 16 * fem, 2 * fem),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
