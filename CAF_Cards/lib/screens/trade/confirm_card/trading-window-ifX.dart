@@ -51,18 +51,22 @@ class TradeConfirmCard extends StatelessWidget {
                           child: Row(
                             children: [
                               IconButton(
-                                  onPressed: (){
-                                    Navigator.pop(context);
-                                  },
-                                  icon: const Icon(Icons.arrow_back_ios),
-                                  color: Color(0xffffffff)),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: const Icon(Icons.arrow_back_ios,
+                                    color: Color(0xffffffff)),
+                              ),
                               IconButton(
-                                  onPressed: (){
-                                    Navigator.pop(context);
-                                    Navigator.pushNamed(context,TradingConfirmTrade.routeName,arguments: args);
-                                  },
-                                  icon: const Icon(Icons.arrow_forward_ios),
-                                  color: Color(0xffffffff)),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                  Navigator.pushNamed(
+                                      context, TradingConfirmTrade.routeName,
+                                      arguments: args);
+                                },
+                                icon: const Icon(Icons.arrow_forward_ios,
+                                    color: Color(0xffffffff)),
+                              ),
                             ],
                           ),
                         ),
