@@ -122,7 +122,7 @@ class CreatePoints extends StatelessWidget {
                           width: 26*fem,
                           height: 22*fem,
                           child: Text(
-                            '2',
+                            args.energy.toString() == '' ? "..." : args.energy.toString(),
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont (
                               'SF Pro Display',

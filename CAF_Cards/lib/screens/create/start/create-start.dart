@@ -19,6 +19,8 @@ class _CreateStartState extends State<CreateStart> {
 
   final cardNameController = TextEditingController();
   final cardDescriptionController = TextEditingController();
+  double _value = 0;
+
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
@@ -46,7 +48,7 @@ class _CreateStartState extends State<CreateStart> {
           children: [
             Expanded(
               // autogroupd3idwwK (T1Stnm92DEKwBygMp2d3id)
-              flex: 33,
+              flex: 5,
               child: Stack(
                 children: [
                   Positioned(
@@ -275,7 +277,7 @@ class _CreateStartState extends State<CreateStart> {
             ),
             Expanded(
               // title5Cq (26:2289)
-              flex: 5,
+              flex: 1,
               child: Text(
                 'Select card energy costs',
                 style: SafeGoogleFont (
@@ -289,128 +291,32 @@ class _CreateStartState extends State<CreateStart> {
             ),
             Expanded(
               // othersliderx1j (26:2210)
-              flex: 10,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Center(
-                    // 21b (I26:2210;26:1061;1388:23)
-                    child: Container(
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 11.5*fem, 0*fem),
-                      child: Text(
-                        '0',
-                        textAlign: TextAlign.center,
-                        style: SafeGoogleFont (
-                          'SF Pro Display',
-                          fontSize: 20*ffem,
-                          fontWeight: FontWeight.w600,
-                          height: 1.2575*ffem/fem,
-                          color: Color(0xff007aff),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    // slidersgM3 (I26:2210;26:1056)
-                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 11.5*fem, 0*fem),
-                    width: 279*fem,
-                    height: double.infinity,
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          // trackBYh (I26:2210;26:1057)
-                          left: 0*fem,
-                          top: 12*fem,
-                          child: Align(
-                            child: SizedBox(
-                              width: 279*fem,
-                              height: 4*fem,
-                              child: Container(
-                                decoration: BoxDecoration (
-                                  borderRadius: BorderRadius.circular(1.5*fem),
-                                  color: Color(0xffc7c7cc),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          // fillr93 (I26:2210;26:1058)
-                          left: 0*fem,
-                          top: 12*fem,
-                          child: Align(
-                            child: SizedBox(
-                              width: 115*fem,
-                              height: 4*fem,
-                              child: Container(
-                                decoration: BoxDecoration (
-                                  borderRadius: BorderRadius.circular(3*fem),
-                                  color: Color(0xff007aff),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          // knob7am (I26:2210;26:1059;1078:2170)
-                          left: 89*fem,
-                          top: 0*fem,
-                          child: Align(
-                            child: SizedBox(
-                              width: 28*fem,
-                              height: 28*fem,
-                              child: Container(
-                                decoration: BoxDecoration (
-                                  borderRadius: BorderRadius.circular(100*fem),
-                                  color: Color(0xffffffff),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Color(0x07000000),
-                                      offset: Offset(0*fem, 3*fem),
-                                      blurRadius: 0.5*fem,
-                                    ),
-                                    BoxShadow(
-                                      color: Color(0x02000000),
-                                      offset: Offset(0*fem, 1*fem),
-                                      blurRadius: 0.5*fem,
-                                    ),
-                                    BoxShadow(
-                                      color: Color(0x19000000),
-                                      offset: Offset(0*fem, 3*fem),
-                                      blurRadius: 4*fem,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Center(
-                    // 48d (I26:2210;26:1060;1388:23)
-                    child: Text(
-                      '5',
-                      textAlign: TextAlign.center,
-                      style: SafeGoogleFont (
-                        'SF Pro Display',
-                        fontSize: 20*ffem,
-                        fontWeight: FontWeight.w600,
-                        height: 1.2575*ffem/fem,
-                        color: Color(0xff007aff),
-                      ),
-                    ),
-                  ),
-                ],
+              flex: 1,
+              child: SliderTheme(
+                data:
+                SliderTheme.of(context).copyWith(
+                  valueIndicatorShape: const RectangularSliderValueIndicatorShape(),
+                ),
+                child: Slider(
+                  min: 0,
+                  max: 5,
+                  divisions: 5,
+                  value: _value,
+                  label: '$_value',
+                  onChanged: (value) {
+                    setState(() {
+                      _value = value;
+                    });
+                  },
+                ),
               ),
             ),
             Expanded(
               // buttonsprimerym33 (111:1528)
-             flex: 10,
+             flex: 1,
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, CreatePoints.routeName, arguments: CreateBasicArguments(cardNameController.text, cardDescriptionController.text, 0)
+                  Navigator.pushNamed(context, CreatePoints.routeName, arguments: CreateBasicArguments(cardNameController.text, cardDescriptionController.text, _value.toInt())
                   );
                 },
                 style: TextButton.styleFrom (
