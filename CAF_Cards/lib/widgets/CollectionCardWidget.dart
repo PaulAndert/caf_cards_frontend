@@ -158,7 +158,7 @@ class CollectionCardWidget extends StatelessWidget {
                     Expanded(
                       flex: 7,
                       child: Container(
-                        margin: EdgeInsets.fromLTRB(7 * fem, 0 * fem, 7 * fem, 0 * fem),
+                        margin: EdgeInsets.fromLTRB(12 * fem, 0 * fem, 12 * fem, 0 * fem),
                         child: Center(
                           child: Text(
                             ability,

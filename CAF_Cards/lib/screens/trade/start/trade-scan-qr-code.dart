@@ -35,6 +35,7 @@ class _MyQRView extends State<MyQRView> {
 
   Widget build(BuildContext context) {
     if (result != null) {
+
       return TradeSelectCard();
     }
     return Scaffold(
