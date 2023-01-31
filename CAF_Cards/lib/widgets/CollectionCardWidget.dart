@@ -123,7 +123,7 @@ class CollectionCardWidget extends StatelessWidget {
                   children: [
                     // Top corners
                     Expanded(
-                      flex: 1,
+                      flex: 2,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -156,9 +156,9 @@ class CollectionCardWidget extends StatelessWidget {
 
                     // Ability Text
                     Expanded(
-                      flex: 3,
+                      flex: 7,
                       child: Container(
-                        margin: EdgeInsets.fromLTRB(5 * fem, 0 * fem, 5 * fem, 0 * fem),
+                        margin: EdgeInsets.fromLTRB(7 * fem, 0 * fem, 7 * fem, 0 * fem),
                         child: Center(
                           child: Text(
                             ability,
@@ -177,7 +177,7 @@ class CollectionCardWidget extends StatelessWidget {
 
                     // Bottom corners
                     Expanded(
-                      flex: 1,
+                      flex: 2,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
