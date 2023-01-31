@@ -77,7 +77,7 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Container(
-      // tradingwindowPty (26:586)
+      // tradingindowPty (26:586)
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       decoration: const BoxDecoration(
