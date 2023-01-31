@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/models/CreateBasicArguments.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/navbar.dart';
 
 class CreatePoints extends StatelessWidget {
+  static const String routeName = "/CreatePoints";
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as CreateBasicArguments;
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -166,7 +169,7 @@ class CreatePoints extends StatelessWidget {
                         width: 89*fem,
                         height: 22*fem,
                         child: Text(
-                          'Wall-E',
+                          args.name == '' ? "..." : args.name,
                           style: SafeGoogleFont (
                             'SF Pro Display',
                             fontSize: 32*ffem,
@@ -187,7 +190,7 @@ class CreatePoints extends StatelessWidget {
                         width: 287*fem,
                         height: 22*fem,
                         child: Text(
-                          'A small robot that loves to clean.',
+                          args.description == '' ? "..." : args.description,
                           style: SafeGoogleFont (
                             'SF Pro Display',
                             fontSize: 20*ffem,

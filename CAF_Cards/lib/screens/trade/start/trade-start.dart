@@ -12,6 +12,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../../services/helper_service.dart';
 import '../../collection/collection.dart';
+import '../../create/points/create-points.dart';
 import '../../create/start/create-start.dart';
 import '../../fight/start/fight-start.dart';
 import '../../home/home.dart';
@@ -33,6 +34,7 @@ class TradeStart extends StatelessWidget {
         TradeStart.routeName: (BuildContext context) => const TradeStart(),
         Home.routeName: (BuildContext context) => Home(),
         CreateStart.routeName: (BuildContext context) => CreateStart(),
+        CreatePoints.routeName: (BuildContext context) => CreatePoints(),
         Collection.routeName: (BuildContext context) => Collection(),
         TradeSelectCard.routeName: (BuildContext context) => TradeSelectCard(),
         TradeConfirmCard.routeName: (BuildContext context) =>

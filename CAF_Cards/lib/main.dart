@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/custom_icons_icons.dart';
 import 'package:myapp/models/trade.dart';
 import 'package:myapp/screens/collection/collection.dart';
+import 'package:myapp/screens/create/points/create-points.dart';
 import 'package:myapp/screens/create/start/create-start.dart';
 import 'package:myapp/screens/fight/start/fight-start.dart';
 import 'package:myapp/screens/trade/confirm_card/trading-window-ifX.dart';
@@ -91,6 +92,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
         TradeStart.routeName: (BuildContext context) => const TradeStart(),
         Home.routeName: (BuildContext context) => Home(),
         CreateStart.routeName: (BuildContext context) => CreateStart(),
+        CreatePoints.routeName: (BuildContext context) => CreatePoints(),
         Collection.routeName: (BuildContext context) => Collection(),
         TradeSelectCard.routeName: (BuildContext context) => TradeSelectCard(),
         TradeConfirmCard.routeName: (BuildContext context) => TradeConfirmCard(),
