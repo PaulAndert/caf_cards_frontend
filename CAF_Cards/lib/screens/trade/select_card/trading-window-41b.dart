@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/models/ScreenArguments.dart';
 import 'package:myapp/models/ability.dart';
+import 'package:myapp/screens/trade/confirm_card/trading-window-ifX.dart';
 import 'package:myapp/services/card_service.dart';
 import 'package:myapp/utils.dart';
 import '../../../services/ability_service.dart';
@@ -96,15 +98,20 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
                 child: Container(
                   padding: const EdgeInsets.fromLTRB(25, 10, 0, 10),
                   alignment: Alignment.center,
-                  child: CollectionCardWidget(
-                    fem: fem,
-                    ffem: ffem,
-                    name: cards?[index].name ?? "...",
-                    description: cards?[index].description ?? "...",
-                    energy: cards?[index].energy ?? 0,
-                    strength: cards?[index].strength ?? 0,
-                    health: cards?[index].health ?? 0,
-                    ability: abilities[index].name,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, TradeConfirmCard.routeName, arguments: ScreenArguments(deviceId!, cards![index], abilities[index]));
+                      },
+                    child: CollectionCardWidget(
+                      fem: fem,
+                      ffem: ffem,
+                      name: cards?[index].name ?? "...",
+                      description: cards?[index].description ?? "...",
+                      energy: cards?[index].energy ?? 0,
+                      strength: cards?[index].strength ?? 0,
+                      health: cards?[index].health ?? 0,
+                      ability: abilities[index].name,
+                    ),
                   ),
                 ),
               );

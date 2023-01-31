@@ -4,10 +4,13 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
+import '../../../models/ScreenArguments.dart';
+
 class TradeConfirmCard extends StatelessWidget {
   static const String routeName = "/TradeConfirmCard";
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -268,7 +271,8 @@ class TradeConfirmCard extends StatelessWidget {
                         width: 172*fem,
                         height: 22*fem,
                         child: Text(
-                          'Jar of Greed',
+                          //'Jar of Greed',
+                          args != null ? args.deviceId : "...",
                           style: SafeGoogleFont (
                             'SF Pro Display',
                             fontSize: 32*ffem,
