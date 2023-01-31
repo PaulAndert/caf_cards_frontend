@@ -296,6 +296,13 @@ class _CreateStartState extends State<CreateStart> {
                 data:
                 SliderTheme.of(context).copyWith(
                   valueIndicatorShape: const RectangularSliderValueIndicatorShape(),
+                  activeTrackColor: Colors.deepPurpleAccent,
+                  thumbColor: Colors.deepPurpleAccent,
+                  valueIndicatorColor: Colors.deepPurpleAccent,
+                  overlayColor: const Color(0x3d7c4dff),
+                  inactiveTrackColor: const Color(0x3d7c4dff),
+                  inactiveTickMarkColor: const Color(0xffffffff),
+                  activeTickMarkColor: const Color(0xffffffff),
                 ),
                 child: Slider(
                   min: 0,
@@ -326,7 +333,7 @@ class _CreateStartState extends State<CreateStart> {
                   width: double.infinity,
                   height: 50*fem,
                   decoration: BoxDecoration (
-                    color: Color(0xff000080),
+                    color: Colors.deepPurpleAccent,
                     borderRadius: BorderRadius.circular(12*fem),
                   ),
                   child: Center(
