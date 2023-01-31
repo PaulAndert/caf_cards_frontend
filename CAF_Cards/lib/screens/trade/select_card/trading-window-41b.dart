@@ -8,7 +8,6 @@ import 'package:myapp/utils.dart';
 import '../../../services/ability_service.dart';
 import '../../../widgets/CollectionCardWidget.dart';
 
-
 import '../../../models/user.dart';
 import '../../../models/gamecard.dart';
 import '../../../services/helper_service.dart';
@@ -79,12 +78,13 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
       // tradingwindowPty (26:586)
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
-      decoration: const BoxDecoration (
+      decoration: const BoxDecoration(
         color: Color(0xff202024),
       ),
       child: Visibility(
         visible: abilitiesLoaded && cardsLoaded,
-        replacement: const Center(child: CircularProgressIndicator(
+        replacement: const Center(
+            child: CircularProgressIndicator(
           color: Colors.deepPurpleAccent,
         )),
         child: GridView.builder(
