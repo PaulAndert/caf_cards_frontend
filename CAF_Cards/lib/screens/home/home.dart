@@ -93,7 +93,8 @@ class _HomeState extends State<Home> {
               // Stats Tabelle
               flex: 6,
               child: Container(
-                padding: EdgeInsets.fromLTRB(20 * fem, 30 * fem, 20 * fem, 0 * fem),
+                padding:
+                    EdgeInsets.fromLTRB(20 * fem, 30 * fem, 20 * fem, 0 * fem),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -135,7 +136,7 @@ class _HomeState extends State<Home> {
                             fontSize: 28 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2575 * ffem / fem,
-                            color: Color(0xffffffff),
+                            color: const Color(0xffffffff),
                           ),
                         ),
                         Text(
@@ -145,7 +146,7 @@ class _HomeState extends State<Home> {
                             fontSize: 28 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2575 * ffem / fem,
-                            color: Color(0xffffffff),
+                            color: const Color(0xffffffff),
                           ),
                         ),
                       ],
@@ -161,7 +162,7 @@ class _HomeState extends State<Home> {
                             fontSize: 28 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2575 * ffem / fem,
-                            color: Color(0xffffffff),
+                            color: const Color(0xffffffff),
                           ),
                         ),
                         Text(
@@ -171,7 +172,7 @@ class _HomeState extends State<Home> {
                             fontSize: 28 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2575 * ffem / fem,
-                            color: Color(0xffffffff),
+                            color: const Color(0xffffffff),
                           ),
                         ),
                       ],
@@ -187,7 +188,7 @@ class _HomeState extends State<Home> {
                             fontSize: 28 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2575 * ffem / fem,
-                            color: Color(0xffffffff),
+                            color: const Color(0xffffffff),
                           ),
                         ),
                         Text(
@@ -197,7 +198,7 @@ class _HomeState extends State<Home> {
                             fontSize: 28 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2575 * ffem / fem,
-                            color: Color(0xffffffff),
+                            color: const Color(0xffffffff),
                           ),
                         ),
                       ],
@@ -213,7 +214,7 @@ class _HomeState extends State<Home> {
                             fontSize: 28 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2575 * ffem / fem,
-                            color: Color(0xffffffff),
+                            color: const Color(0xffffffff),
                           ),
                         ),
                         Text(
@@ -223,36 +224,36 @@ class _HomeState extends State<Home> {
                             fontSize: 28 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2575 * ffem / fem,
-                            color: Color(0xffffffff),
+                            color: const Color(0xffffffff),
                           ),
                         ),
                       ],
                     ),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //   children: [
-                    //     Text(
-                    //       'Device ID:',
-                    //       style: SafeGoogleFont(
-                    //         'SF Pro Display',
-                    //         fontSize: 28 * ffem,
-                    //         fontWeight: FontWeight.w400,
-                    //         height: 1.2575 * ffem / fem,
-                    //         color: const Color(0xffffffff),
-                    //       ),
-                    //     ),
-                    //     Text(
-                    //       '$deviceId',
-                    //       style: SafeGoogleFont(
-                    //         'SF Pro Display',
-                    //         fontSize: 28 * ffem,
-                    //         fontWeight: FontWeight.w400,
-                    //         height: 1.2575 * ffem / fem,
-                    //         color: const Color(0xffffffff),
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
+                    /*Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Device ID:',
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 28 * ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1.2575 * ffem / fem,
+                            color: const Color(0xffffffff),
+                          ),
+                        ),
+                        Text(
+                          '$deviceId',
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 28 * ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1.2575 * ffem / fem,
+                            color: const Color(0xffffffff),
+                          ),
+                        ),
+                      ],
+                    ),*/
                   ],
                 ),
               ),
