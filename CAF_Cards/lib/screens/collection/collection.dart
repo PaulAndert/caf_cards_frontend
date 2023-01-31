@@ -96,31 +96,36 @@ class GridBuilderState extends State<GridBuilder> {
         ),
         child: Visibility(
           visible: abilitiesLoaded && cardsLoaded,
-          replacement: const Center(child: CircularProgressIndicator(
+          replacement: const Center(
+              child: CircularProgressIndicator(
             color: Colors.deepPurpleAccent,
           )),
-          child: GridView.builder(
-              itemCount: cards?.length ?? 0,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
-              itemBuilder: (_, int index) {
-                return GridTile(
-                  child: Container(
-                    padding: const EdgeInsets.fromLTRB(25, 10, 0, 10),
-                    alignment: Alignment.center,
-                    child: CollectionCardWidget(
-                      fem: fem,
-                      ffem: ffem,
-                      name: cards?[index].name ?? "...",
-                      description: cards?[index].description ?? "...",
-                      energy: cards?[index].energy ?? 0,
-                      strength: cards?[index].strength ?? 0,
-                      health: cards?[index].health ?? 0,
-                      ability: abilities[index].name,
+          child: Center(
+            child: GridView.builder(
+                itemCount: cards?.length ?? 0,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: (157.75 * fem / 250 * fem),
+                ),
+                itemBuilder: (_, int index) {
+                  return GridTile(
+                    child: Container(
+                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      alignment: Alignment.center,
+                      child: CollectionCardWidget(
+                        fem: fem,
+                        ffem: ffem,
+                        name: cards?[index].name ?? "...",
+                        description: cards?[index].description ?? "...",
+                        energy: cards?[index].energy ?? 0,
+                        strength: cards?[index].strength ?? 0,
+                        health: cards?[index].health ?? 0,
+                        ability: abilities[index].name,
+                      ),
                     ),
-                  ),
-                );
-              }),
+                  );
+                }),
+          ),
         ),
       ),
     );

@@ -29,8 +29,8 @@ class CollectionCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200 * fem,
-      height: 300 * fem,
+      width: 157.75*fem,
+      height: double.infinity,
       child: Stack(
         children: [
           Positioned(
