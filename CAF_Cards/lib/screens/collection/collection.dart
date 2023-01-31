@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/services/ability_service.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/CollectionCardWidget.dart';
 
@@ -16,13 +17,13 @@ var ffem;
 
 class Collection extends StatelessWidget {
   static const String routeName = "/Collection";
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
     fem = MediaQuery.of(context).size.width / baseWidth;
     ffem = fem * 0.97;
-    return
-        GridBuilder();
+    return const GridBuilder();
   }
 }
 
@@ -31,7 +32,6 @@ class GridBuilder extends StatefulWidget {
     super.key,
   });
 
-
   @override
   GridBuilderState createState() => GridBuilderState();
 }
@@ -39,7 +39,7 @@ class GridBuilder extends StatefulWidget {
 class GridBuilderState extends State<GridBuilder> {
   String? deviceId;
   List<Gamecard>? cards;
-  List<Ability>? abilities;
+  List<Ability> abilities = [];
   var deviceIdLoaded = false;
   var cardsLoaded = false;
   var abilitiesLoaded = false;
@@ -66,11 +66,21 @@ class GridBuilderState extends State<GridBuilder> {
     if (cards != null) {
       setState(() {
         cardsLoaded = true;
-        // getAbilities();
+        getAbilities();
       });
-    } else {
+    }
+  }
+
+  getAbilities() async {
+    for (var card in cards!) {
+      Ability? ability = await AbilityService().getAbilityById(card.abilityId);
+      if (ability != null) {
+        abilities.add(ability);
+      }
+    }
+    if (abilities.length == cards!.length) {
       setState(() {
-        cardsLoaded = false;
+        abilitiesLoaded = true;
       });
     }
   }
@@ -84,28 +94,33 @@ class GridBuilderState extends State<GridBuilder> {
         decoration: const BoxDecoration(
           color: Color(0xff202024),
         ),
-        child: GridView.builder(
-            itemCount: cards?.length ?? 0,
-            gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-            itemBuilder: (_, int index) {
-              return GridTile(
-                child: Container(
-                  padding: const EdgeInsets.fromLTRB(25, 10, 0, 10),
-                  alignment: Alignment.center,
-                  child: CollectionCardWidget(
-                    fem: fem,
-                    ffem: ffem,
-                    name: cards?[index].name ?? "...",
-                    description: cards?[index].description ?? "...",
-                    energy: cards?[index].energy ?? 0,
-                    strength: cards?[index].strength ?? 0,
-                    health: cards?[index].health ?? 0,
-                    ability: "...",
+        child: Visibility(
+          visible: abilitiesLoaded && cardsLoaded,
+          replacement: const Center(child: CircularProgressIndicator(
+            color: Colors.deepPurpleAccent,
+          )),
+          child: GridView.builder(
+              itemCount: cards?.length ?? 0,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2),
+              itemBuilder: (_, int index) {
+                return GridTile(
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(25, 10, 0, 10),
+                    alignment: Alignment.center,
+                    child: CollectionCardWidget(
+                      fem: fem,
+                      ffem: ffem,
+                      name: cards?[index].name ?? "...",
+                      description: cards?[index].description ?? "...",
+                      energy: cards?[index].energy ?? 0,
+                      strength: cards?[index].strength ?? 0,
+                      health: cards?[index].health ?? 0,
+                      ability: abilities[index].name,
+                    ),
                   ),
-                ),
-              );
-            }
+                );
+              }),
         ),
       ),
     );
