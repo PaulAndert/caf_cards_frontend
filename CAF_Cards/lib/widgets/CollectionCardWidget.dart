@@ -26,290 +26,243 @@ class CollectionCardWidget extends StatelessWidget {
   final int health;
   final String ability;
 
+  final fontsize = 13;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 157.75*fem,
-      height: double.infinity,
-      child: Stack(
+      width: 156.01 * fem,
+      height: 234 * fem,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(29 * fem),
+        color: const Color(0xff47479d),
+      ),
+      child: Column(
         children: [
-          Positioned(
-            // lila Untergrund Karte
-            left: 1.7401123047 * fem,
-            top: 0 * fem,
-            child: Align(
-              child: SizedBox(
-                width: 156.01 * fem,
-                height: 234 * fem,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(29 * fem),
-                    color: const Color(0xff47479d),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            // group10k2h (111:1187)
-            left: 11.7912597656 * fem,
-            top: 119.5625610352 * fem,
-            child: Container(
-              width: 135.03 * fem,
-              height: 76.44 * fem,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    // autogroupykqq1zD (T1SgMNN3SqvZQHc7CTYKQq)
+          // Top row (Name & Energy)
+          Expanded(
+            flex: 2,
+            child: Row(
+              children: [
+                // Name
+                Expanded(
+                  flex: 4,
+                  child: Container(
                     margin: EdgeInsets.fromLTRB(
-                        0.21 * fem, 0 * fem, 0 * fem, 51.87 * fem),
-                    width: double.infinity,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // vector8stroke7GZ (110:1180)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0.39 * fem, 107.29 * fem, 0 * fem),
-                          width: 13.11 * fem,
-                          height: 12.09 * fem,
-                          child: Image.asset(
-                            'assets/page-1/images/vector-8-stroke-zHj.png',
-                            width: 13.11 * fem,
-                            height: 12.09 * fem,
-                          ),
-                        ),
-                        Container(
-                          // vector8strokemM7 (110:1181)
-                          width: 14.42 * fem,
-                          height: 10.99 * fem,
-                          child: Image.asset(
-                            'assets/page-1/images/vector-8-stroke-Egu.png',
-                            width: 14.42 * fem,
-                            height: 10.99 * fem,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    // autogroupxtx3Tjj (T1SgT2sGk3kykMtHyTXTX3)
-                    margin:
-                        EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                    width: double.infinity,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Container(
-                          // vector8strokeMq7 (110:1182)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 107.5 * fem, 0 * fem),
-                          width: 14.42 * fem,
-                          height: 10.99 * fem,
-                          child: Image.asset(
-                            'assets/page-1/images/vector-8-stroke-e45.png',
-                            width: 14.42 * fem,
-                            height: 10.99 * fem,
-                          ),
-                        ),
-                        Container(
-                          // vector8strokeCKw (110:1183)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                          width: 13.11 * fem,
-                          height: 12.09 * fem,
-                          child: Image.asset(
-                            'assets/page-1/images/vector-8-stroke-Z4Z.png',
-                            width: 13.11 * fem,
-                            height: 12.09 * fem,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            // group13zWh (111:1190)
-            left: 118.467590332 * fem,
-            top: 3.2186889648 * fem,
-            child: Container(
-              width: 32.53 * fem,
-              height: 27.16 * fem,
-              child: Stack(
-                children: [
-                  Positioned(
-                    // group9g29 (110:1186)
-                    left: 3.3150024414 * fem,
-                    top: 0 * fem,
-                    child: Align(
-                      child: SizedBox(
-                        width: 29.22 * fem,
-                        height: 27.16 * fem,
-                        child: Image.asset(
-                          'assets/page-1/images/group-9-i4d.png',
-                          width: 29.22 * fem,
-                          height: 27.16 * fem,
-                        ),
+                        16 * fem, 2 * fem, 0 * fem, 0 * fem),
+                    child: Text(
+                      name,
+                      style: SafeGoogleFont(
+                        'SF Pro Display',
+                        fontSize: fontsize * ffem,
+                        fontWeight: FontWeight.w700,
+                        height: 1.4666666667 * ffem / fem,
+                        color: const Color(0xffffffff),
                       ),
                     ),
                   ),
-                  Positioned(
-                    // u9o (110:1190)
-                    left: 0 * fem,
-                    top: 1.3906860352 * fem,
-                    child: Center(
-                      child: Align(
-                        child: SizedBox(
-                          width: 11 * fem,
-                          height: 22 * fem,
+                ),
+                // Energy
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(
+                        0 * fem, 2 * fem, 16 * fem, 0 * fem),
+                    child: Row(
+                      children: [
+                        // Energy Value
+                        Expanded(
+                          flex: 2,
                           child: Text(
                             energy.toString(),
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont(
                               'SF Pro Display',
-                              fontSize: 20 * ffem,
+                              fontSize: fontsize * ffem,
                               fontWeight: FontWeight.w700,
                               height: 1.1 * ffem / fem,
-                              color: Color(0xffffffff),
+                              color: const Color(0xffffffff),
                             ),
+                          ),
+                        ),
+                        // Energy Symbol
+                        Expanded(
+                          flex: 3,
+                          child: Image.asset(
+                            'assets/page-1/images/group-9-i4d.png',
+                            width: double.infinity,
+                            height: double.infinity,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          // Image
+          Expanded(
+            flex: 7,
+            child: Align(
+              child: Image.asset(
+                'assets/page-1/images/Foto-Platzhalter-klein.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+
+          // Corners + Ability
+          Expanded(
+            flex: 8,
+            child: Container(
+              margin: EdgeInsets.fromLTRB(5 * fem, 2 * fem, 5 * fem, 2 * fem),
+              child: Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // Top corners
+                    Expanded(
+                      flex: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          // top left corner
+                          Expanded(
+                            flex: 2,
+                            child: Image.asset(
+                              'assets/page-1/images/vector-8-stroke-zHj.png',
+                              width: 13.11 * fem,
+                              height: 12.09 * fem,
+                            ),
+                          ),
+                          // Empty space
+                          Expanded(
+                            flex: 5,
+                            child: Container(),
+                          ),
+                          // top right corner
+                          Expanded(
+                            flex: 2,
+                            child: Image.asset(
+                              'assets/page-1/images/vector-8-stroke-Egu.png',
+                              width: 14.42 * fem,
+                              height: 10.99 * fem,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // Ability Text
+                    Expanded(
+                      flex: 3,
+                      child: Center(
+                        child: Text(
+                          ability,
+                          textAlign: TextAlign.center,
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: fontsize * ffem,
+                            fontWeight: FontWeight.w700,
+                            height: 1.6923076923 * ffem / fem,
+                            color: const Color(0xffffffff),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            // Ability
-            left: 25 * fem,
-            top: 140 * fem,
-            child: Center(
-              child: Align(
-                child: SizedBox(
-                  width: 108 * fem,
-                  height: 44 * fem,
-                  child: Text(
-                    ability,
-                    textAlign: TextAlign.center,
-                    style: SafeGoogleFont(
-                      'SF Pro Display',
-                      fontSize: 13 * ffem,
-                      fontWeight: FontWeight.w700,
-                      height: 1.6923076923 * ffem / fem,
-                      color: const Color(0xffffffff),
+
+                    // Bottom corners
+                    Expanded(
+                      flex: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          // Bottom left corner
+                          Expanded(
+                            flex: 2,
+                            child: Image.asset(
+                              'assets/page-1/images/vector-8-stroke-e45.png',
+                              width: 14.42 * fem,
+                              height: 10.99 * fem,
+                            ),
+                          ),
+                          Expanded(
+                            flex: 5,
+                            child: Container(),
+                          ),
+                          // Bottom right corner
+                          Expanded(
+                            flex: 2,
+                            child: Image.asset(
+                              'assets/page-1/images/vector-8-stroke-Z4Z.png',
+                              width: 13.11 * fem,
+                              height: 12.09 * fem,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ),
           ),
-          Positioned(
-            // Name
-            left: 14 * fem,
-            top: 4.5 * fem,
-            child: Align(
-              child: SizedBox(
-                width: 81 * fem,
-                height: 22 * fem,
-                child: Text(
-                  name,
-                  style: SafeGoogleFont(
-                    'SF Pro Display',
-                    fontSize: 15 * ffem,
-                    fontWeight: FontWeight.w700,
-                    height: 1.4666666667 * ffem / fem,
-                    color: Color(0xffffffff),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            // grafik48qB (110:1194)
-            left: 13.9763183594 * fem,
-            top: 28.8125 * fem,
-            child: Align(
-              child: SizedBox(
-                width: 131.98 * fem,
-                height: 82.06 * fem,
-                child: Image.asset(
-                  'assets/page-1/images/Foto-Platzhalter-klein.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            // Strength
-            left: 15.4762573242 * fem,
-            top: 204.3906555176 * fem,
+
+          // Strength & Health row
+          Expanded(
+            flex: 2,
             child: Container(
-              width: 28.04 * fem,
-              height: 22 * fem,
+              margin: EdgeInsets.fromLTRB(
+                  16 * fem, 0 * fem, 16 * fem, 2 * fem),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Center(
-                    // fTj (110:1200)
-                    child: Container(
-                      margin: EdgeInsets.fromLTRB(
-                          0 * fem, 0 * fem, 2.69 * fem, 0 * fem),
+                  // Strength
+                  // Strength value
+                  Expanded(
+                    flex: 1,
+                    child: Center(
                       child: Text(
                         strength.toString(),
                         textAlign: TextAlign.center,
                         style: SafeGoogleFont(
                           'SF Pro Display',
-                          fontSize: 20 * ffem,
+                          fontSize: fontsize * ffem,
                           fontWeight: FontWeight.w700,
                           height: 1.1 * ffem / fem,
-                          color: Color(0xffffffff),
+                          color: const Color(0xffffffff),
                         ),
                       ),
                     ),
+                    // Strength Icon
                   ),
-                  Container(
-                    // group7vuT (110:1195)
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0.67 * fem, 0 * fem, 0 * fem),
-                    width: 14.35 * fem,
-                    height: 18.83 * fem,
+                  // Strength Icon
+                  Expanded(
+                    flex: 1,
                     child: Image.asset(
                       'assets/page-1/images/group-7-W6R.png',
                       width: 14.35 * fem,
                       height: 18.83 * fem,
                     ),
                   ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            // health
-            left: 110.3495483398 * fem,
-            top: 205.015625 * fem,
-            child: Container(
-              width: 35.22 * fem,
-              height: 22 * fem,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Center(
-                    // T2D (110:1185)
-                    child: Container(
-                      margin: EdgeInsets.fromLTRB(
-                          0 * fem, 0 * fem, 2.37 * fem, 0 * fem),
+
+                  // Free Space
+                  Expanded(
+                    flex: 3,
+                    child: Container(),
+                  ),
+
+                  // Health Value
+                  Expanded(
+                    flex: 1,
+                    child: Center(
                       child: Text(
                         health.toString(),
                         textAlign: TextAlign.center,
                         style: SafeGoogleFont(
                           'SF Pro Display',
-                          fontSize: 20 * ffem,
+                          fontSize: fontsize * ffem,
                           fontWeight: FontWeight.w700,
                           height: 1.1 * ffem / fem,
                           color: Color(0xffffffff),
@@ -317,16 +270,13 @@ class CollectionCardWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    // group8VzV (110:1201)
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0.41 * fem, 0 * fem, 0 * fem),
-                    width: 21.85 * fem,
-                    height: 20.31 * fem,
+                  // Health Icon
+                  Expanded(
+                    flex: 1,
                     child: Image.asset(
                       'assets/page-1/images/group-8-j33.png',
-                      width: 21.85 * fem,
-                      height: 20.31 * fem,
+                      width: double.infinity,
+                      height: double.infinity,
                     ),
                   ),
                 ],
