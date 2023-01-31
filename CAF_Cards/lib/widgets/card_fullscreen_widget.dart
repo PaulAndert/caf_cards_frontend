@@ -246,7 +246,7 @@ class card_fullscreen_widget extends StatelessWidget {
                 width: 302*fem,
                 height: 202*fem,
                 child: Image.asset(
-                  'assets/page-1/images/grafik-4-mMF.png',
+                  'assets/page-1/images/Foto-Platzhalter-klein.png',
                   fit: BoxFit.cover,
                 ),
               ),

@@ -5,6 +5,7 @@ class TradeService {
   static const IP = String.fromEnvironment('IP', defaultValue: '192.168.178.100');
   static const api = "http://$IP:8080/api/trade";
 
+  //GET
   Future<List<Trade>?> getTrades() async {
     var client = http.Client();
     var uri = Uri.parse(api);
@@ -41,6 +42,7 @@ class TradeService {
     return null;
   }
 
+  //POST
   Future<Trade?> postTrade(Trade trade) async {
     var client = http.Client();
     var uri = Uri.parse(api);
@@ -57,6 +59,7 @@ class TradeService {
     return null;
   }
 
+  //PUT
   Future<Trade?> updateTrade(Trade trade) async {
     var client = http.Client();
     var uri = Uri.parse(api);
@@ -73,9 +76,9 @@ class TradeService {
     return null;
   }
 
-  Future<Trade?> updateSendCardId(String senderDeviceId, int sendCardId) async {
+  Future<Trade?> updateCardId(String deviceId, int cardId) async {
     var client = http.Client();
-    var uri = Uri.parse("$api/$senderDeviceId/send/$sendCardId");
+    var uri = Uri.parse("$api/$deviceId/card/$cardId");
 
     var response = await client.get(uri);
     if (response.statusCode == 200) {
@@ -85,9 +88,9 @@ class TradeService {
     return null;
   }
 
-  Future<Trade?> updateReceiverCardId(String receiverDeviceId, int receiveCardId) async {
+  Future<Trade?> updateAccept(String deviceId, bool accept) async {
     var client = http.Client();
-    var uri = Uri.parse("$api/$receiverDeviceId/send/$receiveCardId");
+    var uri = Uri.parse("$api/$deviceId/accept/$accept");
 
     var response = await client.get(uri);
     if (response.statusCode == 200) {
@@ -97,6 +100,8 @@ class TradeService {
     return null;
   }
 
+
+  //DELETE
   Future<Trade?> deleteTradeById(int id) async {
     var client = http.Client();
     var uri = Uri.parse("$api/$id");
