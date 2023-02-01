@@ -8,6 +8,7 @@ import 'package:myapp/models/ability.dart';
 import 'package:myapp/models/gamecard.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/card_fullscreen_widget.dart';
+import 'package:myapp/widgets/fullscreen_edit_widget.dart';
 import 'package:myapp/widgets/navbar.dart';
 
 import '../../../services/helper_service.dart';
@@ -16,6 +17,7 @@ class CreatePoints extends StatefulWidget {
   static const String routeName = "/CreatePoints";
   final int power = 0;
   final int hp = 1;
+  final String spell = "does nothing special";
 
   @override
   State<CreatePoints> createState() => _CreatePointsState();
@@ -24,6 +26,7 @@ class CreatePoints extends StatefulWidget {
 class _CreatePointsState extends State<CreatePoints> {
   int strength = 0;
   int health = 1;
+  String ability = "does nothing special";
 
   String? deviceId;
   var deviceIdLoaded = false;
@@ -42,6 +45,7 @@ class _CreatePointsState extends State<CreatePoints> {
     super.initState();
     strength = widget.power;
     health = widget.hp;
+    ability = widget.spell;
     getDeviceId();
   }
 
@@ -75,6 +79,12 @@ class _CreatePointsState extends State<CreatePoints> {
         health++;
       });
     }
+  }
+
+  void updateAbility(String name){
+    setState(() {
+      ability = name;
+    });
   }
 
   @override
@@ -132,8 +142,8 @@ class _CreatePointsState extends State<CreatePoints> {
               ),
               Expanded(
                 flex: 23,
-                child: card_fullscreen_widget(
-                  fem: fem, ffem: ffem, args: ScreenArguments(deviceId!,
+                child: fullscreen_edit_widget(
+                  fem: fem, ffem: ffem, args: ScreenArguments("0",
                     Gamecard(
                     id: 0,
                     name: args.name,
@@ -146,59 +156,19 @@ class _CreatePointsState extends State<CreatePoints> {
                     Ability(
                       id: 0,
                       cost: 0,
-                      name: "does nothing special",
+                      name: ability,
                       cardIds: [],
-                    )),
+                    )
+                ), getAbility: (String name) {
+                    print(name);
+                  updateAbility(name);
+                },
+
                 ),
               ),
               Expanded(
-                flex: 1,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: IconButton(onPressed: (){
-                          incrementStrength();
-                        },
-                          icon: const Icon(Icons.plus_one, color: Colors.white,),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: IconButton(
-                          onPressed: (){
-                          decrementStrength();
-                        },
-                          icon: const Icon(Icons.exposure_minus_1, color: Colors.white,),
-                        ),
-                      ),
-                      Expanded(
-                          flex: 4,
-                          child: Container()
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: IconButton(onPressed: (){
-                          incrementHealth();
-                        },
-                          icon: const Icon(Icons.plus_one, color: Colors.white,),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: IconButton(
-                          onPressed: (){
-                            decrementHealth();
-                          },
-                          icon: const Icon(Icons.exposure_minus_1, color: Colors.white,),
-                        ),
-                      ),
-                    ],
-                  )),
-              Expanded(
                 // buttonsprimery4LV (111:1638)
-                flex: 3,
+                flex: 4,
                 child: Center(
                   child: ElevatedButton(
                     onPressed: () {  },
