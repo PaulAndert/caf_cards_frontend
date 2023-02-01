@@ -37,126 +37,65 @@ class _TradeConfirmCardState extends State<TradeConfirmCard> {
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
-      width: double.infinity,
+    return Material(
       child: Container(
-        // tradingwindowpFw (26:577)
-        padding: EdgeInsets.fromLTRB(6 * fem, 56 * fem, 3 * fem, 15 * fem),
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Color(0xff202024),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              // group4fnM (103:1271)
-              margin: EdgeInsets.fromLTRB(2 * fem, 0 * fem, 0 * fem, 16 * fem),
-              width: 382 * fem,
-              height: 66 * fem,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15 * fem),
-              ),
-              child: Stack(
-                children: [
-                  Positioned(
-                    // simulateswipingcarduptoofferit (106:1190)
-                    left: 36.5 * fem,
-                    top: 21.5 * fem,
-                    child: Center(
-                      child: Align(
-                        child: SizedBox(
-                          width: 308 * fem,
-                          height: 22 * fem,
-                          child: Row(
-                            children: [
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                icon: const Icon(Icons.arrow_back_ios,
-                                    color: Color(0xffffffff)),
-                              ),
-                              IconButton(
-                                onPressed: () {
-                                  updateTradeCardId(
-                                      args.deviceId, args.card.id);
-                                  Navigator.pop(context);
-                                  Navigator.pushNamed(
-                                      context, TradingConfirmTrade.routeName,
-                                      arguments: args);
-                                },
-                                icon: const Icon(Icons.check,
-                                    color: Color(0xffffffff)),
-                              ),
-                            ],
+        child: Container(
+          // tradingwindowpFw (26:577)
+          padding: EdgeInsets.fromLTRB(6 * fem, 56 * fem, 3 * fem, 15 * fem),
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            color: Color(0xff202024),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                // group4fnM (103:1271)
+                margin:
+                    EdgeInsets.fromLTRB(2 * fem, 0 * fem, 0 * fem, 16 * fem),
+                width: 382 * fem,
+                height: 66 * fem,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15 * fem),
+                ),
+                child: Stack(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: const Icon(Icons.arrow_back_ios,
+                                color: Color(0xffffffff)),
                           ),
-                        ),
+                          IconButton(
+                            onPressed: () {
+                              updateTradeCardId(args.deviceId, args.card.id);
+                              Navigator.pop(context);
+                              Navigator.pushNamed(
+                                  context, TradingConfirmTrade.routeName,
+                                  arguments: args);
+                            },
+                            icon: const Icon(Icons.check,
+                                color: Color(0xffffffff)),
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            card_fullscreen_widget(fem: fem, ffem: ffem, args: args),
-            // Container(
-            //   // group5bo3 (103:1272)
-            //   margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 2*fem, 0*fem),
-            //   width: 382*fem,
-            //   height: 52*fem,
-            //   child: Stack(
-            //     children: [
-            //       Positioned(
-            //         // buttongJh (I103:1273;291:233)
-            //         left: 47.5*fem,
-            //         top: 15*fem,
-            //         child: Center(
-            //           child: Align(
-            //             child: SizedBox(
-            //               width: 284*fem,
-            //               height: 22*fem,
-            //               child: Text(
-            //                 'Simulate swiping card down to go back',
-            //                 textAlign: TextAlign.center,
-            //                 style: SafeGoogleFont (
-            //                   'SF Pro Text',
-            //                   fontSize: 17*ffem,
-            //                   fontWeight: FontWeight.w600,
-            //                   height: 1.2941176471*ffem/fem,
-            //                   color: Color(0xffffffff),
-            //                 ),
-            //               ),
-            //             ),
-            //           ),
-            //         ),
-            //       ),
-            //       Positioned(
-            //         // rectangle7gxu (103:1274)
-            //         left: 0*fem,
-            //         top: 0*fem,
-            //         child: Align(
-            //           child: SizedBox(
-            //             width: 382*fem,
-            //             height: 52*fem,
-            //             child: TextButton(
-            //               onPressed: () {},
-            //               style: TextButton.styleFrom (
-            //                 padding: EdgeInsets.zero,
-            //               ),
-            //               child: Container(
-            //                 decoration: BoxDecoration (
-            //                   borderRadius: BorderRadius.circular(15*fem),
-            //                   border: Border.all(color: Color(0xffffffff)),
-            //                 ),
-            //               ),
-            //             ),
-            //           ),
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-          ],
+              Expanded(
+                flex: 10,
+                child: card_fullscreen_widget(fem: fem, ffem: ffem, args: args),
+              ),
+            ],
+          ),
         ),
       ),
     );
