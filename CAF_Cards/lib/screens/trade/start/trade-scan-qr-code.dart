@@ -6,10 +6,15 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'dart:io' show Platform;
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/models/trade.dart';
+import 'package:myapp/services/trade_service.dart';
 import 'package:myapp/utils.dart';
 
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
+import '../../../models/user.dart';
+import '../../../services/helper_service.dart';
+import '../../../services/user_service.dart';
 import '../select_card/trading-window-41b.dart';
 
 class MyQRView extends StatefulWidget {
@@ -23,6 +28,51 @@ class _MyQRView extends State<MyQRView> {
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  String? deviceId;
+  User? user;
+  Trade? postedTrade;
+  var deviceIdLoaded = false;
+  var userLoaded = false;
+  var tradeLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    getDeviceId();
+  }
+
+  getDeviceId() async {
+    deviceId = await HelperService().getUserId();
+    if (deviceId != null) {
+      setState(() {
+        deviceIdLoaded = true;
+      });
+    }
+  }
+
+  getUser(deviceId) async {
+    user = await UserService().getUserByDeviceId(deviceId);
+    if (user != null) {
+      setState(() {
+        userLoaded = true;
+      });
+    }
+  }
+
+  postTrade(sendId, receivedId) async {
+    Trade trade = Trade(
+        id: 0,
+        senderDeviceId: sendId,
+        receiverDeviceId: receivedId,
+        senderCardId: 0,
+        receiverCardId: 0,
+        senderAccepted: false,
+        receiverAccepted: false);
+    postedTrade = await TradeService().postTrade(trade);
+    setState(() {
+      tradeLoaded = true;
+    });
+  }
 
   @override
   void reassemble() {
@@ -33,10 +83,16 @@ class _MyQRView extends State<MyQRView> {
     controller!.resumeCamera();
   }
 
+  @override
   Widget build(BuildContext context) {
     if (result != null) {
-
-      return TradeSelectCard();
+      getUser(result!.code);
+      if (userLoaded && deviceIdLoaded) {
+        if (!tradeLoaded) {
+          postTrade(deviceId, result!.code);
+        }
+        return TradeSelectCard();
+      }
     }
     return Scaffold(
       body: Container(

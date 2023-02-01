@@ -75,7 +75,7 @@ class _TradeStartWidget extends State<TradeStartWidget> {
 
   getTrade() async {
     if (deviceIdLoaded == true) {
-      trade = await TradeService().getTradeByReceiverDeviceId(deviceId!);
+      trade = await TradeService().getTradeByDeviceId(deviceId!);
       if (trade != null) {
         setState(() {
           tradeLoaded = true;
