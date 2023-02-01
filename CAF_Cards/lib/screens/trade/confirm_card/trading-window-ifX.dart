@@ -3,13 +3,33 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/screens/trade/confirm_trade/trading-window.dart';
+import 'package:myapp/services/trade_service.dart';
 import 'package:myapp/utils.dart';
 
 import '../../../models/ScreenArguments.dart';
+import '../../../models/trade.dart';
 import '../../../widgets/card_fullscreen_widget.dart';
 
-class TradeConfirmCard extends StatelessWidget {
+class TradeConfirmCard extends StatefulWidget {
   static const String routeName = "/TradeConfirmCard";
+
+  @override
+  State<TradeConfirmCard> createState() => _TradeConfirmCardState();
+}
+
+class _TradeConfirmCardState extends State<TradeConfirmCard> {
+  Trade? trade;
+
+  bool tradeLoaded = false;
+
+  updateTradeCardId(deviceId, cardId) async {
+    trade = await TradeService().updateCardId(deviceId, cardId);
+    if (trade != null) {
+      setState(() {
+        tradeLoaded = true;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +43,7 @@ class TradeConfirmCard extends StatelessWidget {
         // tradingwindowpFw (26:577)
         padding: EdgeInsets.fromLTRB(6 * fem, 56 * fem, 3 * fem, 15 * fem),
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color(0xff202024),
         ),
         child: Column(
@@ -59,12 +79,14 @@ class TradeConfirmCard extends StatelessWidget {
                               ),
                               IconButton(
                                 onPressed: () {
+                                  updateTradeCardId(
+                                      args.deviceId, args.card.id);
                                   Navigator.pop(context);
                                   Navigator.pushNamed(
                                       context, TradingConfirmTrade.routeName,
                                       arguments: args);
                                 },
-                                icon: const Icon(Icons.arrow_forward_ios,
+                                icon: const Icon(Icons.check,
                                     color: Color(0xffffffff)),
                               ),
                             ],
