@@ -1,24 +1,17 @@
 import 'dart:developer';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
 import 'dart:io' show Platform;
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/trade.dart';
 import 'package:myapp/services/trade_service.dart';
-import 'package:myapp/utils.dart';
-
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-
 import '../../../models/user.dart';
 import '../../../services/helper_service.dart';
 import '../../../services/user_service.dart';
 import '../select_card/select_card.dart';
 
 class MyQRView extends StatefulWidget {
-  const MyQRView({Key? key}) : super(key: key);
+  const MyQRView({super.key});
 
   @override
   State<StatefulWidget> createState() => _MyQRView();
@@ -92,7 +85,7 @@ class _MyQRView extends State<MyQRView> {
         if (!tradeLoaded) {
           postTrade(deviceId, result!.code);
         }
-        return TradeSelectCard();
+        return const TradeSelectCard();
       }
     }
     return Scaffold(
@@ -208,13 +201,10 @@ class _MyQRView extends State<MyQRView> {
   }
 
   Widget _buildQrView(BuildContext context) {
-    // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
     var scanArea = (MediaQuery.of(context).size.width < 400 ||
             MediaQuery.of(context).size.height < 400)
         ? 150.0
         : 300.0;
-    // To ensure the Scanner view is properly sizes after rotation
-    // we need to listen for Flutter SizeChanged notification and update controller
     return QRView(
       key: qrKey,
       onQRViewCreated: _onQRViewCreated,

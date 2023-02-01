@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/screens/collection/collection.dart';
 import 'package:myapp/screens/home/home.dart';
 import 'package:myapp/services/card_service.dart';
 import 'package:myapp/services/user_service.dart';
 import 'package:myapp/utils.dart';
-
-import '../../../models/screen_argument.dart';
-import '../../../models/card.dart';
+import '../../../models/Gamecard.dart';
 import '../../../models/trade.dart';
 import '../../../services/helper_service.dart';
 import '../../../services/trade_service.dart';
-import '../select_card/select_card.dart';
-import '../start/start.dart';
 
 class TradingConfirmTrade extends StatefulWidget {
+  const TradingConfirmTrade({super.key});
+
   static const String routeName = "/TradingConfirmTrade";
 
   @override
@@ -28,11 +22,9 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
   Trade? trade;
   Gamecard? ownCard;
   Gamecard? friendsCard;
-
   bool deviceIdLoaded = false;
   bool tradeLoaded = false;
   bool cardsLoaded = false;
-
   bool waiting = false;
 
   @override
@@ -59,7 +51,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     while (waiting == true) {
       await getTrade(deviceId);
       if (trade!.receiverAccepted && trade!.senderAccepted) {
-        if(trade!.canBeDeleted) {
+        if (trade!.canBeDeleted) {
           await UserService().tradeCards(deviceId!);
           await deleteTrade();
         }
@@ -118,7 +110,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -126,7 +117,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     return Container(
       width: double.infinity,
       child: Container(
-        // tradingwindowPCh (10:10940)
         padding: EdgeInsets.fromLTRB(0 * fem, 61 * fem, 0 * fem, 0 * fem),
         width: double.infinity,
         decoration: const BoxDecoration(
@@ -138,31 +128,39 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
             Row(
               children: [
                 IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      decline();
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                      color: Color(0xffffffff),
-                    )),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    decline();
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Color(0xffffffff),
+                  ),
+                ),
                 Visibility(
                   visible: waiting,
                   replacement: IconButton(
-                      onPressed: () {
-                        accept(context);
-                      },
-                      icon: const Icon(Icons.check, color: Color(0xffffffff))),
+                    onPressed: () {
+                      accept(context);
+                    },
+                    icon: const Icon(
+                      Icons.check,
+                      color: Color(0xffffffff),
+                    ),
+                  ),
                   child: IconButton(
-                      onPressed: () {
-                        decline();
-                      },
-                      icon: const Icon(Icons.stop, color: Color(0xffffffff))),
+                    onPressed: () {
+                      decline();
+                    },
+                    icon: const Icon(
+                      Icons.stop,
+                      color: Color(0xffffffff),
+                    ),
+                  ),
                 ),
               ],
             ),
             Container(
-              // autogrouphwqyYm3 (T1Sdiwk2965Kcmk3njHwQy)
               padding: EdgeInsets.fromLTRB(
                   11.99 * fem, 132 * fem, 10 * fem, 24 * fem),
               width: double.infinity,
@@ -170,7 +168,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    // autogroupeyf71uX (T1SaocSWEBLWPSzFyYeYF7)
                     margin: EdgeInsets.fromLTRB(
                         0 * fem, 0 * fem, 0 * fem, 201 * fem),
                     width: double.infinity,
@@ -179,7 +176,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          // autogroup6k6huED (T1Sb825VwbJNWgtrzo6k6H)
                           margin: EdgeInsets.fromLTRB(
                               0 * fem, 0 * fem, 14.99 * fem, 0 * fem),
                           width: 178.01 * fem,
@@ -187,7 +183,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                           child: Stack(
                             children: [
                               Positioned(
-                                // yourcardmnD (26:990)
                                 left: 62.5144042969 * fem,
                                 top: 6 * fem,
                                 child: Center(
@@ -211,7 +206,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                 ),
                               ),
                               Positioned(
-                                // jarofgreedm9w (111:1436)
                                 left: 0 * fem,
                                 top: 0 * fem,
                                 child: Container(
@@ -220,7 +214,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                   child: Stack(
                                     children: [
                                       Positioned(
-                                        // rectangle38Qih (111:1437)
                                         left: 0 * fem,
                                         top: 0 * fem,
                                         child: Align(
@@ -239,7 +232,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // group1042Z (111:1438)
                                         left: 11.46875 * fem,
                                         top: 136.4255371094 * fem,
                                         child: Container(
@@ -250,7 +242,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Container(
-                                                // autogroupp8sxiN1 (T1SbTWX2LyG7MJ6D27p8sX)
                                                 margin: EdgeInsets.fromLTRB(
                                                     0.24 * fem,
                                                     0 * fem,
@@ -262,7 +253,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Container(
-                                                      // vector8strokePj3 (111:1439)
                                                       margin:
                                                           EdgeInsets.fromLTRB(
                                                               0 * fem,
@@ -278,7 +268,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       ),
                                                     ),
                                                     Container(
-                                                      // vector8stroke3Yh (111:1440)
                                                       width: 16.46 * fem,
                                                       height: 12.54 * fem,
                                                       child: Image.asset(
@@ -291,14 +280,12 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 ),
                                               ),
                                               Container(
-                                                // autogroupetq1WhB (T1Sbb68jAjFELs7Q2deTQ1)
                                                 width: double.infinity,
                                                 child: Row(
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.end,
                                                   children: [
                                                     Container(
-                                                      // vector8strokeRZF (111:1441)
                                                       margin:
                                                           EdgeInsets.fromLTRB(
                                                               0 * fem,
@@ -314,7 +301,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       ),
                                                     ),
                                                     Container(
-                                                      // vector8strokehWm (111:1442)
                                                       width: 14.96 * fem,
                                                       height: 13.79 * fem,
                                                       child: Image.asset(
@@ -331,7 +317,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // group13bc9 (111:1444)
                                         left: 133.9661865234 * fem,
                                         top: 3.672668457 * fem,
                                         child: Container(
@@ -340,7 +325,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                           child: Stack(
                                             children: [
                                               Positioned(
-                                                // group951X (111:1445)
                                                 left: 3.0064697266 * fem,
                                                 top: 0 * fem,
                                                 child: Align(
@@ -356,7 +340,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 ),
                                               ),
                                               Positioned(
-                                                // 7U1 (111:1449)
                                                 left: 0 * fem,
                                                 top: 3.1382446289 * fem,
                                                 child: Center(
@@ -388,7 +371,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // draw2cardswhenplayed8P7 (111:1450)
                                         left: 13.6563720703 * fem,
                                         top: 173.8482055664 * fem,
                                         child: Center(
@@ -413,7 +395,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // topfdergierXg9 (111:1451)
                                         left: 13.9890136719 * fem,
                                         top: 6.6860961914 * fem,
                                         child: Align(
@@ -435,7 +416,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // grafik48A9 (111:1452)
                                         left: 13.9619140625 * fem,
                                         top: 32.876159668 * fem,
                                         child: Align(
@@ -450,7 +430,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // group12aH3 (111:1453)
                                         left: 16.4490966797 * fem,
                                         top: 232.56640625 * fem,
                                         child: Container(
@@ -461,7 +440,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 CrossAxisAlignment.end,
                                             children: [
                                               Center(
-                                                // SKF (111:1459)
                                                 child: Container(
                                                   margin: EdgeInsets.fromLTRB(
                                                       0 * fem,
@@ -483,7 +461,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 ),
                                               ),
                                               Container(
-                                                // group7W4D (111:1454)
                                                 margin: EdgeInsets.fromLTRB(
                                                     0 * fem,
                                                     0 * fem,
@@ -502,7 +479,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // group11xB7 (111:1460)
                                         left: 124.7030029297 * fem,
                                         top: 235.1252441406 * fem,
                                         child: Container(
@@ -513,7 +489,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Center(
-                                                // E8d (111:1461)
                                                 child: Container(
                                                   margin: EdgeInsets.fromLTRB(
                                                       0 * fem,
@@ -535,7 +510,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 ),
                                               ),
                                               Container(
-                                                // group8hH7 (111:1462)
                                                 width: 24.93 * fem,
                                                 height: 23.18 * fem,
                                                 child: Image.asset(
@@ -556,7 +530,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                           ),
                         ),
                         Container(
-                          // autogroupxgcmPfj (T1Sbtadam6SawZcuttxGcM)
                           margin: EdgeInsets.fromLTRB(
                               0 * fem, 0 * fem, 0 * fem, 0 * fem),
                           width: 178.01 * fem,
@@ -564,7 +537,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                           child: Stack(
                             children: [
                               Positioned(
-                                // friendscardg93 (26:991)
                                 left: 40.5144042969 * fem,
                                 top: 6 * fem,
                                 child: Center(
@@ -588,7 +560,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                 ),
                               ),
                               Positioned(
-                                // middleleftU4u (111:1474)
                                 left: 0 * fem,
                                 top: 0 * fem,
                                 child: Container(
@@ -597,7 +568,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                   child: Stack(
                                     children: [
                                       Positioned(
-                                        // rectangle387Nm (111:1475)
                                         left: 0 * fem,
                                         top: 0 * fem,
                                         child: Align(
@@ -616,7 +586,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // group8jf3 (111:1476)
                                         left: 93.0144042969 * fem,
                                         top: 173 * fem,
                                         child: Align(
@@ -632,7 +601,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // group10PDo (111:1480)
                                         left: 11.46875 * fem,
                                         top: 136.4254150391 * fem,
                                         child: Container(
@@ -643,7 +611,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Container(
-                                                // autogroupddbkSSy (T1ScGz9v6XwDYcuBEGDdbK)
                                                 margin: EdgeInsets.fromLTRB(
                                                     0.24 * fem,
                                                     0 * fem,
@@ -655,7 +622,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Container(
-                                                      // vector8strokeKmf (111:1481)
                                                       margin:
                                                           EdgeInsets.fromLTRB(
                                                               0 * fem,
@@ -671,7 +637,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       ),
                                                     ),
                                                     Container(
-                                                      // vector8strokeBos (111:1482)
                                                       width: 16.46 * fem,
                                                       height: 12.54 * fem,
                                                       child: Image.asset(
@@ -684,14 +649,12 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 ),
                                               ),
                                               Container(
-                                                // autogroup5yqhHM7 (T1ScNUzkppYGhsHiAB5yQH)
                                                 width: double.infinity,
                                                 child: Row(
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.end,
                                                   children: [
                                                     Container(
-                                                      // vector8strokeQAq (111:1483)
                                                       margin:
                                                           EdgeInsets.fromLTRB(
                                                               0 * fem,
@@ -707,7 +670,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       ),
                                                     ),
                                                     Container(
-                                                      // vector8strokeUwP (111:1484)
                                                       width: 14.96 * fem,
                                                       height: 13.79 * fem,
                                                       child: Image.asset(
@@ -724,7 +686,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // group13ajX (111:1486)
                                         left: 133.9659423828 * fem,
                                         top: 3.672668457 * fem,
                                         child: Container(
@@ -733,7 +694,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                           child: Stack(
                                             children: [
                                               Positioned(
-                                                // group9tER (111:1487)
                                                 left: 3.0067138672 * fem,
                                                 top: 0 * fem,
                                                 child: Align(
@@ -749,7 +709,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 ),
                                               ),
                                               Positioned(
-                                                // L6R (111:1491)
                                                 left: 0 * fem,
                                                 top: 3.1382446289 * fem,
                                                 child: Center(
@@ -781,7 +740,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // roundstartregenerate1ofeveryal (111:1492)
                                         left: 18.6563720703 * fem,
                                         top: 147.2840576172 * fem,
                                         child: Center(
@@ -806,7 +764,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // topfdergierW2q (111:1493)
                                         left: 15.1298828125 * fem,
                                         top: 6.6860961914 * fem,
                                         child: Align(
@@ -828,7 +785,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // image1M3T (111:1494)
                                         left: 15.1298828125 * fem,
                                         top: 33.0900878906 * fem,
                                         child: Align(
@@ -843,7 +799,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // group12Cpm (111:1495)
                                         left: 16.4490966797 * fem,
                                         top: 234.7689819336 * fem,
                                         child: Container(
@@ -854,7 +809,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 CrossAxisAlignment.end,
                                             children: [
                                               Center(
-                                                // TEu (111:1501)
                                                 child: Container(
                                                   margin: EdgeInsets.fromLTRB(
                                                       0 * fem,
@@ -876,7 +830,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 ),
                                               ),
                                               Container(
-                                                // group7JmK (111:1496)
                                                 width: 14.35 * fem,
                                                 height: 21.13 * fem,
                                                 child: Image.asset(
@@ -890,7 +843,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                         ),
                                       ),
                                       Positioned(
-                                        // group11c1K (111:1502)
                                         left: 124.7032470703 * fem,
                                         top: 235.1252441406 * fem,
                                         child: Container(
@@ -901,7 +853,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Center(
-                                                // H7T (111:1503)
                                                 child: Container(
                                                   margin: EdgeInsets.fromLTRB(
                                                       0 * fem,
@@ -923,7 +874,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 ),
                                               ),
                                               Container(
-                                                // group8Yp5 (111:1504)
                                                 width: 24.93 * fem,
                                                 height: 23.18 * fem,
                                                 child: Image.asset(
@@ -946,26 +896,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                       ],
                     ),
                   ),
-                  // Container(
-                  //   // hintswipeupyourcardtoacceptand (26:855)
-                  //   margin: EdgeInsets.fromLTRB(
-                  //       0 * fem, 0 * fem, 0.99 * fem, 0 * fem),
-                  //   constraints: BoxConstraints(
-                  //     maxWidth: 305 * fem,
-                  //   ),
-                  //   child: Text(
-                  //     'Hint:\nSwipe up your card to accept and your trading partners card to reject the trade',
-                  //     textAlign: TextAlign.center,
-                  //     style: SafeGoogleFont(
-                  //       'SF Pro Display',
-                  //       fontSize: 20 * ffem,
-                  //       fontWeight: FontWeight.w700,
-                  //       height: 1.2575 * ffem / fem,
-                  //       letterSpacing: -0.2399999946 * fem,
-                  //       color: Color(0xffffffff),
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ),

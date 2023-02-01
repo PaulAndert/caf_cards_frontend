@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/utils.dart';
-
 import '../../models/screen_argument.dart';
 import '../../widgets/big_card.dart';
 
 class Details extends StatelessWidget {
+  const Details({super.key});
+
   static const String routeName = "/Details";
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+    final args = ModalRoute.of(context)!.settings.arguments as ScreenArgument;
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -48,7 +45,7 @@ class Details extends StatelessWidget {
             ),
             Expanded(
               flex: 10,
-              child: card_fullscreen_widget(fem: fem, ffem: ffem, args: args),
+              child: BigCard(fem: fem, ffem: ffem, args: args),
             ),
             Expanded(flex: 3, child: Container()),
           ],

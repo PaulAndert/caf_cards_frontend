@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/screens/collection/collection.dart';
-import 'package:myapp/screens/create/start/start.dart';
-import 'package:myapp/screens/fight/start/start.dart';
-import 'package:myapp/screens/trade/start/start.dart';
 import 'package:myapp/services/helper_service.dart';
 import 'package:myapp/services/user_service.dart';
 import 'package:myapp/utils.dart';
-
 import '../../models/user.dart';
 
 class Home extends StatefulWidget {
-  @override
+  const Home({super.key});
+
   static const String routeName = "/Home";
 
+  @override
   State<Home> createState() => _HomeState();
 }
 
@@ -88,8 +82,8 @@ class _HomeState extends State<Home> {
                 height: 250 * fem,
               ),
             ),
+            // Stats Table
             Expanded(
-              // Stats Tabelle
               flex: 6,
               child: Container(
                 padding:
@@ -228,31 +222,6 @@ class _HomeState extends State<Home> {
                         ),
                       ],
                     ),
-                    /*Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Device ID:',
-                          style: SafeGoogleFont(
-                            'SF Pro Display',
-                            fontSize: 28 * ffem,
-                            fontWeight: FontWeight.w400,
-                            height: 1.2575 * ffem / fem,
-                            color: const Color(0xffffffff),
-                          ),
-                        ),
-                        Text(
-                          '$deviceId',
-                          style: SafeGoogleFont(
-                            'SF Pro Display',
-                            fontSize: 28 * ffem,
-                            fontWeight: FontWeight.w400,
-                            height: 1.2575 * ffem / fem,
-                            color: const Color(0xffffffff),
-                          ),
-                        ),
-                      ],
-                    ),*/
                   ],
                 ),
               ),

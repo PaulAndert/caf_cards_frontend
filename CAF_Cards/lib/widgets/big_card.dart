@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/models/card.dart';
-
 import '../models/screen_argument.dart';
 import '../utils.dart';
 
-class card_fullscreen_widget extends StatelessWidget {
-  const card_fullscreen_widget({
+class BigCard extends StatelessWidget {
+  const BigCard({
     Key? key,
     required this.fem,
     required this.ffem,
@@ -15,7 +13,7 @@ class card_fullscreen_widget extends StatelessWidget {
 
   final double fem;
   final double ffem;
-  final ScreenArguments args;
+  final ScreenArgument args;
 
   final textfontsize = 20;
   final numberfontsize = 30;
@@ -24,7 +22,6 @@ class card_fullscreen_widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //margin: EdgeInsets.fromLTRB(14*fem, 0*fem, 10.14*fem, 71*fem),
       width: 340 * fem,
       height: 576 * fem,
       decoration: BoxDecoration(
@@ -113,7 +110,8 @@ class card_fullscreen_widget extends StatelessWidget {
           Expanded(
             flex: 3,
             child: Container(
-              margin: EdgeInsets.fromLTRB(20 * fem, 20 * fem, 20 * fem, 20 * fem),
+              margin:
+                  EdgeInsets.fromLTRB(20 * fem, 20 * fem, 20 * fem, 20 * fem),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
@@ -239,7 +237,6 @@ class card_fullscreen_widget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  // Strength
                   // Strength value
                   Expanded(
                     flex: 1,
@@ -256,7 +253,6 @@ class card_fullscreen_widget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // Strength Icon
                   ),
                   // Strength Icon
                   Expanded(

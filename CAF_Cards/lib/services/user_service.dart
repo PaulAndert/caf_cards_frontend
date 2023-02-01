@@ -1,20 +1,19 @@
 import 'package:myapp/models/user.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-
-import '../models/trade.dart';
 
 class UserService {
-  static const IP = String.fromEnvironment('IP', defaultValue: '192.168.178.100');
+  static const IP = String.fromEnvironment(
+    'IP',
+    defaultValue: '192.168.178.100',
+  );
   static const api = "http://$IP:8080/api/user";
-
 
   Future<List<User>?> getUsers() async {
     var client = http.Client();
     var uri = Uri.parse(api);
 
     var response = await client.get(uri);
-    if(response.statusCode == 200) {
+    if (response.statusCode == 200) {
       var json = response.body;
       return userListFromJson(json);
     }
@@ -26,7 +25,7 @@ class UserService {
     var uri = Uri.parse("$api/$id");
 
     var response = await client.get(uri);
-    if(response.statusCode == 200) {
+    if (response.statusCode == 200) {
       var json = response.body;
       return userFromJson(json);
     }
@@ -37,11 +36,10 @@ class UserService {
     var client = http.Client();
     var uri = Uri.parse("$api/deviceId/$deviceId");
 
-    var response = await client.get(uri,
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        });
-    if(response.statusCode == 200) {
+    var response = await client.get(uri, headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    });
+    if (response.statusCode == 200) {
       var json = response.body;
       return userFromJson(json);
     }
@@ -53,11 +51,11 @@ class UserService {
     var uri = Uri.parse(api);
 
     var response = await client.post(uri,
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-        body:userToJson(user));
-    if(response.statusCode == 200) {
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: userToJson(user));
+    if (response.statusCode == 200) {
       var json = response.body;
       return userFromJson(json);
     }
@@ -72,8 +70,8 @@ class UserService {
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
-        body:userToJson(user));
-    if(response.statusCode == 200) {
+        body: userToJson(user));
+    if (response.statusCode == 200) {
       var json = response.body;
       return userFromJson(json);
     }
@@ -85,7 +83,7 @@ class UserService {
     var uri = Uri.parse("$api/trade/$deviceId");
 
     var response = await client.put(uri);
-    if(response.statusCode == 200) {
+    if (response.statusCode == 200) {
       var json = response.body;
       return userFromJson(json);
     }
@@ -96,11 +94,10 @@ class UserService {
     var client = http.Client();
     var uri = Uri.parse("$api/$userId/card/$cardId");
 
-    var response = await client.put(uri,
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        });
-    if(response.statusCode == 200) {
+    var response = await client.put(uri, headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    });
+    if (response.statusCode == 200) {
       var json = response.body;
       return userFromJson(json);
     }
@@ -111,11 +108,10 @@ class UserService {
     var client = http.Client();
     var uri = Uri.parse("$api/$id");
 
-    var response = await client.delete(uri,
-        headers: <String, String>{
+    var response = await client.delete(uri, headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     });
-    if(response.statusCode == 200) {
+    if (response.statusCode == 200) {
       var json = response.body;
       return userFromJson(json);
     }

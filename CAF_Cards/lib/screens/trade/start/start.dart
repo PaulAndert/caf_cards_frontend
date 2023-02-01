@@ -1,15 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/trade.dart';
 import 'package:myapp/services/trade_service.dart';
 import 'package:myapp/utils.dart';
-
 import 'package:qr_flutter/qr_flutter.dart';
-
 import '../../../services/helper_service.dart';
 import '../../collection/collection.dart';
 import '../../create/points/points_i.dart';
@@ -30,19 +23,20 @@ class TradeStart extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: <String, WidgetBuilder>{
-        FightStart.routeName: (BuildContext context) => FightStart(),
+        FightStart.routeName: (BuildContext context) => const FightStart(),
         TradeStart.routeName: (BuildContext context) => const TradeStart(),
-        Home.routeName: (BuildContext context) => Home(),
-        CreateStart.routeName: (BuildContext context) => CreateStart(),
-        CreatePoints.routeName: (BuildContext context) => CreatePoints(),
-        Collection.routeName: (BuildContext context) => Collection(),
-        TradeSelectCard.routeName: (BuildContext context) => TradeSelectCard(),
+        Home.routeName: (BuildContext context) => const Home(),
+        CreateStart.routeName: (BuildContext context) => const CreateStart(),
+        CreatePoints.routeName: (BuildContext context) => const CreatePoints(),
+        Collection.routeName: (BuildContext context) => const Collection(),
+        TradeSelectCard.routeName: (BuildContext context) =>
+            const TradeSelectCard(),
         TradeConfirmCard.routeName: (BuildContext context) =>
-            TradeConfirmCard(),
+            const TradeConfirmCard(),
         TradingConfirmTrade.routeName: (BuildContext context) =>
-            TradingConfirmTrade(),
+            const TradingConfirmTrade(),
       },
-      home: TradeStartWidget(),
+      home: const TradeStartWidget(),
     );
   }
 }
@@ -93,23 +87,14 @@ class _TradeStartWidget extends State<TradeStartWidget> {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
-    double fem = MediaQuery
-        .of(context)
-        .size
-        .width / baseWidth;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Material(
       child: Container(
         // Create a container where everything else is located
         padding: EdgeInsets.fromLTRB(9 * fem, 79 * fem, 9 * fem, 0 * fem),
-        width: MediaQuery
-            .of(context)
-            .size
-            .width,
-        height: MediaQuery
-            .of(context)
-            .size
-            .height,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
           color: Color(0xff202024),
         ),
@@ -137,7 +122,7 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                 ),
               ),
             ),
-            // Text BOX
+            // Text
             Expanded(
               flex: 2,
               child: Text(
@@ -173,7 +158,7 @@ class _TradeStartWidget extends State<TradeStartWidget> {
               child: Center(
                 child: Visibility(
                   visible: tradeLoaded,
-                  replacement:ElevatedButton(
+                  replacement: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const MyQRView(),
@@ -202,8 +187,7 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                     ),
                   ),
                   child: ElevatedButton(
-                    onPressed: /**/ () {
-                      //Navigator.pushNamed(context, '/TradeQR');
+                    onPressed: () {
                       Navigator.pushNamed(context, '/TradeSelectCard');
                     },
                     style: TextButton.styleFrom(

@@ -6,7 +6,7 @@ import 'package:myapp/utils.dart';
 
 import '../models/screen_argument.dart';
 import '../models/ability.dart';
-import '../models/card.dart';
+import '../models/Gamecard.dart';
 
 class CollectionCardWidget extends StatelessWidget {
   const CollectionCardWidget({
@@ -52,7 +52,7 @@ class CollectionCardWidget extends StatelessWidget {
           Navigator.pushNamed(
             context,
             routeName,
-            arguments: ScreenArguments(
+            arguments: ScreenArgument(
                 deviceId, card, ability),
           );
         },

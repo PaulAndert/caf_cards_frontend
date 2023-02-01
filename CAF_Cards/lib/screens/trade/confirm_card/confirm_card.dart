@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/screens/trade/confirm_trade/confirm_trade.dart';
 import 'package:myapp/services/trade_service.dart';
-import 'package:myapp/utils.dart';
-
 import '../../../models/screen_argument.dart';
 import '../../../models/trade.dart';
 import '../../../widgets/big_card.dart';
 
 class TradeConfirmCard extends StatefulWidget {
+  const TradeConfirmCard({super.key});
+
   static const String routeName = "/TradeConfirmCard";
 
   @override
@@ -33,7 +30,7 @@ class _TradeConfirmCardState extends State<TradeConfirmCard> {
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+    final args = ModalRoute.of(context)!.settings.arguments as ScreenArgument;
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -57,27 +54,41 @@ class _TradeConfirmCardState extends State<TradeConfirmCard> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: const Icon(Icons.arrow_back_ios,
-                        color: Color(0xffffffff)),
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      color: Color(0xffffffff),
+                    ),
                   ),
                   IconButton(
                     onPressed: () {
                       updateTradeCardId(args.deviceId, args.card.id);
                       Navigator.pop(context);
                       Navigator.pushNamed(
-                          context, TradingConfirmTrade.routeName,
-                          arguments: args);
+                        context,
+                        TradingConfirmTrade.routeName,
+                        arguments: args,
+                      );
                     },
-                    icon: const Icon(Icons.check, color: Color(0xffffffff)),
+                    icon: const Icon(
+                      Icons.check,
+                      color: Color(0xffffffff),
+                    ),
                   ),
                 ],
               ),
             ),
             Expanded(
               flex: 10,
-              child: card_fullscreen_widget(fem: fem, ffem: ffem, args: args),
+              child: BigCard(
+                fem: fem,
+                ffem: ffem,
+                args: args,
+              ),
             ),
-            Expanded(flex: 2, child: Container()),
+            Expanded(
+              flex: 2,
+              child: Container(),
+            ),
           ],
         ),
       ),

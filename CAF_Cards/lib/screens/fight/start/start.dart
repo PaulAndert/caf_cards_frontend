@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-
 import '../../../services/helper_service.dart';
-import '../qr_code/qr.dart';
 
 class FightStart extends StatefulWidget {
+  const FightStart({super.key});
+
   static const String routeName = "/FightStart";
 
   @override
@@ -43,7 +40,6 @@ class _FightStartState extends State<FightStart> {
 
     return Material(
       child: Container(
-        // Create a container where everything else is located
         padding: EdgeInsets.fromLTRB(9 * fem, 79 * fem, 9 * fem, 0 * fem),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -74,6 +70,7 @@ class _FightStartState extends State<FightStart> {
                 ),
               ),
             ),
+            // Text
             Expanded(
               flex: 2,
               child: Text(
@@ -107,9 +104,7 @@ class _FightStartState extends State<FightStart> {
               flex: 3,
               child: Center(
                 child: ElevatedButton(
-                  onPressed: /**/ () {
-                    //Navigator.of(context).push(MaterialPageRoute(builder: (context) => FightQR(),));
-                  },
+                  onPressed: () {},
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
                     backgroundColor: Colors.deepPurpleAccent,
@@ -126,7 +121,7 @@ class _FightStartState extends State<FightStart> {
                           fontSize: 25 * ffem,
                           fontWeight: FontWeight.w700,
                           height: 1.2941176471 * ffem / fem,
-                          color: Color(0xffffffff),
+                          color: const Color(0xffffffff),
                         ),
                       ),
                     ),

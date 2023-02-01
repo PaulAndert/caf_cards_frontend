@@ -1,25 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/models/screen_argument.dart';
 import 'package:myapp/models/ability.dart';
 import 'package:myapp/screens/trade/confirm_card/confirm_card.dart';
 import 'package:myapp/services/card_service.dart';
 import 'package:myapp/services/trade_service.dart';
-import 'package:myapp/utils.dart';
 import '../../../services/ability_service.dart';
 import '../../../widgets/small_card.dart';
-
-import '../../../models/user.dart';
-import '../../../models/card.dart';
+import '../../../models/Gamecard.dart';
 import '../../../services/helper_service.dart';
-import '../../../services/user_service.dart';
-import '../../../widgets/big_card.dart';
-import '../../home/home.dart';
 import '../start/start.dart';
 
 class TradeSelectCard extends StatefulWidget {
+  const TradeSelectCard({super.key});
+
   static const String routeName = "/TradeSelectCard";
 
   @override
@@ -112,7 +104,6 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
                     child: IconButton(
                         onPressed: () {
                           Navigator.pop(context);
-                          //Navigator.pushNamed(context, TradeStart.routeName,); // navbar does not change and other one does not notice that trade stopped
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const TradeStart(),
                           ));
@@ -136,26 +127,27 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
               Expanded(
                 flex: 35,
                 child: GridView.builder(
-                    itemCount: cards?.length ?? 0,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: (157.75 * fem / 250 * fem),
-                    ),
-                    itemBuilder: (_, int index) {
-                      return GridTile(
-                        child: Container(
-                          alignment: Alignment.topCenter,
-                          child: CollectionCardWidget(
-                            fem: fem,
-                            ffem: ffem,
-                            card: cards![index],
-                            ability: abilities[index],
-                            routeName: TradeConfirmCard.routeName,
-                            deviceId: deviceId!,
-                          ),
+                  itemCount: cards?.length ?? 0,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: (157.75 * fem / 250 * fem),
+                  ),
+                  itemBuilder: (_, int index) {
+                    return GridTile(
+                      child: Container(
+                        alignment: Alignment.topCenter,
+                        child: CollectionCardWidget(
+                          fem: fem,
+                          ffem: ffem,
+                          card: cards![index],
+                          ability: abilities[index],
+                          routeName: TradeConfirmCard.routeName,
+                          deviceId: deviceId!,
                         ),
-                      );
-                    }),
+                      ),
+                    );
+                  },
+                ),
               ),
             ],
           ),

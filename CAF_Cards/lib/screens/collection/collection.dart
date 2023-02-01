@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/services/ability_service.dart';
-import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/small_card.dart';
-
 import '../../models/ability.dart';
-import '../../models/card.dart';
-import '../../models/user.dart';
+import '../../models/Gamecard.dart';
 import '../../services/card_service.dart';
 import '../../services/helper_service.dart';
 import '../details/details.dart';
@@ -18,6 +13,7 @@ var ffem;
 
 class Collection extends StatelessWidget {
   static const String routeName = "/Collection";
+  const Collection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +25,7 @@ class Collection extends StatelessWidget {
 }
 
 class GridBuilder extends StatefulWidget {
-  const GridBuilder({
-    super.key,
-  });
+  const GridBuilder({super.key});
 
   @override
   GridBuilderState createState() => GridBuilderState();
@@ -48,27 +42,30 @@ class GridBuilderState extends State<GridBuilder> {
   @override
   void initState() {
     super.initState();
-
     getDeviceId();
   }
 
   getDeviceId() async {
     deviceId = await HelperService().getUserId();
     if (deviceId != null) {
-      setState(() {
-        deviceIdLoaded = true;
-        getCardsByUser(deviceId);
-      });
+      setState(
+        () {
+          deviceIdLoaded = true;
+          getCardsByUser(deviceId);
+        },
+      );
     }
   }
 
   getCardsByUser(deviceId) async {
     cards = await GamecardService().getGamecardsByUser(deviceId);
     if (cards != null) {
-      setState(() {
-        cardsLoaded = true;
-        getAbilities();
-      });
+      setState(
+        () {
+          cardsLoaded = true;
+          getAbilities();
+        },
+      );
     }
   }
 
@@ -80,9 +77,11 @@ class GridBuilderState extends State<GridBuilder> {
       }
     }
     if (abilities.length == cards!.length) {
-      setState(() {
-        abilitiesLoaded = true;
-      });
+      setState(
+        () {
+          abilitiesLoaded = true;
+        },
+      );
     }
   }
 
@@ -98,32 +97,34 @@ class GridBuilderState extends State<GridBuilder> {
         child: Visibility(
           visible: abilitiesLoaded && cardsLoaded,
           replacement: const Center(
-              child: CircularProgressIndicator(
-            color: Colors.deepPurpleAccent,
-          )),
+            child: CircularProgressIndicator(
+              color: Colors.deepPurpleAccent,
+            ),
+          ),
           child: Center(
             child: GridView.builder(
-                itemCount: cards?.length ?? 0,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: (157.75 * fem / 250 * fem),
-                ),
-                itemBuilder: (_, int index) {
-                  return GridTile(
-                    child: Container(
-                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                      alignment: Alignment.center,
-                      child: CollectionCardWidget(
-                        fem: fem,
-                        ffem: ffem,
-                        card: cards![index],
-                        ability: abilities[index],
-                        routeName: Details.routeName,
-                        deviceId: deviceId!,
-                      ),
+              itemCount: cards?.length ?? 0,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: (157.75 * fem / 250 * fem),
+              ),
+              itemBuilder: (_, int index) {
+                return GridTile(
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    alignment: Alignment.center,
+                    child: CollectionCardWidget(
+                      fem: fem,
+                      ffem: ffem,
+                      card: cards![index],
+                      ability: abilities[index],
+                      routeName: Details.routeName,
+                      deviceId: deviceId!,
                     ),
-                  );
-                }),
+                  ),
+                );
+              },
+            ),
           ),
         ),
       ),
