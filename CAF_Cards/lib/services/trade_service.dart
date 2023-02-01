@@ -100,6 +100,18 @@ class TradeService {
     return null;
   }
 
+  Future<Trade?> updateDeleted(String deviceId, bool delete) async {
+    var client = http.Client();
+    var uri = Uri.parse("$api/$deviceId/delete/$delete");
+
+    var response = await client.put(uri);
+    if (response.statusCode == 200) {
+      var json = response.body;
+      return tradeFromJson(json);
+    }
+    return null;
+  }
+
 
   //DELETE
   Future<Trade?> deleteTradeById(int id) async {

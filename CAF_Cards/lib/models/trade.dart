@@ -21,6 +21,7 @@ class Trade {
     required this.receiverCardId,
     required this.senderAccepted,
     required this.receiverAccepted,
+    required this.canBeDeleted,
   });
 
   int id;
@@ -30,6 +31,7 @@ class Trade {
   int receiverCardId;
   bool senderAccepted;
   bool receiverAccepted;
+  bool canBeDeleted;
 
   factory Trade.fromJson(Map<String, dynamic> json) => Trade(
     id: json["id"],
@@ -39,6 +41,7 @@ class Trade {
     receiverCardId: json["receiverCardId"],
     senderAccepted: json["senderAccepted"],
     receiverAccepted: json["receiverAccepted"],
+    canBeDeleted: json["canBeDeleted"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -49,5 +52,6 @@ class Trade {
     "receiverCardId": receiverCardId,
     "senderAccepted": senderAccepted,
     "receiverAccepted": receiverAccepted,
+    "canBeDeleted": canBeDeleted,
   };
 }
