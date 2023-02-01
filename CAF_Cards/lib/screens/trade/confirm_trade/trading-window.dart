@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/screens/collection/collection.dart';
 import 'package:myapp/screens/home/home.dart';
 import 'package:myapp/services/card_service.dart';
+import 'package:myapp/services/user_service.dart';
 import 'package:myapp/utils.dart';
 
 import '../../../models/ScreenArguments.dart';
@@ -29,6 +30,8 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
   bool deviceIdLoaded = false;
   bool tradeLoaded = false;
   bool cardsLoaded = false;
+
+  bool waiting = false;
 
   @override
   void initState() {
@@ -74,6 +77,15 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
       setState(() {
         cardsLoaded = true;
       });
+    }
+  }
+
+  enterAccept() async {
+    while(waiting = true) {
+      if(trade!.receiverAccepted && trade!.senderAccepted) {
+        await UserService().tradeCards(deviceId!);
+      }
+      await Future.delayed(const Duration(seconds: 1));
     }
   }
 

@@ -174,8 +174,7 @@ class _TradeStartWidget extends State<TradeStartWidget> {
                 child: Visibility(
                   visible: tradeLoaded,
                   replacement:ElevatedButton(
-                    onPressed: /**/ () {
-                      //Navigator.pushNamed(context, '/TradeQR');
+                    onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const MyQRView(),
                       ));
