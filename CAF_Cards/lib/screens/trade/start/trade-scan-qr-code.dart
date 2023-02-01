@@ -52,16 +52,6 @@ class _MyQRView extends State<MyQRView> {
 
   getUser(deviceId) async {
     user = await UserService().getUserByDeviceId(deviceId);
-
-    user ??= await UserService().postUser(User(
-        id: 0,
-        deviceId: deviceId,
-        wins: 0,
-        losses: 0,
-        created: 0,
-        traded: 0,
-        collected: 0,
-        cardIds: []));
     if (user != null) {
       setState(() {
         userLoaded = true;
@@ -79,11 +69,9 @@ class _MyQRView extends State<MyQRView> {
         senderAccepted: false,
         receiverAccepted: false);
     postedTrade = await TradeService().postTrade(trade);
-    if (postedTrade != null) {
-      setState(() {
-        tradeLoaded = true;
-      });
-    }
+    setState(() {
+      tradeLoaded = true;
+    });
   }
 
   @override
@@ -99,8 +87,10 @@ class _MyQRView extends State<MyQRView> {
   Widget build(BuildContext context) {
     if (result != null) {
       getUser(result!.code);
-      if (userLoaded) {
-        postTrade(deviceId, result!.code);
+      if (userLoaded && deviceIdLoaded) {
+        if (!tradeLoaded) {
+          postTrade(deviceId, result!.code);
+        }
         return TradeSelectCard();
       }
     }

@@ -80,7 +80,7 @@ class TradeService {
     var client = http.Client();
     var uri = Uri.parse("$api/$deviceId/card/$cardId");
 
-    var response = await client.get(uri);
+    var response = await client.put(uri);
     if (response.statusCode == 200) {
       var json = response.body;
       return tradeFromJson(json);
@@ -92,7 +92,7 @@ class TradeService {
     var client = http.Client();
     var uri = Uri.parse("$api/$deviceId/accept/$accept");
 
-    var response = await client.get(uri);
+    var response = await client.put(uri);
     if (response.statusCode == 200) {
       var json = response.body;
       return tradeFromJson(json);
