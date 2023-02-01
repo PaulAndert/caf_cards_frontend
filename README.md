@@ -25,10 +25,12 @@ qr_code_scanner: https://pub.dev/packages/qr_code_scanner
 
 
 TODO for now:
-- Trading syncen und sowas
-- Card collection als dynamic list
-- Create Textfelder als inputs in Obj und von Seite zu Seite übergeben
+- Detailed Collection View
+- Create fertig
+- Trade einige Fehler:
+  - Tradeabbruch in select ändert navbar nicht
+  - Partner bekommt nicht mit dass Trade beendet (sowohl bei abbruch als auch bei ende)
+  - nach erfolgreichem Tradeende pasiert nichts (move to Home?)
 
 TODO for later:
-- Collection machen (gehöret nicht zum UseCase aber wäre schön)
 - navbar: anstatt Pipette ein Schwert (https://www.fluttericon.com/)
