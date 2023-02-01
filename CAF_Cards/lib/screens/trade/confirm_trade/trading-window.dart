@@ -4,12 +4,78 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/screens/collection/collection.dart';
 import 'package:myapp/screens/home/home.dart';
+import 'package:myapp/services/card_service.dart';
 import 'package:myapp/utils.dart';
 
 import '../../../models/ScreenArguments.dart';
+import '../../../models/gamecard.dart';
+import '../../../models/trade.dart';
+import '../../../services/helper_service.dart';
+import '../../../services/trade_service.dart';
 
-class TradingConfirmTrade extends StatelessWidget {
+class TradingConfirmTrade extends StatefulWidget {
   static const String routeName = "/TradingConfirmTrade";
+
+  @override
+  State<TradingConfirmTrade> createState() => _TradingConfirmTradeState();
+}
+
+class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
+  String? deviceId;
+  Trade? trade;
+  Gamecard? ownCard;
+  Gamecard? friendsCard;
+
+  bool deviceIdLoaded = false;
+  bool tradeLoaded = false;
+  bool cardsLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    getDeviceId();
+  }
+
+  getDeviceId() async {
+    deviceId = await HelperService().getUserId();
+    if (deviceId != null) {
+      setState(() {
+        deviceIdLoaded = true;
+      });
+    }
+    while (true) {
+      getTrade(deviceId);
+      await Future.delayed(const Duration(seconds: 1));
+    }
+  }
+
+  getTrade(deviceId) async {
+    trade = await TradeService().getTradeByDeviceId(deviceId);
+    if (trade != null) {
+      setState(() {
+        tradeLoaded = true;
+        getCards();
+      });
+    }
+  }
+
+  getCards() async {
+    if (deviceId == trade!.senderDeviceId) {
+      ownCard = await GamecardService().getGamecardById(trade!.senderCardId);
+      friendsCard =
+          await GamecardService().getGamecardById(trade!.receiverCardId);
+    } else {
+      ownCard = await GamecardService().getGamecardById(trade!.receiverCardId);
+      friendsCard =
+          await GamecardService().getGamecardById(trade!.senderCardId);
+    }
+    if (ownCard != null && friendsCard != null) {
+      setState(() {
+        cardsLoaded = true;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,158 +95,161 @@ class TradingConfirmTrade extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              // autogrouphymb5NM (T1SaUcz9XZ4s7KTsVVHYMb)
-              width: double.infinity,
-              height: 66 * fem,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    // group7Y13 (111:1519)
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 15 * fem, 0 * fem),
-                    child: TextButton(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                      ),
-                      child: Container(
-                        width: 190 * fem,
-                        height: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15 * fem),
-                        ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              // simulateswipingyourcardupWry (111:1520)
-                              left: 15.7513427734 * fem,
-                              top: 10.5 * fem,
-                              child: Center(
-                                child: Align(
-                                  child: SizedBox(
-                                    width: 158 * fem,
-                                    height: 44 * fem,
-                                    child: Text(
-                                      args.deviceId,
-                                      textAlign: TextAlign.center,
-                                      style: SafeGoogleFont(
-                                        'SF Pro Display',
-                                        fontSize: 16 * ffem,
-                                        fontWeight: FontWeight.w700,
-                                        height: 1.375 * ffem / fem,
-                                        color: Color(0xffffffff),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              // rectangle7eVK (111:1521)
-                              left: 0 * fem,
-                              top: 0 * fem,
-                              child: Align(
-                                child: SizedBox(
-                                  width: 190 * fem,
-                                  height: 66 * fem,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.circular(15 * fem),
-                                      border:
-                                          Border.all(color: Color(0xffffffff)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    // group8FV7 (111:1522)
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Container(
-                      width: 188 * fem,
-                      height: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15 * fem),
-                      ),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            // simulateswipingyourfriendscard (111:1523)
-                            left: 14.75390625 * fem,
-                            top: 10.5 * fem,
-                            child: Center(
-                              child: Align(
-                                child: SizedBox(
-                                  width: 158 * fem,
-                                  height: 44 * fem,
-                                  child: Text(
-                                    'Simulate swiping your friends card up ',
-                                    textAlign: TextAlign.center,
-                                    style: SafeGoogleFont(
-                                      'SF Pro Display',
-                                      fontSize: 16 * ffem,
-                                      fontWeight: FontWeight.w700,
-                                      height: 1.375 * ffem / fem,
-                                      color: Color(0xffffffff),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            // rectangle7Jrh (111:1524)
-                            left: 0 * fem,
-                            top: 0 * fem,
-                            child: Align(
-                              child: SizedBox(
-                                width: 188 * fem,
-                                height: 66 * fem,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.circular(15 * fem),
-                                    border:
-                                        Border.all(color: Color(0xffffffff)),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            // Container(
+            //   // autogrouphymb5NM (T1SaUcz9XZ4s7KTsVVHYMb)
+            //   width: double.infinity,
+            //   height: 66 * fem,
+            //   child: Row(
+            //     crossAxisAlignment: CrossAxisAlignment.center,
+            //     children: [
+            //       Container(
+            //         // group7Y13 (111:1519)
+            //         margin: EdgeInsets.fromLTRB(
+            //             0 * fem, 0 * fem, 15 * fem, 0 * fem),
+            //         child: TextButton(
+            //           onPressed: () {},
+            //           style: TextButton.styleFrom(
+            //             padding: EdgeInsets.zero,
+            //           ),
+            //           child: Container(
+            //             width: 190 * fem,
+            //             height: double.infinity,
+            //             decoration: BoxDecoration(
+            //               borderRadius: BorderRadius.circular(15 * fem),
+            //             ),
+            //             child: Stack(
+            //               children: [
+            //                 Positioned(
+            //                   // simulateswipingyourcardupWry (111:1520)
+            //                   left: 15.7513427734 * fem,
+            //                   top: 10.5 * fem,
+            //                   child: Center(
+            //                     child: Align(
+            //                       child: SizedBox(
+            //                         width: 158 * fem,
+            //                         height: 44 * fem,
+            //                         child: Text(
+            //                           args.deviceId,
+            //                           textAlign: TextAlign.center,
+            //                           style: SafeGoogleFont(
+            //                             'SF Pro Display',
+            //                             fontSize: 16 * ffem,
+            //                             fontWeight: FontWeight.w700,
+            //                             height: 1.375 * ffem / fem,
+            //                             color: Color(0xffffffff),
+            //                           ),
+            //                         ),
+            //                       ),
+            //                     ),
+            //                   ),
+            //                 ),
+            //                 Positioned(
+            //                   // rectangle7eVK (111:1521)
+            //                   left: 0 * fem,
+            //                   top: 0 * fem,
+            //                   child: Align(
+            //                     child: SizedBox(
+            //                       width: 190 * fem,
+            //                       height: 66 * fem,
+            //                       child: Container(
+            //                         decoration: BoxDecoration(
+            //                           borderRadius:
+            //                               BorderRadius.circular(15 * fem),
+            //                           border:
+            //                               Border.all(color: Color(0xffffffff)),
+            //                         ),
+            //                       ),
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //         ),
+            //       ),
+            //       TextButton(
+            //         // group8FV7 (111:1522)
+            //         onPressed: () {},
+            //         style: TextButton.styleFrom(
+            //           padding: EdgeInsets.zero,
+            //         ),
+            //         child: Container(
+            //           width: 188 * fem,
+            //           height: double.infinity,
+            //           decoration: BoxDecoration(
+            //             borderRadius: BorderRadius.circular(15 * fem),
+            //           ),
+            //           child: Stack(
+            //             children: [
+            //               Positioned(
+            //                 // simulateswipingyourfriendscard (111:1523)
+            //                 left: 14.75390625 * fem,
+            //                 top: 10.5 * fem,
+            //                 child: Center(
+            //                   child: Align(
+            //                     child: SizedBox(
+            //                       width: 158 * fem,
+            //                       height: 44 * fem,
+            //                       child: Text(
+            //                         'Simulate swiping your friends card up ',
+            //                         textAlign: TextAlign.center,
+            //                         style: SafeGoogleFont(
+            //                           'SF Pro Display',
+            //                           fontSize: 16 * ffem,
+            //                           fontWeight: FontWeight.w700,
+            //                           height: 1.375 * ffem / fem,
+            //                           color: Color(0xffffffff),
+            //                         ),
+            //                       ),
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ),
+            //               Positioned(
+            //                 // rectangle7Jrh (111:1524)
+            //                 left: 0 * fem,
+            //                 top: 0 * fem,
+            //                 child: Align(
+            //                   child: SizedBox(
+            //                     width: 188 * fem,
+            //                     height: 66 * fem,
+            //                     child: Container(
+            //                       decoration: BoxDecoration(
+            //                         borderRadius:
+            //                             BorderRadius.circular(15 * fem),
+            //                         border:
+            //                             Border.all(color: Color(0xffffffff)),
+            //                       ),
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
             Row(
               children: [
                 IconButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: const Icon(Icons.arrow_back_ios,
-                    color: Color(0xffffffff),)),
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      color: Color(0xffffffff),
+                    )),
                 IconButton(
                     onPressed: () {
                       //here trade logic
                       Navigator.pushNamed(
-                          context, Home.routeName,);
+                        context,
+                        Home.routeName,
+                      );
                     },
-                    icon: const Icon(Icons.check,
-                        color: Color(0xffffffff))),
+                    icon: const Icon(Icons.check, color: Color(0xffffffff))),
               ],
             ),
             Container(
@@ -443,7 +512,7 @@ class TradingConfirmTrade extends StatelessWidget {
                                             width: 81 * fem,
                                             height: 22 * fem,
                                             child: Text(
-                                              'Jar of Greed',
+                                              ownCard?.name ?? "...",
                                               style: SafeGoogleFont(
                                                 'SF Pro Display',
                                                 fontSize: 15 * ffem,
@@ -836,7 +905,7 @@ class TradingConfirmTrade extends StatelessWidget {
                                             width: 54 * fem,
                                             height: 22 * fem,
                                             child: Text(
-                                              'Old tree',
+                                              friendsCard?.name ?? "...",
                                               style: SafeGoogleFont(
                                                 'SF Pro Display',
                                                 fontSize: 15 * ffem,
@@ -968,26 +1037,26 @@ class TradingConfirmTrade extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(
-                    // hintswipeupyourcardtoacceptand (26:855)
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 0.99 * fem, 0 * fem),
-                    constraints: BoxConstraints(
-                      maxWidth: 305 * fem,
-                    ),
-                    child: Text(
-                      'Hint:\nSwipe up your card to accept and your trading partners card to reject the trade',
-                      textAlign: TextAlign.center,
-                      style: SafeGoogleFont(
-                        'SF Pro Display',
-                        fontSize: 20 * ffem,
-                        fontWeight: FontWeight.w700,
-                        height: 1.2575 * ffem / fem,
-                        letterSpacing: -0.2399999946 * fem,
-                        color: Color(0xffffffff),
-                      ),
-                    ),
-                  ),
+                  // Container(
+                  //   // hintswipeupyourcardtoacceptand (26:855)
+                  //   margin: EdgeInsets.fromLTRB(
+                  //       0 * fem, 0 * fem, 0.99 * fem, 0 * fem),
+                  //   constraints: BoxConstraints(
+                  //     maxWidth: 305 * fem,
+                  //   ),
+                  //   child: Text(
+                  //     'Hint:\nSwipe up your card to accept and your trading partners card to reject the trade',
+                  //     textAlign: TextAlign.center,
+                  //     style: SafeGoogleFont(
+                  //       'SF Pro Display',
+                  //       fontSize: 20 * ffem,
+                  //       fontWeight: FontWeight.w700,
+                  //       height: 1.2575 * ffem / fem,
+                  //       letterSpacing: -0.2399999946 * fem,
+                  //       color: Color(0xffffffff),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
