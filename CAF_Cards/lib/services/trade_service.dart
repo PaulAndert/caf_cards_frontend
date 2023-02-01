@@ -30,9 +30,9 @@ class TradeService {
     return null;
   }
 
-  Future<Trade?> getTradeByReceiverDeviceId(String receiverDeviceId) async {
+  Future<Trade?> getTradeByDeviceId(String deviceId) async {
     var client = http.Client();
-    var uri = Uri.parse("$api/receiverId/$receiverDeviceId");
+    var uri = Uri.parse("$api/receiverId/$deviceId");
 
     var response = await client.get(uri);
     if (response.statusCode == 200) {
