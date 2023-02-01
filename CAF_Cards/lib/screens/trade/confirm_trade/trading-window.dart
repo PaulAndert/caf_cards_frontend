@@ -13,6 +13,7 @@ import '../../../models/gamecard.dart';
 import '../../../models/trade.dart';
 import '../../../services/helper_service.dart';
 import '../../../services/trade_service.dart';
+import '../select_card/trading-window-41b.dart';
 
 class TradingConfirmTrade extends StatefulWidget {
   static const String routeName = "/TradingConfirmTrade";
@@ -32,6 +33,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
   bool cardsLoaded = false;
 
   bool waiting = false;
+  bool tradeFinished = false;
 
   @override
   void initState() {
@@ -49,6 +51,26 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     }
     while (true) {
       getTrade(deviceId);
+
+      while (waiting == true) {
+        if (trade!.receiverAccepted && trade!.senderAccepted) {
+          await UserService().tradeCards(deviceId!);
+          await TradeService().updateAccept(trade!.receiverDeviceId, false);
+          await TradeService().updateAccept(trade!.senderDeviceId, false);
+          waiting = false;
+
+          deleteTrade();
+          tradeFinished = true;
+
+          // How to move?!
+          // Navigator.pop(context);
+          // Navigator.pushNamed(
+          //   context,
+          //   Home.routeName,
+          // );
+        }
+        await Future.delayed(const Duration(seconds: 1));
+      }
       await Future.delayed(const Duration(seconds: 1));
     }
   }
@@ -80,13 +102,18 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     }
   }
 
-  enterAccept() async {
-    while(waiting = true) {
-      if(trade!.receiverAccepted && trade!.senderAccepted) {
-        await UserService().tradeCards(deviceId!);
-      }
-      await Future.delayed(const Duration(seconds: 1));
-    }
+  accept() async {
+    waiting = true;
+    await TradeService().updateAccept(deviceId!, true);
+  }
+
+  decline() async {
+    waiting = false;
+    await TradeService().updateAccept(deviceId!, false);
+  }
+
+  deleteTrade() async {
+    await TradeService().deleteTradeByDeviceId(deviceId!);
   }
 
   @override
@@ -101,7 +128,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
         // tradingwindowPCh (10:10940)
         padding: EdgeInsets.fromLTRB(0 * fem, 61 * fem, 0 * fem, 0 * fem),
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color(0xff202024),
         ),
         child: Column(
@@ -248,20 +275,26 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                 IconButton(
                     onPressed: () {
                       Navigator.pop(context);
+                      decline();
                     },
                     icon: const Icon(
                       Icons.arrow_back_ios,
                       color: Color(0xffffffff),
                     )),
-                IconButton(
-                    onPressed: () {
-                      //here trade logic
-                      Navigator.pushNamed(
-                        context,
-                        Home.routeName,
-                      );
-                    },
-                    icon: const Icon(Icons.check, color: Color(0xffffffff))),
+                Visibility(
+                  visible: waiting,
+                  replacement: IconButton(
+                      onPressed: () {
+                        //here trade logic
+                        accept();
+                      },
+                      icon: const Icon(Icons.check, color: Color(0xffffffff))),
+                  child: IconButton(
+                      onPressed: () {
+                        decline();
+                      },
+                      icon: const Icon(Icons.stop, color: Color(0xffffffff))),
+                ),
               ],
             ),
             Container(
