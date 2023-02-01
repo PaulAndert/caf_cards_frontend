@@ -57,8 +57,8 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
 
   finishTrade(context) async {
     while (waiting == true) {
+      await getTrade(deviceId);
       if (trade!.receiverAccepted && trade!.senderAccepted) {
-        await getTrade(deviceId);
         if(trade!.canBeDeleted) {
           await UserService().tradeCards(deviceId!);
           deleteTrade();
