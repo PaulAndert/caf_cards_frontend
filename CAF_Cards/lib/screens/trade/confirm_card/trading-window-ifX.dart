@@ -23,7 +23,7 @@ class TradeConfirmCard extends StatelessWidget {
         // tradingwindowpFw (26:577)
         padding: EdgeInsets.fromLTRB(6 * fem, 56 * fem, 3 * fem, 15 * fem),
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color(0xff202024),
         ),
         child: Column(
