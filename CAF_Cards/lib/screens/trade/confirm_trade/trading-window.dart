@@ -14,6 +14,7 @@ import '../../../models/trade.dart';
 import '../../../services/helper_service.dart';
 import '../../../services/trade_service.dart';
 import '../select_card/trading-window-41b.dart';
+import '../start/trade-start.dart';
 
 class TradingConfirmTrade extends StatefulWidget {
   static const String routeName = "/TradingConfirmTrade";
@@ -50,26 +51,28 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
       });
     }
     while (true) {
-      getTrade(deviceId);
+      await getTrade(deviceId);
+      await Future.delayed(const Duration(seconds: 1));
+    }
+  }
 
-      while (waiting == true) {
-        if (trade!.receiverAccepted && trade!.senderAccepted) {
-          await UserService().tradeCards(deviceId!);
-          await TradeService().updateAccept(trade!.receiverDeviceId, false);
-          await TradeService().updateAccept(trade!.senderDeviceId, false);
-          waiting = false;
+  finishTrade(context) async {
+    while (waiting == true) {
+      if (trade!.receiverAccepted && trade!.senderAccepted) {
+        await UserService().tradeCards(deviceId!);
+        await TradeService().updateAccept(trade!.receiverDeviceId, false);
+        await TradeService().updateAccept(trade!.senderDeviceId, false);
+        waiting = false;
 
-          deleteTrade();
-          tradeFinished = true;
+        deleteTrade();
+        tradeFinished = true;
 
-          // How to move?!
-          // Navigator.pop(context);
-          // Navigator.pushNamed(
-          //   context,
-          //   Home.routeName,
-          // );
-        }
-        await Future.delayed(const Duration(seconds: 1));
+        // How to move?!
+        Navigator.pop(context);
+        Navigator.pushNamed(
+          context,
+          Collection.routeName,
+        );
       }
       await Future.delayed(const Duration(seconds: 1));
     }
@@ -102,9 +105,10 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     }
   }
 
-  accept() async {
+  accept(context) async {
     waiting = true;
     await TradeService().updateAccept(deviceId!, true);
+    await finishTrade(context);
   }
 
   decline() async {
@@ -122,6 +126,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
+
     return Container(
       width: double.infinity,
       child: Container(
@@ -149,7 +154,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                   visible: waiting,
                   replacement: IconButton(
                       onPressed: () {
-                        accept();
+                        accept(context);
                       },
                       icon: const Icon(Icons.check, color: Color(0xffffffff))),
                   child: IconButton(

@@ -114,7 +114,7 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
                           Navigator.pop(context);
                           Navigator.pushNamed(
                             context,
-                            Home.routeName, // navbar does not change and other one does not notice that trade stopped
+                            TradeStart.routeName, // navbar does not change and other one does not notice that trade stopped
                           );
                           deleteTrade();
                         },
