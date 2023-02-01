@@ -67,7 +67,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
 
         Navigator.pop(context);
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => Collection(),
+          builder: (context) => Home(),
         ));
       }
       await Future.delayed(const Duration(milliseconds: 500));
