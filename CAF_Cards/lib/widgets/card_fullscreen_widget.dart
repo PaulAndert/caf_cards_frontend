@@ -20,7 +20,7 @@ class card_fullscreen_widget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // group6GJH (103:1291)
-      margin: EdgeInsets.fromLTRB(14*fem, 0*fem, 10.14*fem, 71*fem),
+      margin: EdgeInsets.fromLTRB(10*fem, 0*fem, 10*fem, 0*fem),
       width: double.infinity,
       height: 576*fem,
       child: Stack(
