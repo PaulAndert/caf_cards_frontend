@@ -80,15 +80,11 @@ class UserService {
     return null;
   }
 
-  Future<User?> tradeCards(Trade trade) async {
+  Future<User?> tradeCards(String deviceId) async {
     var client = http.Client();
-    var uri = Uri.parse(api);
+    var uri = Uri.parse("$api/trade/$deviceId");
 
-    var response = await client.put(uri,
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-        body:tradeToJson(trade));
+    var response = await client.put(uri);
     if(response.statusCode == 200) {
       var json = response.body;
       return userFromJson(json);

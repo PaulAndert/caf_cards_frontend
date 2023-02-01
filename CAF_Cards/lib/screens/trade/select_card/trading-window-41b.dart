@@ -90,29 +90,62 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
               child: CircularProgressIndicator(
             color: Colors.deepPurpleAccent,
           )),
-          child: Center(
-            child: GridView.builder(
-                itemCount: cards?.length ?? 0,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: (157.75 * fem / 250 * fem),
-                ),
-                itemBuilder: (_, int index) {
-                  return GridTile(
-                    child: Container(
-                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                      alignment: Alignment.center,
-                      child: CollectionCardWidget(
-                        fem: fem,
-                        ffem: ffem,
-                        card: cards![index],
-                        ability: abilities[index],
-                        routeName: TradeConfirmCard.routeName,
-                        deviceId: deviceId!,
-                      ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Expanded(
+                flex: 3,
+                child: Container(),
+              ),
+              Expanded(
+                flex: 1,
+                child: Row(children: [
+                  Expanded(
+                    flex: 1,
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(
+                          Icons.close,
+                          color: Color(0xffffffff),
+                        )),
+                  ),
+                  Expanded(
+                    flex: 4,
+                    child: Container(),
+                  )
+                ]),
+              ),
+              Expanded(
+                flex: 1,
+                child: Container(),
+              ),
+              Expanded(
+                flex: 35,
+                child: GridView.builder(
+                    itemCount: cards?.length ?? 0,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: (157.75 * fem / 250 * fem),
                     ),
-                  );
-                }),
+                    itemBuilder: (_, int index) {
+                      return GridTile(
+                        child: Container(
+                          alignment: Alignment.topCenter,
+                          child: CollectionCardWidget(
+                            fem: fem,
+                            ffem: ffem,
+                            card: cards![index],
+                            ability: abilities[index],
+                            routeName: TradeConfirmCard.routeName,
+                            deviceId: deviceId!,
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+            ],
           ),
         ),
       ),
