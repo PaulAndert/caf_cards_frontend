@@ -63,8 +63,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
           await UserService().tradeCards(deviceId!);
           deleteTrade();
         }
-
-        waiting = false;
         await TradeService().updateDeleted(deviceId!, true);
 
         Navigator.pop(context);
