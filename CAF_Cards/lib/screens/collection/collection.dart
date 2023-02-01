@@ -11,6 +11,7 @@ import '../../models/gamecard.dart';
 import '../../models/user.dart';
 import '../../services/card_service.dart';
 import '../../services/helper_service.dart';
+import '../details/details.dart';
 
 var fem;
 var ffem;
@@ -115,12 +116,10 @@ class GridBuilderState extends State<GridBuilder> {
                       child: CollectionCardWidget(
                         fem: fem,
                         ffem: ffem,
-                        name: cards?[index].name ?? "...",
-                        description: cards?[index].description ?? "...",
-                        energy: cards?[index].energy ?? 0,
-                        strength: cards?[index].strength ?? 0,
-                        health: cards?[index].health ?? 0,
-                        ability: abilities[index].name,
+                        card: cards![index],
+                        ability: abilities[index],
+                        routeName: Details.routeName,
+                        deviceId: deviceId!,
                       ),
                     ),
                   );

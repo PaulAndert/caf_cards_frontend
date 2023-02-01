@@ -7,6 +7,7 @@ import 'package:myapp/models/trade.dart';
 import 'package:myapp/screens/collection/collection.dart';
 import 'package:myapp/screens/create/points/create-points.dart';
 import 'package:myapp/screens/create/start/create-start.dart';
+import 'package:myapp/screens/details/details.dart';
 import 'package:myapp/screens/fight/start/fight-start.dart';
 import 'package:myapp/screens/trade/confirm_card/trading-window-ifX.dart';
 import 'package:myapp/screens/trade/confirm_trade/trading-window.dart';
@@ -97,6 +98,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
         TradeSelectCard.routeName: (BuildContext context) => TradeSelectCard(),
         TradeConfirmCard.routeName: (BuildContext context) => TradeConfirmCard(),
         TradingConfirmTrade.routeName: (BuildContext context) => TradingConfirmTrade(),
+        Details.routeName: (BuildContext context) => Details(),
       },
       debugShowCheckedModeBanner: false,
       scrollBehavior: MyCustomScrollBehavior(),
