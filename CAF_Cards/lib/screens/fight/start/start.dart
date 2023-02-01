@@ -3,7 +3,6 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
-import 'package:myapp/widgets/navbar.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../../services/helper_service.dart';

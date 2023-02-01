@@ -9,7 +9,6 @@ import 'package:myapp/screens/trade/start/start.dart';
 import 'package:myapp/services/helper_service.dart';
 import 'package:myapp/services/user_service.dart';
 import 'package:myapp/utils.dart';
-import 'package:myapp/widgets/navbar.dart';
 
 import '../../models/user.dart';
 

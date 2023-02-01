@@ -4,7 +4,6 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/basic_argument.dart';
 import 'package:myapp/utils.dart';
-import 'package:myapp/widgets/navbar.dart';
 
 import '../points/points_i.dart';
 

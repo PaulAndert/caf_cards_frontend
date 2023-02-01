@@ -3,7 +3,6 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
-import 'package:myapp/widgets/navbar.dart';
 
 import '../../models/screen_argument.dart';
 import '../../widgets/big_card.dart';

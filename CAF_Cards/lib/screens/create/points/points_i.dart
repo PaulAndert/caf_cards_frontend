@@ -9,7 +9,6 @@ import 'package:myapp/models/card.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/big_card.dart';
 import 'package:myapp/widgets/big_card_edit.dart';
-import 'package:myapp/widgets/navbar.dart';
 
 import '../../../services/helper_service.dart';
 

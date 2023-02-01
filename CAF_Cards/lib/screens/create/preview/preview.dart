@@ -3,7 +3,6 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
-import 'package:myapp/widgets/navbar.dart';
 
 class CreatePreview extends StatelessWidget {
   @override
@@ -382,7 +381,6 @@ class CreatePreview extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Navbar(fem: fem),
                   Container(
                     // ioshomeindicatorsfoSD (I111:2011;10:2672;17:132)
                     padding: EdgeInsets.fromLTRB(121*fem, 21*fem, 120*fem, 8*fem),
