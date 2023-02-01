@@ -48,7 +48,7 @@ class _fullscreen_edit_widgetState extends State<fullscreen_edit_widget> {
   }
 
   void incrementStrength() {
-    if (strength < 10) {
+    if (strength < 9) {
       setState(() {
         strength++;
         print(strength);
@@ -65,7 +65,7 @@ class _fullscreen_edit_widgetState extends State<fullscreen_edit_widget> {
   }
 
   void incrementHealth() {
-    if (health < 11) {
+    if (health < 9) {
       setState(() {
         health++;
       });

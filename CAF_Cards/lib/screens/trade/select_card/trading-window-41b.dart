@@ -6,6 +6,7 @@ import 'package:myapp/models/ScreenArguments.dart';
 import 'package:myapp/models/ability.dart';
 import 'package:myapp/screens/trade/confirm_card/trading-window-ifX.dart';
 import 'package:myapp/services/card_service.dart';
+import 'package:myapp/services/trade_service.dart';
 import 'package:myapp/utils.dart';
 import '../../../services/ability_service.dart';
 import '../../../widgets/CollectionCardWidget.dart';
@@ -15,6 +16,8 @@ import '../../../models/gamecard.dart';
 import '../../../services/helper_service.dart';
 import '../../../services/user_service.dart';
 import '../../../widgets/card_fullscreen_widget.dart';
+import '../../home/home.dart';
+import '../start/trade-start.dart';
 
 class TradeSelectCard extends StatefulWidget {
   static const String routeName = "/TradeSelectCard";
@@ -72,6 +75,10 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
     }
   }
 
+  deleteTrade() async {
+    await TradeService().deleteTradeByDeviceId(deviceId!);
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
@@ -85,7 +92,7 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
           color: Color(0xff202024),
         ),
         child: Visibility(
-          visible: abilitiesLoaded && cardsLoaded,
+          visible: abilitiesLoaded && cardsLoaded && deviceIdLoaded,
           replacement: const Center(
               child: CircularProgressIndicator(
             color: Colors.deepPurpleAccent,
@@ -105,6 +112,11 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
                     child: IconButton(
                         onPressed: () {
                           Navigator.pop(context);
+                          Navigator.pushNamed(
+                            context,
+                            Home.routeName, // navbar does not change and other one does not notice that trade stopped
+                          );
+                          deleteTrade();
                         },
                         icon: const Icon(
                           Icons.close,
