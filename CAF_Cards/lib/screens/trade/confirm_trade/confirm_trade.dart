@@ -34,7 +34,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
   bool cardsLoaded = false;
 
   bool waiting = false;
-  bool tradeFinished = false;
 
   @override
   void initState() {
@@ -52,29 +51,27 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     }
     while (true) {
       await getTrade(deviceId);
-      await Future.delayed(const Duration(seconds: 1));
+      await Future.delayed(const Duration(milliseconds: 500));
     }
   }
 
   finishTrade(context) async {
     while (waiting == true) {
       if (trade!.receiverAccepted && trade!.senderAccepted) {
-        await UserService().tradeCards(deviceId!);
-        await TradeService().updateAccept(trade!.receiverDeviceId, false);
-        await TradeService().updateAccept(trade!.senderDeviceId, false);
+        if(trade!.canBeDeleted) {
+          await UserService().tradeCards(deviceId!);
+          deleteTrade();
+        }
+
         waiting = false;
+        await TradeService().updateDeleted(deviceId!, true);
 
-        deleteTrade();
-        tradeFinished = true;
-
-        // How to move?!
         Navigator.pop(context);
-        //Navigator.pushNamed(context, Collection.routeName,);
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => Collection(),
         ));
       }
-      await Future.delayed(const Duration(seconds: 1));
+      await Future.delayed(const Duration(milliseconds: 500));
     }
   }
 

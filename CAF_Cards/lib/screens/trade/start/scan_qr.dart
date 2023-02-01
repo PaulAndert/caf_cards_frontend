@@ -67,7 +67,8 @@ class _MyQRView extends State<MyQRView> {
         senderCardId: 0,
         receiverCardId: 0,
         senderAccepted: false,
-        receiverAccepted: false);
+        receiverAccepted: false,
+        canBeDeleted: false);
     postedTrade = await TradeService().postTrade(trade);
     setState(() {
       tradeLoaded = true;
