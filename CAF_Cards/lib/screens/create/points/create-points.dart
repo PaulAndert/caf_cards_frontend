@@ -54,7 +54,7 @@ class _CreatePointsState extends State<CreatePoints> {
   }
 
   void incrementStrength() {
-    if (strength < 10) {
+    if (strength < 9) {
       setState(() {
         strength++;
       });
@@ -70,7 +70,7 @@ class _CreatePointsState extends State<CreatePoints> {
   }
 
   void incrementHealth() {
-    if (health < 11) {
+    if (health < 9) {
       setState(() {
         health++;
       });
@@ -142,9 +142,9 @@ class _CreatePointsState extends State<CreatePoints> {
                     strength: strength,
                     health: health,
                     userIds: [],
-                    abilityId: 0),
+                    abilityId: 11),
                     Ability(
-                      id: 0,
+                      id: 11,
                       cost: 0,
                       name: "does nothing special",
                       cardIds: [],
