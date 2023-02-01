@@ -1,8 +1,7 @@
 # caf_cards_frontend
 
 Necessary:
-- ($ flutter pub add qr_flutter (in project root directory))
-- ($ flutter pub add flutter_barcode_scanner (in project root directory))
+- $ flutter pub get
 - in run config at "Additional run args" insert "--no-sound-null-safety"
 - since localhost doesnt work with flutter at "Additional run args" insert "--dart-define=IP=YOUR_IP_ADDRESS"
 
@@ -20,9 +19,6 @@ Necessary:
 - models = like entitys in Spring = databundles that you can use everywhere in the project
 - main.dart = file that starts the whole app
 
-qr: https://pub.dev/packages/qr
-qr_code_scanner: https://pub.dev/packages/qr_code_scanner
-
 
 TODO for now:
 - Detailed Collection View (edit)
@@ -31,8 +27,4 @@ TODO for now:
 - trade confirm hübsch machen
 - Trade einige Fehler:
   - Tradeabbruch in select ändert navbar nicht
-  - Partner bekommt nicht mit dass Trade beendet (sowohl bei abbruch als auch bei ende)
-  - nach erfolgreichem Tradeende pasiert nichts (move to Home?)
-
-TODO for later:
-- navbar: anstatt Pipette ein Schwert (https://www.fluttericon.com/)
+  - Partner bekommt nicht mit dass Trade beendet (nur bei abbruch)
