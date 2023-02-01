@@ -52,7 +52,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     }
     while (true) {
       await getTrade(deviceId);
-      await Future.delayed(const Duration(seconds: 1));
+      await Future.delayed(const Duration(milliseconds: 500));
     }
   }
 
@@ -74,7 +74,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
           Collection.routeName,
         );
       }
-      await Future.delayed(const Duration(seconds: 1));
+      await Future.delayed(const Duration(milliseconds: 500));
     }
   }
 
