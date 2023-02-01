@@ -25,8 +25,10 @@ qr_code_scanner: https://pub.dev/packages/qr_code_scanner
 
 
 TODO for now:
-- Detailed Collection View
-- Create fertig
+- Detailed Collection View (edit)
+- Create beenden
+- trade die navbar wegnehmen bis beendet
+- trade confirm hübsch machen
 - Trade einige Fehler:
   - Tradeabbruch in select ändert navbar nicht
   - Partner bekommt nicht mit dass Trade beendet (sowohl bei abbruch als auch bei ende)
