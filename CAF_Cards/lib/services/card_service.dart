@@ -1,4 +1,4 @@
-import '../models/gamecard.dart';
+import '../models/card.dart';
 import 'package:http/http.dart' as http;
 
 class GamecardService {

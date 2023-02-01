@@ -15,7 +15,7 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import '../../../models/user.dart';
 import '../../../services/helper_service.dart';
 import '../../../services/user_service.dart';
-import '../select_card/trading-window-41b.dart';
+import '../select_card/select_card.dart';
 
 class MyQRView extends StatefulWidget {
   const MyQRView({Key? key}) : super(key: key);

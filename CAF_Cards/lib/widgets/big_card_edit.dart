@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/models/gamecard.dart';
+import 'package:myapp/models/card.dart';
 
-import '../models/ScreenArguments.dart';
+import '../models/screen_argument.dart';
 import '../services/helper_service.dart';
 import '../utils.dart';
 

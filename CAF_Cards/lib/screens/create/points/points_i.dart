@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/models/CreateBasicArguments.dart';
-import 'package:myapp/models/ScreenArguments.dart';
+import 'package:myapp/models/basic_argument.dart';
+import 'package:myapp/models/screen_argument.dart';
 import 'package:myapp/models/ability.dart';
-import 'package:myapp/models/gamecard.dart';
+import 'package:myapp/models/card.dart';
 import 'package:myapp/utils.dart';
-import 'package:myapp/widgets/card_fullscreen_widget.dart';
-import 'package:myapp/widgets/fullscreen_edit_widget.dart';
+import 'package:myapp/widgets/big_card.dart';
+import 'package:myapp/widgets/big_card_edit.dart';
 import 'package:myapp/widgets/navbar.dart';
 
 import '../../../services/helper_service.dart';

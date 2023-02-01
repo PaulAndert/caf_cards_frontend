@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/models/ScreenArguments.dart';
+import 'package:myapp/models/screen_argument.dart';
 import 'package:myapp/models/ability.dart';
-import 'package:myapp/screens/trade/confirm_card/trading-window-ifX.dart';
+import 'package:myapp/screens/trade/confirm_card/confirm_card.dart';
 import 'package:myapp/services/card_service.dart';
 import 'package:myapp/services/trade_service.dart';
 import 'package:myapp/utils.dart';
 import '../../../services/ability_service.dart';
-import '../../../widgets/CollectionCardWidget.dart';
+import '../../../widgets/small_card.dart';
 
 import '../../../models/user.dart';
-import '../../../models/gamecard.dart';
+import '../../../models/card.dart';
 import '../../../services/helper_service.dart';
 import '../../../services/user_service.dart';
-import '../../../widgets/card_fullscreen_widget.dart';
+import '../../../widgets/big_card.dart';
 import '../../home/home.dart';
-import '../start/trade-start.dart';
+import '../start/start.dart';
 
 class TradeSelectCard extends StatefulWidget {
   static const String routeName = "/TradeSelectCard";
@@ -112,10 +112,10 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
                     child: IconButton(
                         onPressed: () {
                           Navigator.pop(context);
-                          Navigator.pushNamed(
-                            context,
-                            TradeStart.routeName, // navbar does not change and other one does not notice that trade stopped
-                          );
+                          //Navigator.pushNamed(context, TradeStart.routeName,); // navbar does not change and other one does not notice that trade stopped
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const TradeStart(),
+                          ));
                           deleteTrade();
                         },
                         icon: const Icon(

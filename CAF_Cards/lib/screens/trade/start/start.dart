@@ -12,14 +12,14 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../../services/helper_service.dart';
 import '../../collection/collection.dart';
-import '../../create/points/create-points.dart';
-import '../../create/start/create-start.dart';
-import '../../fight/start/fight-start.dart';
+import '../../create/points/points_i.dart';
+import '../../create/start/start.dart';
+import '../../fight/start/start.dart';
 import '../../home/home.dart';
-import '../confirm_card/trading-window-ifX.dart';
-import '../confirm_trade/trading-window.dart';
-import 'trade-scan-qr-code.dart';
-import '../select_card/trading-window-41b.dart';
+import '../confirm_card/confirm_card.dart';
+import '../confirm_trade/confirm_trade.dart';
+import 'scan_qr.dart';
+import '../select_card/select_card.dart';
 
 class TradeStart extends StatelessWidget {
   const TradeStart({super.key});

@@ -1,5 +1,5 @@
 import 'package:myapp/models/ability.dart';
-import 'package:myapp/models/gamecard.dart';
+import 'package:myapp/models/card.dart';
 
 
 class ScreenArguments {

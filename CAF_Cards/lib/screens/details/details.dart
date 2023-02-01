@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/navbar.dart';
 
-import '../../models/ScreenArguments.dart';
-import '../../widgets/card_fullscreen_widget.dart';
+import '../../models/screen_argument.dart';
+import '../../widgets/big_card.dart';
 
 class Details extends StatelessWidget {
   static const String routeName = "/Details";

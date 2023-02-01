@@ -8,13 +8,13 @@ import 'package:myapp/services/card_service.dart';
 import 'package:myapp/services/user_service.dart';
 import 'package:myapp/utils.dart';
 
-import '../../../models/ScreenArguments.dart';
-import '../../../models/gamecard.dart';
+import '../../../models/screen_argument.dart';
+import '../../../models/card.dart';
 import '../../../models/trade.dart';
 import '../../../services/helper_service.dart';
 import '../../../services/trade_service.dart';
-import '../select_card/trading-window-41b.dart';
-import '../start/trade-start.dart';
+import '../select_card/select_card.dart';
+import '../start/start.dart';
 
 class TradingConfirmTrade extends StatefulWidget {
   static const String routeName = "/TradingConfirmTrade";
@@ -69,10 +69,10 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
 
         // How to move?!
         Navigator.pop(context);
-        Navigator.pushNamed(
-          context,
-          Collection.routeName,
-        );
+        //Navigator.pushNamed(context, Collection.routeName,);
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => Collection(),
+        ));
       }
       await Future.delayed(const Duration(seconds: 1));
     }

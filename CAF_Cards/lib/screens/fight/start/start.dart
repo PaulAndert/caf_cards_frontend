@@ -7,7 +7,7 @@ import 'package:myapp/widgets/navbar.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../../services/helper_service.dart';
-import '../qr_code/fight-scan-code.dart';
+import '../qr_code/qr.dart';
 
 class FightStart extends StatefulWidget {
   static const String routeName = "/FightStart";

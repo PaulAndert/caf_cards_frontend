@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/screens/trade/confirm_trade/trading-window.dart';
+import 'package:myapp/screens/trade/confirm_trade/confirm_trade.dart';
 import 'package:myapp/services/trade_service.dart';
 import 'package:myapp/utils.dart';
 
-import '../../../models/ScreenArguments.dart';
+import '../../../models/screen_argument.dart';
 import '../../../models/trade.dart';
-import '../../../widgets/card_fullscreen_widget.dart';
+import '../../../widgets/big_card.dart';
 
 class TradeConfirmCard extends StatefulWidget {
   static const String routeName = "/TradeConfirmCard";

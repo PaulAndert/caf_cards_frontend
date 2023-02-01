@@ -4,9 +4,9 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
-import '../models/ScreenArguments.dart';
+import '../models/screen_argument.dart';
 import '../models/ability.dart';
-import '../models/gamecard.dart';
+import '../models/card.dart';
 
 class CollectionCardWidget extends StatelessWidget {
   const CollectionCardWidget({

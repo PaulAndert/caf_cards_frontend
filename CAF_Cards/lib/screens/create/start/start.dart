@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/models/CreateBasicArguments.dart';
+import 'package:myapp/models/basic_argument.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/navbar.dart';
 
-import '../points/create-points.dart';
+import '../points/points_i.dart';
 
 class CreateStart extends StatefulWidget {
   static const String routeName = "/CreateStart";

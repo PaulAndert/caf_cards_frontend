@@ -4,10 +4,10 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/services/ability_service.dart';
 import 'package:myapp/utils.dart';
-import 'package:myapp/widgets/CollectionCardWidget.dart';
+import 'package:myapp/widgets/small_card.dart';
 
 import '../../models/ability.dart';
-import '../../models/gamecard.dart';
+import '../../models/card.dart';
 import '../../models/user.dart';
 import '../../services/card_service.dart';
 import '../../services/helper_service.dart';

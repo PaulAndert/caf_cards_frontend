@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/custom_icons_icons.dart';
 import 'package:myapp/models/trade.dart';
 import 'package:myapp/screens/collection/collection.dart';
-import 'package:myapp/screens/create/points/create-points.dart';
-import 'package:myapp/screens/create/start/create-start.dart';
+import 'package:myapp/screens/create/points/points_i.dart';
+import 'package:myapp/screens/create/start/start.dart';
 import 'package:myapp/screens/details/details.dart';
-import 'package:myapp/screens/fight/start/fight-start.dart';
-import 'package:myapp/screens/trade/confirm_card/trading-window-ifX.dart';
-import 'package:myapp/screens/trade/confirm_trade/trading-window.dart';
-import 'package:myapp/screens/trade/start/trade-scan-qr-code.dart';
-import 'package:myapp/screens/trade/select_card/trading-window-41b.dart';
-import 'package:myapp/screens/trade/start/trade-start.dart';
+import 'package:myapp/screens/fight/start/start.dart';
+import 'package:myapp/screens/trade/confirm_card/confirm_card.dart';
+import 'package:myapp/screens/trade/confirm_trade/confirm_trade.dart';
+import 'package:myapp/screens/trade/start/scan_qr.dart';
+import 'package:myapp/screens/trade/select_card/select_card.dart';
+import 'package:myapp/screens/trade/start/start.dart';
 import 'package:myapp/utils.dart';
 
 // import 'package:myapp/screens/home/atomgood-1.dart';
@@ -21,23 +20,23 @@ import 'package:myapp/screens/home/home.dart';
 
 // import 'package:myapp/screens/collection/collection.dart';
 
-// import 'package:myapp/screens/create/start/create-start.dart';
-// import 'package:myapp/screens/create/points/create-points.dart';
-// import 'package:myapp/screens/create/ability_list/create-ability-list.dart';
-// import 'package:myapp/screens/create/points/create-points-ii.dart';
-// import 'package:myapp/screens/create/preview/create-preview.dart';
+// import 'package:myapp/screens/create/start/start.dart';
+// import 'package:myapp/screens/create/points/points_i.dart';
+// import 'package:myapp/screens/create/ability_list/create.dart';
+// import 'package:myapp/screens/create/points/points_ii.dart';
+// import 'package:myapp/screens/create/preview/preview.dart';
 
 // import 'package:myapp/screens/details/details.dart';
 
-// import 'package:myapp/screens/fight/start/fight-start.dart';
-// import 'package:myapp/screens/fight/qr_code/fight-scan-code.dart';
-// import 'package:myapp/screens/fight/board/fight-board.dart';
+// import 'package:myapp/screens/fight/start/start.dart';
+// import 'package:myapp/screens/fight/qr_code/qr.dart';
+// import 'package:myapp/screens/fight/board/board.dart';
 
-// import 'package:myapp/screens/trade/start/trade-start.dart';
-// import 'package:myapp/screens/trade/qr_code/trade-scan-qr-code.dart';
-// import 'package:myapp/screens/trade/select_card/trading-window-41b.dart';
-// import 'package:myapp/screens/trade/confirm_card/trading-window-ifX.dart';
-// import 'package:myapp/screens/trade/confirm_trade/trading-window.dart';
+// import 'package:myapp/screens/trade/start/start.dart';
+// import 'package:myapp/screens/trade/qr_code/scan_qr.dart';
+// import 'package:myapp/screens/trade/select_card/select_card.dart';
+// import 'package:myapp/screens/trade/confirm_card/confirm_card.dart';
+// import 'package:myapp/screens/trade/confirm_trade/confirm_trade.dart';
 
 // import 'package:myapp/widgets/inputs.dart';
 // import 'package:myapp/widgets/other-slider.dart';
