@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/screens/collection/collection.dart';
-import 'package:myapp/screens/create/points/points_i.dart';
+import 'package:myapp/screens/create/points/points.dart';
 import 'package:myapp/screens/create/start/start.dart';
 import 'package:myapp/screens/details/details.dart';
 import 'package:myapp/screens/fight/start/start.dart';

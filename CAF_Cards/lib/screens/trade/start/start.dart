@@ -5,7 +5,7 @@ import 'package:myapp/utils.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import '../../../services/helper_service.dart';
 import '../../collection/collection.dart';
-import '../../create/points/points_i.dart';
+import '../../create/points/points.dart';
 import '../../create/start/start.dart';
 import '../../fight/start/start.dart';
 import '../../home/home.dart';

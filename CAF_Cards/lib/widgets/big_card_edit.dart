@@ -161,7 +161,6 @@ class _BigCardEditState extends State<BigCardEdit> {
           Expanded(
             flex: 7,
             child: Container(
-              margin: EdgeInsets.fromLTRB(10 * fem, 0 * fem, 0 * fem, 0 * fem),
               child: Image.asset(
                 'assets/images/placeholder_small.png',
                 fit: BoxFit.cover,
@@ -195,7 +194,6 @@ class _BigCardEditState extends State<BigCardEdit> {
           Expanded(
             flex: 5,
             child: Container(
-              //margin: EdgeInsets.fromLTRB(5 * fem, 2 * fem, 5 * fem, 2 * fem),
               child: Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -238,7 +236,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                       flex: 7,
                       child: Container(
                         margin: EdgeInsets.fromLTRB(
-                            12 * fem, 0 * fem, 12 * fem, 0 * fem),
+                            30 * fem, 0 * fem, 30 * fem, 0 * fem),
                         child: InkWell(
                           onTap: () {
                             showGeneralDialog(

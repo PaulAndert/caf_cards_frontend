@@ -24,9 +24,9 @@ class _CreatePointsState extends State<CreatePoints> {
   int strength = 0;
   int health = 1;
   Ability ability = Ability(
-    id: 11,
+    id: 1,
     cost: 0,
-    name: "does nothing special",
+    name: "press here to choose Ability",
     cardIds: [],
   );
 
@@ -58,7 +58,6 @@ class _CreatePointsState extends State<CreatePoints> {
 
   getAllAbilities() async {
     abilities = await AbilityService().getAbilities();
-    print(abilities);
     if (abilities!.length > 1) {
       setState(() {
         abLoaded = true;
@@ -199,7 +198,6 @@ class _CreatePointsState extends State<CreatePoints> {
                       ability,
                     ),
                     getAbility: (String name) {
-                      print(name);
                       updateAbility(name);
                     },
                     abilities: abilities,
@@ -220,7 +218,7 @@ class _CreatePointsState extends State<CreatePoints> {
                         fontSize: 17 * ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.2941176471 * ffem / fem,
-                        color: Color(0xffffffff),
+                        color: const Color(0xffffffff),
                       ),
                     ),
                   ),

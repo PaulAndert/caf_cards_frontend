@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/models/basic_argument.dart';
 import 'package:myapp/utils.dart';
-import '../points/points_i.dart';
+import '../points/points.dart';
 
 class CreateStart extends StatefulWidget {
   const CreateStart({super.key});
