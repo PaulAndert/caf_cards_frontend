@@ -67,12 +67,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     while (true) {
       await getTrade(deviceId);
       await Future.delayed(const Duration(milliseconds: 7000));
-    }
-  }
-
-  finishTrade(context) async {
-    while (waiting == true) {
-      await getTrade(deviceId);
       // if (trade!.canBeDeleted &&
       //     !(trade!.receiverAccepted && trade!.senderAccepted)) {
       //   await deleteTrade();
@@ -81,6 +75,12 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
       //     builder: (context) => const Home(),
       //   ));
       // }
+    }
+  }
+
+  finishTrade(context) async {
+    while (waiting == true) {
+      await getTrade(deviceId);
       if (trade!.receiverAccepted && trade!.senderAccepted) {
         if (trade!.canBeDeleted) {
           await UserService().tradeCards(deviceId!);
