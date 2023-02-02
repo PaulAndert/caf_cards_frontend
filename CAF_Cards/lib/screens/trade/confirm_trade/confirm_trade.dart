@@ -66,7 +66,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     }
     while (true) {
       await getTrade(deviceId);
-      await Future.delayed(const Duration(milliseconds: 7000));
+      await Future.delayed(const Duration(milliseconds: 3000));
     }
   }
 
@@ -160,120 +160,185 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
-    return Container(
-      width: double.infinity,
+    return Material(
       child: Container(
-        padding: EdgeInsets.fromLTRB(0 * fem, 61 * fem, 0 * fem, 0 * fem),
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Color(0xff202024),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    decline();
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: Color(0xffffffff),
-                  ),
-                ),
-                Visibility(
-                  visible: waiting,
-                  replacement: IconButton(
-                    onPressed: () {
-                      accept(context);
-                    },
-                    icon: const Icon(
-                      Icons.check,
-                      color: Color(0xffffffff),
+        child: Container(
+          padding: EdgeInsets.fromLTRB(0 * fem, 61 * fem, 0 * fem, 0 * fem),
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            color: Color(0xff202024),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 2,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        decline();
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_ios,
+                        color: Color(0xffffffff),
+                      ),
                     ),
-                  ),
-                  child: IconButton(
-                    onPressed: () {
-                      decline();
-                    },
-                    icon: const Icon(
-                      Icons.stop,
-                      color: Color(0xffffffff),
+                    Visibility(
+                      visible: waiting,
+                      replacement: IconButton(
+                        onPressed: () {
+                          accept(context);
+                        },
+                        icon: const Icon(
+                          Icons.check,
+                          color: Color(0xffffffff),
+                        ),
+                      ),
+                      child: IconButton(
+                        onPressed: () {
+                          decline();
+                        },
+                        icon: const Icon(
+                          Icons.stop,
+                          color: Color(0xffffffff),
+                        ),
+                      ),
                     ),
-                  ),
+                    IconButton(
+                      onPressed: () {
+                        deleteTrade();
+                        Navigator.pop(context);
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const Home(),
+                        ));
+                      },
+                      icon: const Icon(
+                        Icons.delete,
+                        color: Color(0xffffffff),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            Container(
-              padding: EdgeInsets.fromLTRB(
-                  11.99 * fem, 132 * fem, 10 * fem, 24 * fem),
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 0 * fem, 201 * fem),
-                    width: double.infinity,
-                    height: 267 * fem,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          flex: 5,
-                          child: Visibility(
-                            visible: ownCardLoaded && ownAbilityLoaded,
-                            replacement: const Center(
-                                child: CircularProgressIndicator(
-                              color: Colors.deepPurpleAccent,
-                            )),
-                            child: Container(
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 14.99 * fem, 0 * fem),
-                                width: 178.01 * fem,
-                                height: double.infinity,
-                                child: CollectionCardWidget(
-                                  fem: fem,
-                                  ffem: ffem,
-                                  card: ownCard ?? emptyCard,
-                                  ability: ownAbility ?? emptyAbility,
-                                  deviceId: '',
-                                  routeName: '',
-                                )),
+              ),
+              Expanded(
+                flex: 2,
+                child: Container(),
+              ),
+              Expanded(
+                flex: 1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Center(
+                        child: Text(
+                          "Your Card",
+                          style: SafeGoogleFont(
+                            'SF Pro Display',
+                            fontSize: 20 * ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1.2575 * ffem / fem,
+                            color: const Color(0xffffffff),
                           ),
                         ),
-                        Expanded(
-                          flex: 5,
-                          child: Visibility(
-                            visible: friendsCardLoaded && friendsAbilityLoaded,
-                            replacement: const Center(
-                                child: CircularProgressIndicator(
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(
+                            0 * fem, 0 * fem, 10 * fem, 0 * fem),
+                        child: Center(
+                          child: Text(
+                            "Friends Card",
+                            style: SafeGoogleFont(
+                              'SF Pro Display',
+                              fontSize: 20 * ffem,
+                              fontWeight: FontWeight.w400,
+                              height: 1.2575 * ffem / fem,
+                              color: const Color(0xffffffff),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 10,
+                child: Container(
+                  width: double.infinity,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        height: 267 * fem,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              flex: 5,
+                              child: Visibility(
+                                visible: ownCardLoaded && ownAbilityLoaded,
+                                replacement: const Center(
+                                    child: CircularProgressIndicator(
                                   color: Colors.deepPurpleAccent,
                                 )),
-                            child: Container(
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 14.99 * fem, 0 * fem),
-                                width: 178.01 * fem,
-                                height: double.infinity,
-                                child: CollectionCardWidget(
-                                  fem: fem,
-                                  ffem: ffem,
-                                  card: friendsCard ?? emptyCard,
-                                  ability: friendsAbility ?? emptyAbility,
-                                  deviceId: '',
-                                  routeName: '',
+                                child: Container(
+                                    margin: EdgeInsets.fromLTRB(
+                                        15 * fem, 0 * fem, 10 * fem, 0 * fem),
+                                    width: 178.01 * fem,
+                                    height: double.infinity,
+                                    child: CollectionCardWidget(
+                                      fem: fem,
+                                      ffem: ffem,
+                                      card: ownCard ?? emptyCard,
+                                      ability: ownAbility ?? emptyAbility,
+                                      deviceId: '',
+                                      routeName: '',
+                                    )),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 5,
+                              child: Visibility(
+                                visible:
+                                    friendsCardLoaded && friendsAbilityLoaded,
+                                replacement: const Center(
+                                    child: CircularProgressIndicator(
+                                  color: Colors.deepPurpleAccent,
                                 )),
-                          ),
+                                child: Container(
+                                    margin: EdgeInsets.fromLTRB(
+                                        10 * fem, 0 * fem, 15 * fem, 0 * fem),
+                                    width: 178.01 * fem,
+                                    height: double.infinity,
+                                    child: CollectionCardWidget(
+                                      fem: fem,
+                                      ffem: ffem,
+                                      card: friendsCard ?? emptyCard,
+                                      ability: friendsAbility ?? emptyAbility,
+                                      deviceId: '',
+                                      routeName: '',
+                                    )),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
