@@ -36,7 +36,6 @@ class _CreatePointsState extends State<CreatePoints> {
   var deviceIdLoaded = false;
   var abLoaded = false;
 
-
   Map maxPoints = {
     "0": "2",
     "1": "5",
@@ -70,8 +69,7 @@ class _CreatePointsState extends State<CreatePoints> {
   @override
   void initState() {
     super.initState();
-    abilities?.add(ability
-    );
+    abilities?.add(ability);
     strength = widget.power;
     health = widget.hp;
     ability.name = widget.spell;
@@ -136,13 +134,16 @@ class _CreatePointsState extends State<CreatePoints> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                margin: EdgeInsets.fromLTRB(
-                    21 * fem, 0 * fem, 50.5 * fem, 21 * fem),
-                width: double.infinity,
+              Expanded(
+                flex: 1,
+                child: Container(),
+              ),
+              Expanded(
+                flex: 2,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    // Button back
                     Expanded(
                       flex: 1,
                       child: IconButton(
@@ -154,6 +155,7 @@ class _CreatePointsState extends State<CreatePoints> {
                             color: Colors.white,
                           )),
                     ),
+                    // Points
                     Expanded(
                       flex: 1,
                       child: Text(
@@ -171,18 +173,19 @@ class _CreatePointsState extends State<CreatePoints> {
                   ],
                 ),
               ),
+              // Card
               Expanded(
                 flex: 23,
                 child: Visibility(
                   visible: abLoaded,
                   replacement: const Center(
                       child: CircularProgressIndicator(
-                        color: Colors.deepPurpleAccent,
-                      )),
-                  child:BigCardEdit(
-                  fem: fem,
-                  ffem: ffem,
-                  args: ScreenArgument(
+                    color: Colors.deepPurpleAccent,
+                  )),
+                  child: BigCardEdit(
+                    fem: fem,
+                    ffem: ffem,
+                    args: ScreenArgument(
                       "0",
                       Gamecard(
                           id: 0,
@@ -194,15 +197,16 @@ class _CreatePointsState extends State<CreatePoints> {
                           userIds: [],
                           abilityId: 11),
                       ability,
+                    ),
+                    getAbility: (String name) {
+                      print(name);
+                      updateAbility(name);
+                    },
+                    abilities: abilities,
                   ),
-                  getAbility: (String name) {
-                    print(name);
-                    updateAbility(name);
-                  },
-                  abilities: abilities,
                 ),
               ),
-              ),
+              // Confirm Button
               Expanded(
                 flex: 4,
                 child: Center(
