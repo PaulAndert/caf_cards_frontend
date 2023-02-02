@@ -98,7 +98,7 @@ class BigCard extends StatelessWidget {
           Expanded(
             flex: 7,
             child: Container(
-              margin: EdgeInsets.fromLTRB(10 * fem, 0 * fem, 0 * fem, 0 * fem),
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
               child: Image.asset(
                 'assets/images/placeholder_small.png',
                 fit: BoxFit.cover,
