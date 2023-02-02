@@ -89,7 +89,7 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
 
   checkDeletion(context) async {
     while(true) {
-      await await getTrade(deviceId);
+      await getTrade(deviceId);
       if(tradeLoaded) {
         if (trade!.canBeDeleted) {
           await deleteTrade();
