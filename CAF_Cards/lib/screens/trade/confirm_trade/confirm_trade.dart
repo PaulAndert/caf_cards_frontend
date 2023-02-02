@@ -73,14 +73,14 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
   finishTrade(context) async {
     while (waiting == true) {
       await getTrade(deviceId);
-      if (trade!.canBeDeleted &&
-          !(trade!.receiverAccepted && trade!.senderAccepted)) {
-        await deleteTrade();
-        Navigator.pop(context);
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const Home(),
-        ));
-      }
+      // if (trade!.canBeDeleted &&
+      //     !(trade!.receiverAccepted && trade!.senderAccepted)) {
+      //   await deleteTrade();
+      //   Navigator.pop(context);
+      //   Navigator.of(context).push(MaterialPageRoute(
+      //     builder: (context) => const Home(),
+      //   ));
+      // }
       if (trade!.receiverAccepted && trade!.senderAccepted) {
         if (trade!.canBeDeleted) {
           await UserService().tradeCards(deviceId!);
