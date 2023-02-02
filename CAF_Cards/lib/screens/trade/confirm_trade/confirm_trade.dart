@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/screens/collection/collection.dart';
 import 'package:myapp/screens/home/home.dart';
 import 'package:myapp/services/card_service.dart';
 import 'package:myapp/services/user_service.dart';
 import 'package:myapp/utils.dart';
+import '../../../main.dart';
 import '../../../models/Gamecard.dart';
 import '../../../models/trade.dart';
 import '../../../services/helper_service.dart';
@@ -56,10 +58,10 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
           await deleteTrade();
         }
         await TradeService().updateDeleted(deviceId!, true);
-
+        selectedIndex = 4;
         Navigator.pop(context);
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => Home(),
+          builder: (context) => const Collection(),
         ));
       }
       if (trade!.canBeDeleted && !(trade!.receiverAccepted && trade!.senderAccepted)) {
