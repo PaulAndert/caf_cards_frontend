@@ -62,6 +62,13 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
           builder: (context) => Home(),
         ));
       }
+      if (trade!.canBeDeleted && !(trade!.receiverAccepted && trade!.senderAccepted)) {
+        await deleteTrade();
+        Navigator.pop(context);
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const Home(),
+        ));
+      }
       await Future.delayed(const Duration(milliseconds: 500));
     }
   }
