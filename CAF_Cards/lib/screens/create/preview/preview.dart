@@ -31,10 +31,9 @@ class CreatePreview extends StatelessWidget {
                 child: Container(
                   width: 32 * fem,
                   height: 32 * fem,
-                  child: Image.asset(
-                    'assets/page-1/images/iconography-caesarzkn-mAD.png',
-                    width: 32 * fem,
-                    height: 32 * fem,
+                  child: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Color(0xffffffff),
                   ),
                 ),
               ),
@@ -56,7 +55,7 @@ class CreatePreview extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(29 * fem),
-                            color: Color(0xff47479d),
+                            color: const Color(0xff47479d),
                           ),
                         ),
                       ),
@@ -70,7 +69,7 @@ class CreatePreview extends StatelessWidget {
                         width: 66.86 * fem,
                         height: 66.86 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/group-9-cNq.png',
+                          'assets/images/lightning.png',
                           width: 66.86 * fem,
                           height: 66.86 * fem,
                         ),
@@ -171,7 +170,7 @@ class CreatePreview extends StatelessWidget {
                         width: 302 * fem,
                         height: 202 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/grafik-4-jbB.png',
+                          'assets/images/placeholder_small.png',
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -207,7 +206,7 @@ class CreatePreview extends StatelessWidget {
                             width: 32.83 * fem,
                             height: 46.36 * fem,
                             child: Image.asset(
-                              'assets/page-1/images/group-7-FbB.png',
+                              'assets/images/sword.png',
                               width: 32.83 * fem,
                               height: 46.36 * fem,
                             ),
@@ -246,7 +245,7 @@ class CreatePreview extends StatelessWidget {
                             width: 50 * fem,
                             height: 50 * fem,
                             child: Image.asset(
-                              'assets/page-1/images/group-8-WQV.png',
+                              'assets/images/health.png',
                               width: 50 * fem,
                               height: 50 * fem,
                             ),
@@ -263,7 +262,7 @@ class CreatePreview extends StatelessWidget {
                         width: 309 * fem,
                         height: 145 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/group-16-A8V.png',
+                          'assets/images/lightning.png',
                           width: 309 * fem,
                           height: 145 * fem,
                         ),
@@ -301,7 +300,7 @@ class CreatePreview extends StatelessWidget {
                         width: 299 * fem,
                         height: 202 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/walle1-1-Eey.png',
+                          'assets/images/placeholder_small.png',
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -315,7 +314,7 @@ class CreatePreview extends StatelessWidget {
                         width: 33 * fem,
                         height: 33 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/group-23-vff.png',
+                          'assets/images/lightning.png',
                           width: 33 * fem,
                           height: 33 * fem,
                         ),
@@ -377,7 +376,7 @@ class CreatePreview extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100 * fem),
-                            color: Color(0xffffffff),
+                            color: const Color(0xffffffff),
                           ),
                         ),
                       ),

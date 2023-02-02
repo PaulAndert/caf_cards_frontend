@@ -232,7 +232,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 borderRadius:
                                                     BorderRadius.circular(
                                                         29 * fem),
-                                                color: Color(0xff47479d),
+                                                color: const Color(0xff47479d),
                                               ),
                                             ),
                                           ),
@@ -269,7 +269,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       width: 14.96 * fem,
                                                       height: 13.79 * fem,
                                                       child: Image.asset(
-                                                        'assets/page-1/images/vector-8-stroke-u5w.png',
+                                                        'assets/images/top_left_corner.png',
                                                         width: 14.96 * fem,
                                                         height: 13.79 * fem,
                                                       ),
@@ -278,7 +278,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       width: 16.46 * fem,
                                                       height: 12.54 * fem,
                                                       child: Image.asset(
-                                                        'assets/page-1/images/vector-8-stroke-Wb7.png',
+                                                        'assets/images/top_right_corner.png',
                                                         width: 16.46 * fem,
                                                         height: 12.54 * fem,
                                                       ),
@@ -302,7 +302,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       width: 16.46 * fem,
                                                       height: 12.54 * fem,
                                                       child: Image.asset(
-                                                        'assets/page-1/images/vector-8-stroke-YjX.png',
+                                                        'assets/images/bottom_left_corner.png',
                                                         width: 16.46 * fem,
                                                         height: 12.54 * fem,
                                                       ),
@@ -311,7 +311,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       width: 14.96 * fem,
                                                       height: 13.79 * fem,
                                                       child: Image.asset(
-                                                        'assets/page-1/images/vector-8-stroke-ycq.png',
+                                                        'assets/images/bottom_right_corner.png',
                                                         width: 14.96 * fem,
                                                         height: 13.79 * fem,
                                                       ),
@@ -339,7 +339,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                     width: 33.34 * fem,
                                                     height: 30.99 * fem,
                                                     child: Image.asset(
-                                                      'assets/page-1/images/group-9-7vM.png',
+                                                      'assets/images/lightning.png',
                                                       width: 33.34 * fem,
                                                       height: 30.99 * fem,
                                                     ),
@@ -430,7 +430,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                             width: 150.59 * fem,
                                             height: 93.64 * fem,
                                             child: Image.asset(
-                                              'assets/page-1/images/grafik-4-4Hs.png',
+                                              'assets/images/placeholder_small.png',
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -476,7 +476,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 width: 18.19 * fem,
                                                 height: 23.88 * fem,
                                                 child: Image.asset(
-                                                  'assets/page-1/images/group-7-KVo.png',
+                                                  'assets/images/sword.png',
                                                   width: 18.19 * fem,
                                                   height: 23.88 * fem,
                                                 ),
@@ -520,7 +520,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 width: 24.93 * fem,
                                                 height: 23.18 * fem,
                                                 child: Image.asset(
-                                                  'assets/page-1/images/group-8-SQd.png',
+                                                  'assets/images/health.png',
                                                   width: 24.93 * fem,
                                                   height: 23.18 * fem,
                                                 ),
@@ -600,7 +600,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                             width: 17.12 * fem,
                                             height: 15.19 * fem,
                                             child: Image.asset(
-                                              'assets/page-1/images/group-8-WDb.png',
+                                              'assets/images/halth.png',
                                               width: 17.12 * fem,
                                               height: 15.19 * fem,
                                             ),
@@ -638,7 +638,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       width: 14.96 * fem,
                                                       height: 13.79 * fem,
                                                       child: Image.asset(
-                                                        'assets/page-1/images/vector-8-stroke-MKj.png',
+                                                        'assets/images/top_left_corner.png',
                                                         width: 14.96 * fem,
                                                         height: 13.79 * fem,
                                                       ),
@@ -647,7 +647,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       width: 16.46 * fem,
                                                       height: 12.54 * fem,
                                                       child: Image.asset(
-                                                        'assets/page-1/images/vector-8-stroke-Znd.png',
+                                                        'assets/images/top_right_corner.png',
                                                         width: 16.46 * fem,
                                                         height: 12.54 * fem,
                                                       ),
@@ -671,7 +671,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       width: 16.46 * fem,
                                                       height: 12.54 * fem,
                                                       child: Image.asset(
-                                                        'assets/page-1/images/vector-8-stroke-dZf.png',
+                                                        'assets/images/bottom_left_corner.png',
                                                         width: 16.46 * fem,
                                                         height: 12.54 * fem,
                                                       ),
@@ -680,7 +680,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                       width: 14.96 * fem,
                                                       height: 13.79 * fem,
                                                       child: Image.asset(
-                                                        'assets/page-1/images/vector-8-stroke-bx9.png',
+                                                        'assets/images/bottom_right_corner.png',
                                                         width: 14.96 * fem,
                                                         height: 13.79 * fem,
                                                       ),
@@ -708,7 +708,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                     width: 33.34 * fem,
                                                     height: 30.99 * fem,
                                                     child: Image.asset(
-                                                      'assets/page-1/images/group-9-E5B.png',
+                                                      'assets/images/lightning.png',
                                                       width: 33.34 * fem,
                                                       height: 30.99 * fem,
                                                     ),
@@ -799,7 +799,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                             width: 148.33 * fem,
                                             height: 93.57 * fem,
                                             child: Image.asset(
-                                              'assets/page-1/images/image-1-ixd.png',
+                                              'assets/images/placeholder_small.png',
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -840,7 +840,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 width: 14.35 * fem,
                                                 height: 21.13 * fem,
                                                 child: Image.asset(
-                                                  'assets/page-1/images/group-7-JaZ.png',
+                                                  'assets/images/sword.png',
                                                   width: 14.35 * fem,
                                                   height: 21.13 * fem,
                                                 ),
@@ -884,7 +884,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                                                 width: 24.93 * fem,
                                                 height: 23.18 * fem,
                                                 child: Image.asset(
-                                                  'assets/page-1/images/group-8-Na1.png',
+                                                  'assets/images/health.png',
                                                   width: 24.93 * fem,
                                                   height: 23.18 * fem,
                                                 ),
