@@ -67,14 +67,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     while (true) {
       await getTrade(deviceId);
       await Future.delayed(const Duration(milliseconds: 7000));
-      // if (trade!.canBeDeleted &&
-      //     !(trade!.receiverAccepted && trade!.senderAccepted)) {
-      //   await deleteTrade();
-      //   Navigator.pop(context);
-      //   Navigator.of(context).push(MaterialPageRoute(
-      //     builder: (context) => const Home(),
-      //   ));
-      // }
     }
   }
 
@@ -87,7 +79,6 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
           await deleteTrade();
         }
         await TradeService().updateDeleted(deviceId!, true);
-        selectedIndex = 2;
         Navigator.pop(context);
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const Home(),
@@ -230,45 +221,51 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Visibility(
-                          visible: ownCardLoaded && ownAbilityLoaded,
-                          replacement: const Center(
-                              child: CircularProgressIndicator(
-                            color: Colors.deepPurpleAccent,
-                          )),
-                          child: Container(
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 14.99 * fem, 0 * fem),
-                              width: 178.01 * fem,
-                              height: double.infinity,
-                              child: CollectionCardWidget(
-                                fem: fem,
-                                ffem: ffem,
-                                card: ownCard ?? emptyCard,
-                                ability: ownAbility ?? emptyAbility,
-                                deviceId: '',
-                                routeName: '',
-                              )),
+                        Expanded(
+                          flex: 5,
+                          child: Visibility(
+                            visible: ownCardLoaded && ownAbilityLoaded,
+                            replacement: const Center(
+                                child: CircularProgressIndicator(
+                              color: Colors.deepPurpleAccent,
+                            )),
+                            child: Container(
+                                margin: EdgeInsets.fromLTRB(
+                                    0 * fem, 0 * fem, 14.99 * fem, 0 * fem),
+                                width: 178.01 * fem,
+                                height: double.infinity,
+                                child: CollectionCardWidget(
+                                  fem: fem,
+                                  ffem: ffem,
+                                  card: ownCard ?? emptyCard,
+                                  ability: ownAbility ?? emptyAbility,
+                                  deviceId: '',
+                                  routeName: '',
+                                )),
+                          ),
                         ),
-                        Visibility(
-                          visible: friendsCardLoaded && friendsAbilityLoaded,
-                          replacement: const Center(
-                              child: CircularProgressIndicator(
-                                color: Colors.deepPurpleAccent,
-                              )),
-                          child: Container(
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 14.99 * fem, 0 * fem),
-                              width: 178.01 * fem,
-                              height: double.infinity,
-                              child: CollectionCardWidget(
-                                fem: fem,
-                                ffem: ffem,
-                                card: friendsCard ?? emptyCard,
-                                ability: friendsAbility ?? emptyAbility,
-                                deviceId: '',
-                                routeName: '',
-                              )),
+                        Expanded(
+                          flex: 5,
+                          child: Visibility(
+                            visible: friendsCardLoaded && friendsAbilityLoaded,
+                            replacement: const Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.deepPurpleAccent,
+                                )),
+                            child: Container(
+                                margin: EdgeInsets.fromLTRB(
+                                    0 * fem, 0 * fem, 14.99 * fem, 0 * fem),
+                                width: 178.01 * fem,
+                                height: double.infinity,
+                                child: CollectionCardWidget(
+                                  fem: fem,
+                                  ffem: ffem,
+                                  card: friendsCard ?? emptyCard,
+                                  ability: friendsAbility ?? emptyAbility,
+                                  deviceId: '',
+                                  routeName: '',
+                                )),
+                          ),
                         ),
                       ],
                     ),

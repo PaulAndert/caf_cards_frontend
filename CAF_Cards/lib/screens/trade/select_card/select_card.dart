@@ -87,22 +87,22 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
     await TradeService().deleteTradeByDeviceId(deviceId!);
   }
 
-  checkDeletion(context) async {
-    while(true) {
-      await getTrade(deviceId);
-      if(tradeLoaded) {
-        if (trade!.canBeDeleted) {
-          await deleteTrade();
-          selectedIndex = 2;
-          Navigator.pop(context);
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const Home(),
-          ));
-        }
-      }
-      await Future.delayed(const Duration(milliseconds: 1500));
-    }
-  }
+  // checkDeletion(context) async {
+  //   while(true) {
+  //     await getTrade(deviceId);
+  //     if(tradeLoaded) {
+  //       if (trade!.canBeDeleted) {
+  //         await deleteTrade();
+  //         selectedIndex = 2;
+  //         Navigator.pop(context);
+  //         Navigator.of(context).push(MaterialPageRoute(
+  //           builder: (context) => const Home(),
+  //         ));
+  //       }
+  //     }
+  //     await Future.delayed(const Duration(milliseconds: 1500));
+  //   }
+  // }
 
   getTrade(deviceId) async {
     trade = await TradeService().getTradeByDeviceId(deviceId);
@@ -118,7 +118,7 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    checkDeletion(context);
+    //checkDeletion(context);
     return Material(
       child: Container(
         width: MediaQuery.of(context).size.width,
@@ -135,34 +135,34 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Expanded(
-                flex: 3,
-                child: Container(),
-              ),
-              Expanded(
-                flex: 1,
-                child: Row(children: [
-                  Expanded(
-                    flex: 1,
-                    child: IconButton(
-                        onPressed: () {
-                          closeTrade(context);
-                        },
-                        icon: const Icon(
-                          Icons.close,
-                          color: Color(0xffffffff),
-                        )),
-                  ),
-                  Expanded(
-                    flex: 4,
-                    child: Container(),
-                  )
-                ]),
-              ),
-              Expanded(
-                flex: 1,
-                child: Container(),
-              ),
+              // Expanded(
+              //   flex: 3,
+              //   child: Container(),
+              // ),
+              // Expanded(
+              //   flex: 1,
+              //   child: Row(children: [
+              //     Expanded(
+              //       flex: 1,
+              //       child: IconButton(
+              //           onPressed: () {
+              //             closeTrade(context);
+              //           },
+              //           icon: const Icon(
+              //             Icons.close,
+              //             color: Color(0xffffffff),
+              //           )),
+              //     ),
+              //     Expanded(
+              //       flex: 4,
+              //       child: Container(),
+              //     )
+              //   ]),
+              // ),
+              // Expanded(
+              //   flex: 1,
+              //   child: Container(),
+              // ),
               Expanded(
                 flex: 35,
                 child: GridView.builder(
