@@ -23,6 +23,6 @@ Necessary:
 TODO for now:
 - Detailed Collection View (edit)
 - Create beenden
-- trade die navbar wegnehmen bis beendet
 - trade confirm hübsch machen
 - trade navbar ändert sich nicht
+- trade die navbar wegnehmen bis beendet (wenn möglich)
