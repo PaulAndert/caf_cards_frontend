@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/main.dart';
 import 'package:myapp/models/ability.dart';
 import 'package:myapp/screens/trade/confirm_card/confirm_card.dart';
 import 'package:myapp/services/card_service.dart';
@@ -91,6 +92,7 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
       if(tradeLoaded) {
         if (trade!.canBeDeleted) {
           await deleteTrade();
+          selectedIndex = 4;
           Navigator.pop(context);
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const Home(),

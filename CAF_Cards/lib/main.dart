@@ -11,6 +11,8 @@ import 'package:myapp/screens/trade/start/start.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/screens/home/home.dart';
 
+int selectedIndex = 2;
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -35,11 +37,10 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidget extends State<MyStatefulWidget> {
-  int _selectedIndex = 2;
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
     });
   }
 
@@ -77,7 +78,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: pages[_selectedIndex],
+        body: pages[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: const Color(0xff202024),
           type: BottomNavigationBarType.fixed,
@@ -86,7 +87,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
           showUnselectedLabels: false,
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white30,
-          currentIndex: _selectedIndex,
+          currentIndex: selectedIndex,
           onTap: _onItemTapped,
           items: const [
             BottomNavigationBarItem(
