@@ -137,7 +137,7 @@ class _CreatePointsState extends State<CreatePoints> {
                 flex: 1,
                 child: Container(),
               ),
-              Expanded(
+              /*Expanded(
                 flex: 2,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -171,10 +171,10 @@ class _CreatePointsState extends State<CreatePoints> {
                     ),
                   ],
                 ),
-              ),
+              ),*/
               // Card
               Expanded(
-                flex: 23,
+                flex: 25,
                 child: Visibility(
                   visible: abLoaded,
                   replacement: const Center(
