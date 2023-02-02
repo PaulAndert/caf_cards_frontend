@@ -108,7 +108,7 @@ class CollectionCardWidget extends StatelessWidget {
                           Expanded(
                             flex: 3,
                             child: Image.asset(
-                              'assets/page-1/images/group-9-i4d.png',
+                              'assets/images/lightning.png',
                               width: double.infinity,
                               height: double.infinity,
                             ),
@@ -125,7 +125,7 @@ class CollectionCardWidget extends StatelessWidget {
               flex: 7,
               child: Align(
                 child: Image.asset(
-                  'assets/page-1/images/Foto-Platzhalter-klein.png',
+                  'assets/images/placeholder_small.png',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -150,7 +150,7 @@ class CollectionCardWidget extends StatelessWidget {
                             Expanded(
                               flex: 2,
                               child: Image.asset(
-                                'assets/page-1/images/vector-8-stroke-zHj.png',
+                                'assets/images/top_left_corner.png',
                                 width: 13.11 * fem,
                                 height: 12.09 * fem,
                               ),
@@ -164,7 +164,7 @@ class CollectionCardWidget extends StatelessWidget {
                             Expanded(
                               flex: 2,
                               child: Image.asset(
-                                'assets/page-1/images/vector-8-stroke-Egu.png',
+                                'assets/images/top_right_corner.png',
                                 width: 14.42 * fem,
                                 height: 10.99 * fem,
                               ),
@@ -205,7 +205,7 @@ class CollectionCardWidget extends StatelessWidget {
                             Expanded(
                               flex: 2,
                               child: Image.asset(
-                                'assets/page-1/images/vector-8-stroke-e45.png',
+                                'assets/images/bottom_left_corner.png',
                                 width: 14.42 * fem,
                                 height: 10.99 * fem,
                               ),
@@ -218,7 +218,7 @@ class CollectionCardWidget extends StatelessWidget {
                             Expanded(
                               flex: 2,
                               child: Image.asset(
-                                'assets/page-1/images/vector-8-stroke-Z4Z.png',
+                                'assets/images/bottom_right_corner.png',
                                 width: 13.11 * fem,
                                 height: 12.09 * fem,
                               ),
@@ -264,7 +264,7 @@ class CollectionCardWidget extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Image.asset(
-                        'assets/page-1/images/group-7-W6R.png',
+                        'assets/images/sword.png',
                         width: 14.35 * fem,
                         height: 18.83 * fem,
                       ),
@@ -297,7 +297,7 @@ class CollectionCardWidget extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Image.asset(
-                        'assets/page-1/images/group-8-j33.png',
+                        'assets/images/health.png',
                         width: double.infinity,
                         height: double.infinity,
                       ),

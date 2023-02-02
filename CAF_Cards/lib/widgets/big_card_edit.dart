@@ -96,7 +96,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(29 * widget.fem),
-                    color: Color(0xff47479d),
+                    color: const Color(0xff47479d),
                   ),
                 ),
               ),
@@ -111,7 +111,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                 width: 33 * widget.fem,
                 height: 33 * widget.fem,
                 child: Image.asset(
-                  'assets/page-1/images/vector-8-stroke-9Xb.png',
+                  'assets/images/top_left_corner.png',
                   width: 33 * widget.fem,
                   height: 33 * widget.fem,
                 ),
@@ -127,7 +127,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                 width: 33 * widget.fem,
                 height: 33 * widget.fem,
                 child: Image.asset(
-                  'assets/page-1/images/vector-8-stroke-o6M.png',
+                  'assets/images/top_right_corner.png',
                   width: 33 * widget.fem,
                   height: 33 * widget.fem,
                 ),
@@ -143,7 +143,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                 width: 33 * widget.fem,
                 height: 33 * widget.fem,
                 child: Image.asset(
-                  'assets/page-1/images/vector-8-stroke-sbj.png',
+                  'assets/images/bottom_left_corner.png',
                   width: 33 * widget.fem,
                   height: 33 * widget.fem,
                 ),
@@ -159,7 +159,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                 width: 33 * widget.fem,
                 height: 33 * widget.fem,
                 child: Image.asset(
-                  'assets/page-1/images/vector-8-stroke-Fnd.png',
+                  'assets/images/bottom_right_corner.png',
                   width: 33 * widget.fem,
                   height: 33 * widget.fem,
                 ),
@@ -199,7 +199,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                 width: 66.86 * widget.fem,
                 height: 66.86 * widget.fem,
                 child: Image.asset(
-                  'assets/page-1/images/group-9-9ED.png',
+                  'assets/images/lightning.png',
                   width: 66.86 * widget.fem,
                   height: 66.86 * widget.fem,
                 ),
@@ -343,7 +343,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                 width: 302 * widget.fem,
                 height: 202 * widget.fem,
                 child: Image.asset(
-                  'assets/page-1/images/Foto-Platzhalter-klein.png',
+                  'assets/images/placeholder_small.png',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -358,7 +358,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                 width: 32.83 * widget.fem,
                 height: 46.36 * widget.fem,
                 child: Image.asset(
-                  'assets/page-1/images/group-7-FHf.png',
+                  'assets/images/sword.png',
                   width: 32.83 * widget.fem,
                   height: 46.36 * widget.fem,
                 ),
@@ -398,7 +398,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                 width: 50 * widget.fem,
                 height: 50 * widget.fem,
                 child: Image.asset(
-                  'assets/page-1/images/group-8-BD7.png',
+                  'assets/images/health.png',
                   width: 50 * widget.fem,
                   height: 50 * widget.fem,
                 ),

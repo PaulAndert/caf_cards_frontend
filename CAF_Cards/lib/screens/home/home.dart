@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
             Expanded(
               flex: 6,
               child: Image.asset(
-                'assets/page-1/images/atomgood-1.png',
+                'assets/images/atom.png',
                 fit: BoxFit.cover,
                 width: 250 * fem,
                 height: 250 * fem,

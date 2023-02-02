@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/main.dart';
 import 'package:myapp/models/ability.dart';
+import 'package:myapp/screens/collection/collection.dart';
 import 'package:myapp/screens/trade/confirm_card/confirm_card.dart';
 import 'package:myapp/services/card_service.dart';
 import 'package:myapp/services/trade_service.dart';
+import '../../../models/trade.dart';
 import '../../../services/ability_service.dart';
 import '../../../widgets/small_card.dart';
 import '../../../models/Gamecard.dart';
 import '../../../services/helper_service.dart';
+import '../../home/home.dart';
 import '../start/start.dart';
 
 class TradeSelectCard extends StatefulWidget {
@@ -22,9 +26,12 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
   String? deviceId;
   List<Gamecard>? cards;
   List<Ability> abilities = [];
+  Trade? trade;
+
   var deviceIdLoaded = false;
   var cardsLoaded = false;
   var abilitiesLoaded = false;
+  bool tradeLoaded = false;
 
   @override
   void initState() {
@@ -67,8 +74,43 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
     }
   }
 
+  closeTrade(context) async{
+    await TradeService().updateDeleted(deviceId!, true);
+
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => const Home(),
+    ));
+    Navigator.pop(context);
+  }
+
   deleteTrade() async {
     await TradeService().deleteTradeByDeviceId(deviceId!);
+  }
+
+  checkDeletion(context) async {
+    while(true) {
+      await await getTrade(deviceId);
+      if(tradeLoaded) {
+        if (trade!.canBeDeleted) {
+          await deleteTrade();
+          selectedIndex = 4;
+          Navigator.pop(context);
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const Collection(),
+          ));
+        }
+      }
+      await Future.delayed(const Duration(seconds: 2));
+    }
+  }
+
+  getTrade(deviceId) async {
+    trade = await TradeService().getTradeByDeviceId(deviceId);
+    if (trade != null) {
+      setState(() {
+        tradeLoaded = true;
+      });
+    }
   }
 
   @override
@@ -76,6 +118,7 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
+    checkDeletion(context);
     return Material(
       child: Container(
         width: MediaQuery.of(context).size.width,
@@ -103,11 +146,7 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
                     flex: 1,
                     child: IconButton(
                         onPressed: () {
-                          Navigator.pop(context);
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const TradeStart(),
-                          ));
-                          deleteTrade();
+                          closeTrade(context);
                         },
                         icon: const Icon(
                           Icons.close,

@@ -23,8 +23,6 @@ Necessary:
 TODO for now:
 - Detailed Collection View (edit)
 - Create beenden
-- trade die navbar wegnehmen bis beendet
 - trade confirm hübsch machen
-- Trade einige Fehler:
-  - Tradeabbruch in select ändert navbar nicht
-  - Partner bekommt nicht mit dass Trade beendet (nur bei abbruch)
+- trade navbar ändert sich nicht
+- trade die navbar wegnehmen bis beendet (wenn möglich)
