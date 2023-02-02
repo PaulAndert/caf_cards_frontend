@@ -3,6 +3,7 @@ import 'package:myapp/models/basic_argument.dart';
 import 'package:myapp/models/screen_argument.dart';
 import 'package:myapp/models/ability.dart';
 import 'package:myapp/models/Gamecard.dart';
+import 'package:myapp/services/ability_service.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/big_card_edit.dart';
 import '../../../services/helper_service.dart';
@@ -22,10 +23,30 @@ class CreatePoints extends StatefulWidget {
 class _CreatePointsState extends State<CreatePoints> {
   int strength = 0;
   int health = 1;
-  String ability = "does nothing special";
+  Ability ability = Ability(
+    id: 11,
+    cost: 0,
+    name: "does nothing special",
+    cardIds: [],
+  );
+
+  List<Ability>? abilities = [];
 
   String? deviceId;
   var deviceIdLoaded = false;
+  var abLoaded = false;
+
+
+  Map maxPoints = {
+    "0": "2",
+    "1": "5",
+    "2": "8",
+    "3": "11",
+    "4": "14",
+    "5": "17",
+  };
+
+  String availablePoints = "";
 
   getDeviceId() async {
     deviceId = await HelperService().getUserId();
@@ -36,13 +57,26 @@ class _CreatePointsState extends State<CreatePoints> {
     }
   }
 
+  getAllAbilities() async {
+    abilities = await AbilityService().getAbilities();
+    print(abilities);
+    if (abilities!.length > 1) {
+      setState(() {
+        abLoaded = true;
+      });
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+    abilities?.add(ability
+    );
     strength = widget.power;
     health = widget.hp;
-    ability = widget.spell;
+    ability.name = widget.spell;
     getDeviceId();
+    getAllAbilities();
   }
 
   void decrementStrength() {
@@ -79,13 +113,14 @@ class _CreatePointsState extends State<CreatePoints> {
 
   void updateAbility(String name) {
     setState(() {
-      ability = name;
+      ability.name = name;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as BasicArgument;
+    availablePoints = maxPoints[args.energy.toString()];
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -122,7 +157,7 @@ class _CreatePointsState extends State<CreatePoints> {
                     Expanded(
                       flex: 1,
                       child: Text(
-                        '7/10',
+                        "$availablePoints / ${maxPoints[args.energy.toString()]}",
                         textAlign: TextAlign.center,
                         style: SafeGoogleFont(
                           'SF Pro Display',
@@ -138,7 +173,13 @@ class _CreatePointsState extends State<CreatePoints> {
               ),
               Expanded(
                 flex: 23,
-                child: BigCardEdit(
+                child: Visibility(
+                  visible: abLoaded,
+                  replacement: const Center(
+                      child: CircularProgressIndicator(
+                        color: Colors.deepPurpleAccent,
+                      )),
+                  child:BigCardEdit(
                   fem: fem,
                   ffem: ffem,
                   args: ScreenArgument(
@@ -152,17 +193,15 @@ class _CreatePointsState extends State<CreatePoints> {
                           health: health,
                           userIds: [],
                           abilityId: 11),
-                      Ability(
-                        id: 11,
-                        cost: 0,
-                        name: ability,
-                        cardIds: [],
-                      )),
+                      ability,
+                  ),
                   getAbility: (String name) {
                     print(name);
                     updateAbility(name);
                   },
+                  abilities: abilities,
                 ),
+              ),
               ),
               Expanded(
                 flex: 4,

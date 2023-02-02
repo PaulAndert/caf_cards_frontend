@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/models/ability.dart';
 import '../models/screen_argument.dart';
 import '../utils.dart';
 
@@ -9,11 +10,13 @@ class BigCardEdit extends StatefulWidget {
     required this.ffem,
     required this.args,
     required this.getAbility,
+    required this.abilities,
   }) : super(key: key);
 
   final double fem;
   final double ffem;
   final ScreenArgument args;
+  final List<Ability>? abilities;
 
   final Function(String name) getAbility;
 
@@ -23,10 +26,12 @@ class BigCardEdit extends StatefulWidget {
 
 class _BigCardEditState extends State<BigCardEdit> {
   String value = "test";
+  List<Ability>? entries = [];
   int strength = 0;
   int health = 1;
 
   String? deviceId;
+
 
   @override
   void initState() {
@@ -34,6 +39,7 @@ class _BigCardEditState extends State<BigCardEdit> {
     strength = widget.args.card.strength;
     health = widget.args.card.health;
     deviceId = widget.args.deviceId;
+    entries = widget.abilities;
   }
 
   void decrementStrength() {
@@ -227,29 +233,18 @@ class _BigCardEditState extends State<BigCardEdit> {
           Positioned(
             // draw2cardswhenplayedhEV (103:1287)
             left: 61.5 * widget.fem,
-            top: 429.5001220703 * widget.fem,
+            top: 400 * widget.fem,
             child: Center(
               child: Align(
                 child: SizedBox(
                   width: 230 * widget.fem,
-                  height: 22 * widget.fem,
-                  child: /* Text(
-                    args.ability.name,
-                    textAlign: TextAlign.center,
-                    style: SafeGoogleFont (
-                      'SF Pro Display',
-                      fontSize: 20*ffem,
-                      fontWeight: FontWeight.w700,
-                      height: 1.1*ffem/fem,
-                      color: Color(0xffffffff),
-                    ),
-                  ),
-                  */
+                  height: 80 * widget.fem,
+                  child:
                       ElevatedButton(
-                    child: Text(
-                      widget.args.ability.name,
-                    ),
-                    onPressed: () {
+                      child: Text(
+                        widget.args.ability.name,
+                      ),
+                      onPressed: () {
                       showGeneralDialog(
                         context: context,
                         transitionDuration: Duration(milliseconds: 400),
@@ -263,21 +258,26 @@ class _BigCardEditState extends State<BigCardEdit> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    const FlutterLogo(
-                                      size: 200,
-                                    ),
-                                    const Text(
-                                      "This is a Full Screen Dialog",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          decoration: TextDecoration.none),
-                                    ),
-                                    ElevatedButton(
-                                        onPressed: () {
-                                          widget.getAbility(value);
-                                          Navigator.pop(context);
+                                    Expanded(
+                                      flex: 10,
+                                      child: ListView.separated(
+                                        padding: const EdgeInsets.all(8),
+                                        itemCount: entries!.length,
+                                        itemBuilder: (BuildContext context, int index) {
+                                          return SizedBox(
+                                            height: 100,
+                                            child:
+                                            ElevatedButton(
+                                                onPressed: () {
+                                                  widget.getAbility(entries![index].name);
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Text(entries![index].name))
+                                          );
                                         },
-                                        child: Text(value))
+                                        separatorBuilder: (BuildContext context, int index) => const Divider(),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
