@@ -100,7 +100,7 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
           ));
         }
       }
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(milliseconds: 1500));
     }
   }
 

@@ -66,7 +66,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     }
     while (true) {
       await getTrade(deviceId);
-      await Future.delayed(const Duration(milliseconds: 5000));
+      await Future.delayed(const Duration(milliseconds: 7000));
     }
   }
 
