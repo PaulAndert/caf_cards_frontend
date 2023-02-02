@@ -23,9 +23,7 @@ Necessary:
 TODO for now:
 
 - Create beenden
-- trade confirm zentrieren
 
 Generel TODO:
 - Detailed Collection View (edit)
 - trade navbar ändert sich nicht (wenn möglich ändern)
-- delete button neben start trade

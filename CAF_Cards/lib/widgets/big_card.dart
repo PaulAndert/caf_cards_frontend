@@ -15,9 +15,9 @@ class BigCard extends StatelessWidget {
   final double ffem;
   final ScreenArgument args;
 
-  final textfontsize = 20;
+  final textfontsize = 25;
   final numberfontsize = 30;
-  final descfontsize = 15;
+  final descfontsize = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class BigCard extends StatelessWidget {
                   flex: 4,
                   child: Container(
                     margin: EdgeInsets.fromLTRB(
-                        20 * fem, 2 * fem, 0 * fem, 0 * fem),
+                        25 * fem, 2 * fem, 0 * fem, 0 * fem),
                     child: Text(
                       args.card.name,
                       style: SafeGoogleFont(
@@ -111,7 +111,7 @@ class BigCard extends StatelessWidget {
             flex: 3,
             child: Container(
               margin:
-                  EdgeInsets.fromLTRB(20 * fem, 20 * fem, 20 * fem, 20 * fem),
+                  EdgeInsets.fromLTRB(25 * fem, 15 * fem, 20 * fem, 20 * fem),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
@@ -175,14 +175,14 @@ class BigCard extends StatelessWidget {
                       flex: 7,
                       child: Container(
                         margin: EdgeInsets.fromLTRB(
-                            12 * fem, 0 * fem, 12 * fem, 0 * fem),
+                            30 * fem, 0 * fem, 30 * fem, 0 * fem),
                         child: Center(
                           child: Text(
                             args.ability.name,
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont(
                               'SF Pro Display',
-                              fontSize: textfontsize * ffem,
+                              fontSize: textfontsize-2 * ffem,
                               fontWeight: FontWeight.w700,
                               height: 1.1 * ffem / fem,
                               color: Color(0xffffffff),
