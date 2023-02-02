@@ -93,10 +93,10 @@ class _TradeSelectCardState extends State<TradeSelectCard> {
       if(tradeLoaded) {
         if (trade!.canBeDeleted) {
           await deleteTrade();
-          selectedIndex = 4;
+          selectedIndex = 2;
           Navigator.pop(context);
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const Collection(),
+            builder: (context) => const Home(),
           ));
         }
       }

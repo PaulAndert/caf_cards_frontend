@@ -79,10 +79,10 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
           await deleteTrade();
         }
         await TradeService().updateDeleted(deviceId!, true);
-        selectedIndex = 4;
+        selectedIndex = 2;
         Navigator.pop(context);
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const Collection(),
+          builder: (context) => const Home(),
         ));
       }
       if (trade!.canBeDeleted &&
