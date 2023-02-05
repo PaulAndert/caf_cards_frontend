@@ -99,7 +99,7 @@ class _CreatePointsState extends State<CreatePoints> {
               ),
               // Card
               Expanded(
-                flex: 34,
+                flex: 32,
                 child: Visibility(
                   visible: abLoaded,
                   replacement: const Center(
@@ -128,6 +128,10 @@ class _CreatePointsState extends State<CreatePoints> {
                     abilities: abilities,
                   ),
                 ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Container(),
               ),
             ],
           ),

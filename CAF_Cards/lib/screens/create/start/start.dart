@@ -262,7 +262,6 @@ class _CreateStartState extends State<CreateStart> {
                 ],
               ),
             ),
-
             Expanded(
               flex: 8,
               child: Column(
@@ -311,29 +310,31 @@ class _CreateStartState extends State<CreateStart> {
             ),
             Expanded(
               flex: 3,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, CreatePoints.routeName,
-                      arguments: BasicArgument(cardNameController.text,
-                          cardDescriptionController.text, _value.toInt()));
-                },
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                  backgroundColor: Colors.deepPurpleAccent,
-                ),
-                child: Container(
-                  width: 200 * fem,
-                  height: 25 * fem,
-                  child: Center(
-                    child: Text(
-                      'Continue',
-                      textAlign: TextAlign.center,
-                      style: SafeGoogleFont(
-                        'SF Pro Display',
-                        fontSize: 25 * ffem,
-                        fontWeight: FontWeight.w700,
-                        height: 1.2941176471 * ffem / fem,
-                        color: const Color(0xffffffff),
+              child: Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, CreatePoints.routeName,
+                        arguments: BasicArgument(cardNameController.text,
+                            cardDescriptionController.text, _value.toInt()));
+                  },
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                    backgroundColor: Colors.deepPurpleAccent,
+                  ),
+                  child: Container(
+                    width: 200 * fem,
+                    height: 50 * fem,
+                    child: Center(
+                      child: Text(
+                        'Continue',
+                        textAlign: TextAlign.center,
+                        style: SafeGoogleFont(
+                          'SF Pro Display',
+                          fontSize: 25 * ffem,
+                          fontWeight: FontWeight.w700,
+                          height: 1.2941176471 * ffem / fem,
+                          color: const Color(0xffffffff),
+                        ),
                       ),
                     ),
                   ),
