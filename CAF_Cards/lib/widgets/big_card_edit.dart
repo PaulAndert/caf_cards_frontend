@@ -434,6 +434,17 @@ class _BigCardEditState extends State<BigCardEdit> {
                             ),
                           ),
                         ),
+                        // Strength Icon
+                        Expanded(
+                          flex: 1,
+                          child: Image.asset(
+                            'assets/images/sword.png',
+                            //width: 14.35 * fem,
+                            //height: 18.83 * fem,
+                            width: 32.83 * fem,
+                            height: 46.36 * fem,
+                          ),
+                        ),
                         Expanded(
                           flex: 1,
                           child: IconButton(
@@ -444,18 +455,6 @@ class _BigCardEditState extends State<BigCardEdit> {
                               Icons.remove,
                               color: Colors.white,
                             ),
-                          ),
-                        ),
-
-                        // Strength Icon
-                        Expanded(
-                          flex: 1,
-                          child: Image.asset(
-                            'assets/images/sword.png',
-                            //width: 14.35 * fem,
-                            //height: 18.83 * fem,
-                            width: 32.83 * fem,
-                            height: 46.36 * fem,
                           ),
                         ),
 
@@ -494,6 +493,17 @@ class _BigCardEditState extends State<BigCardEdit> {
                             ),
                           ),
                         ),
+                        // Health Icon
+                        Expanded(
+                          flex: 1,
+                          child: Image.asset(
+                            'assets/images/health.png',
+                            //width: double.infinity,
+                            //height: double.infinity,
+                            width: 50 * fem,
+                            height: 50 * fem,
+                          ),
+                        ),
                         Expanded(
                           flex: 1,
                           child: IconButton(
@@ -504,18 +514,6 @@ class _BigCardEditState extends State<BigCardEdit> {
                               Icons.remove,
                               color: Colors.white,
                             ),
-                          ),
-                        ),
-
-                        // Health Icon
-                        Expanded(
-                          flex: 1,
-                          child: Image.asset(
-                            'assets/images/health.png',
-                            //width: double.infinity,
-                            //height: double.infinity,
-                            width: 50 * fem,
-                            height: 50 * fem,
                           ),
                         ),
                       ],
