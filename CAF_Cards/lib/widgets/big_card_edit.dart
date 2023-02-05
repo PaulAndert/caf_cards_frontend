@@ -34,6 +34,7 @@ class _BigCardEditState extends State<BigCardEdit> {
   String? deviceId;
   int availablePoints = 0;
   Map<int, int> maxPoints = {0: 2, 1: 5, 2: 8, 3: 11, 4: 14, 5: 17};
+  int costs = 0;
 
   @override
   void initState() {
@@ -47,7 +48,10 @@ class _BigCardEditState extends State<BigCardEdit> {
   }
 
   void updatePoints(int cost){
+    availablePoints += costs;
     availablePoints -= cost;
+    costs = cost;
+    updateAbilityList();
   }
 
   void updateAbilityList(){
