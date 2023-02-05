@@ -42,7 +42,7 @@ class _CreateStartState extends State<CreateStart> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              flex: 10,
+              flex: 9,
               child: Stack(
                 children: [
                   Positioned(
@@ -264,7 +264,7 @@ class _CreateStartState extends State<CreateStart> {
             ),
 
             Expanded(
-              flex: 2,
+              flex: 8,
               child: Column(
                 children: [
                   Text(
@@ -307,6 +307,10 @@ class _CreateStartState extends State<CreateStart> {
             ),
             Expanded(
               flex: 1,
+              child: Container(),
+            ),
+            Expanded(
+              flex: 3,
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, CreatePoints.routeName,
