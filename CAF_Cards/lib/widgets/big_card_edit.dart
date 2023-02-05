@@ -311,7 +311,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                                     pageBuilder: (context, ania, anis) {
                                       return SizedBox.expand(
                                         child: Container(
-                                          color: Colors.black,
+                                          color: const Color(0xff202024),
                                           child: Padding(
                                             padding: const EdgeInsets.all(20.0),
                                             child: Column(
@@ -340,10 +340,19 @@ class _BigCardEditState extends State<BigCardEdit> {
                                                                 Navigator.pop(
                                                                     context);
                                                               },
+                                                              style: ElevatedButton.styleFrom(
+                                                                elevation: 0.0,
+                                                                backgroundColor: Colors.deepPurple.withOpacity(0.5),
+                                                                shape: const RoundedRectangleBorder(
+                                                                    borderRadius: BorderRadius.all(Radius.circular(1))
+                                                                ),
+                                                              ),
                                                               child: Text(
                                                                   availableAbilities![
                                                                           index]
-                                                                      .name)));
+                                                                      .name),
+                                                          ),
+                                                      )
                                                     },
                                                     separatorBuilder:
                                                         (BuildContext context,
