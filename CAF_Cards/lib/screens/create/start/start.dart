@@ -42,7 +42,7 @@ class _CreateStartState extends State<CreateStart> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              flex: 5,
+              flex: 10,
               child: Stack(
                 children: [
                   Positioned(
@@ -262,51 +262,52 @@ class _CreateStartState extends State<CreateStart> {
                 ],
               ),
             ),
+
             Expanded(
-              // title5Cq (26:2289)
-              flex: 1,
-              child: Text(
-                'Select card energy costs',
-                style: SafeGoogleFont(
-                  'SF Pro Display',
-                  fontSize: 17 * ffem,
-                  fontWeight: FontWeight.w700,
-                  height: 1.2941176471 * ffem / fem,
-                  color: Color(0xffffffff),
-                ),
+              flex: 2,
+              child: Column(
+                children: [
+                  Text(
+                    'Select card energy costs',
+                    style: SafeGoogleFont(
+                      'SF Pro Display',
+                      fontSize: 17 * ffem,
+                      fontWeight: FontWeight.w700,
+                      height: 1.2941176471 * ffem / fem,
+                      color: Color(0xffffffff),
+                    ),
+                  ),
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      valueIndicatorShape:
+                          const RectangularSliderValueIndicatorShape(),
+                      activeTrackColor: Colors.deepPurpleAccent,
+                      thumbColor: Colors.deepPurpleAccent,
+                      valueIndicatorColor: Colors.deepPurpleAccent,
+                      overlayColor: const Color(0x3d7c4dff),
+                      inactiveTrackColor: const Color(0x3d7c4dff),
+                      inactiveTickMarkColor: const Color(0xffffffff),
+                      activeTickMarkColor: const Color(0xffffffff),
+                    ),
+                    child: Slider(
+                      min: 0,
+                      max: 5,
+                      divisions: 5,
+                      value: _value,
+                      label: '$_value',
+                      onChanged: (value) {
+                        setState(() {
+                          _value = value;
+                        });
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
             Expanded(
               flex: 1,
-              child: SliderTheme(
-                data: SliderTheme.of(context).copyWith(
-                  valueIndicatorShape:
-                      const RectangularSliderValueIndicatorShape(),
-                  activeTrackColor: Colors.deepPurpleAccent,
-                  thumbColor: Colors.deepPurpleAccent,
-                  valueIndicatorColor: Colors.deepPurpleAccent,
-                  overlayColor: const Color(0x3d7c4dff),
-                  inactiveTrackColor: const Color(0x3d7c4dff),
-                  inactiveTickMarkColor: const Color(0xffffffff),
-                  activeTickMarkColor: const Color(0xffffffff),
-                ),
-                child: Slider(
-                  min: 0,
-                  max: 5,
-                  divisions: 5,
-                  value: _value,
-                  label: '$_value',
-                  onChanged: (value) {
-                    setState(() {
-                      _value = value;
-                    });
-                  },
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: TextButton(
+              child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, CreatePoints.routeName,
                       arguments: BasicArgument(cardNameController.text,
@@ -314,26 +315,21 @@ class _CreateStartState extends State<CreateStart> {
                 },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
+                  backgroundColor: Colors.deepPurpleAccent,
                 ),
                 child: Container(
-                  width: double.infinity,
-                  height: 50 * fem,
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurpleAccent,
-                    borderRadius: BorderRadius.circular(12 * fem),
-                  ),
+                  width: 200 * fem,
+                  height: 25 * fem,
                   child: Center(
-                    child: Center(
-                      child: Text(
-                        'Continue',
-                        textAlign: TextAlign.center,
-                        style: SafeGoogleFont(
-                          'SF Pro Display',
-                          fontSize: 17 * ffem,
-                          fontWeight: FontWeight.w700,
-                          height: 1.2941176471 * ffem / fem,
-                          color: Color(0xffffffff),
-                        ),
+                    child: Text(
+                      'Continue',
+                      textAlign: TextAlign.center,
+                      style: SafeGoogleFont(
+                        'SF Pro Display',
+                        fontSize: 25 * ffem,
+                        fontWeight: FontWeight.w700,
+                        height: 1.2941176471 * ffem / fem,
+                        color: const Color(0xffffffff),
                       ),
                     ),
                   ),
