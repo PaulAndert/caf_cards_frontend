@@ -21,9 +21,14 @@ Necessary:
 
 
 TODO for now:
-
-- Create beenden
+- Create:
+  - ability list more beautiful 
+  - ability list with working cost
+  - points page continue button working
+  - preview page 
+    - make create button work -> move to home page
+    - make a card post and add it to user
 
 Generel TODO:
-- Detailed Collection View (edit)
+- Collection -> Detailed view -> move to edit 
 - trade navbar ändert sich nicht (wenn möglich ändern)
