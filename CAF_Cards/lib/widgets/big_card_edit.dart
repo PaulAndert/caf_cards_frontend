@@ -295,7 +295,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                                     pageBuilder: (context, ania, anis) {
                                       return SizedBox.expand(
                                         child: Container(
-                                          color: Colors.black,
+                                          color: const Color(0xff202024),
                                           child: Padding(
                                             padding: const EdgeInsets.all(20.0),
                                             child: Column(
@@ -316,17 +316,17 @@ class _BigCardEditState extends State<BigCardEdit> {
                                                           height: 100,
                                                           child: ElevatedButton(
                                                               onPressed: () {
-                                                                widget.getAbility(
-                                                                    entries![
-                                                                            index]
-                                                                        .name);
-                                                                Navigator.pop(
-                                                                    context);
+                                                                widget.getAbility(entries![index].name);
+                                                                Navigator.pop(context);
                                                               },
-                                                              child: Text(
-                                                                  entries![
-                                                                          index]
-                                                                      .name)));
+                                                              style: ElevatedButton.styleFrom(
+                                                                elevation: 0.0,
+                                                                backgroundColor: Colors.deepPurple.withOpacity(0.5),
+                                                                shape: const RoundedRectangleBorder(
+                                                                    borderRadius: BorderRadius.all(Radius.circular(1))
+                                                                ),
+                                                              ),
+                                                              child: Text(entries![index].name)));
                                                     },
                                                     separatorBuilder:
                                                         (BuildContext context,
