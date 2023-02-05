@@ -137,44 +137,9 @@ class _CreatePointsState extends State<CreatePoints> {
                 flex: 1,
                 child: Container(),
               ),
-              /*Expanded(
-                flex: 2,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // Button back
-                    Expanded(
-                      flex: 1,
-                      child: IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back_ios,
-                            color: Colors.white,
-                          )),
-                    ),
-                    // Points
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        "$availablePoints / ${maxPoints[args.energy.toString()]}",
-                        textAlign: TextAlign.center,
-                        style: SafeGoogleFont(
-                          'SF Pro Display',
-                          fontSize: 36 * ffem,
-                          fontWeight: FontWeight.w700,
-                          height: 0.6111111111 * ffem / fem,
-                          color: Color(0xffffffff),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),*/
               // Card
               Expanded(
-                flex: 25,
+                flex: 43,
                 child: Visibility(
                   visible: abLoaded,
                   replacement: const Center(
