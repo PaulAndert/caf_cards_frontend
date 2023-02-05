@@ -352,7 +352,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                                                                           index]
                                                                       .name),
                                                           ),
-                                                      )
+                                                      );
                                                     },
                                                     separatorBuilder:
                                                         (BuildContext context,
