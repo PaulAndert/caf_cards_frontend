@@ -11,11 +11,6 @@ import '../models/Gamecard.dart';
 class CollectionCardWidget extends StatelessWidget {
   const CollectionCardWidget({
     Key? key,
-    /*required this.name,
-    required this.description,
-    required this.energy,
-    required this.strength,
-    required this.health,*/
     required this.fem,
     required this.ffem,
     required this.card,
@@ -26,11 +21,6 @@ class CollectionCardWidget extends StatelessWidget {
 
   final double fem;
   final double ffem;
-  /*final String name;
-  final String description;
-  final int energy;
-  final int strength;
-  final int health;*/
   final Ability ability;
   final Gamecard card;
   final String deviceId;

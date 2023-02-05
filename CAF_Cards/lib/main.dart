@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/screens/collection/collection.dart';
 import 'package:myapp/screens/create/points/points.dart';
+import 'package:myapp/screens/create/preview/preview.dart';
 import 'package:myapp/screens/create/start/start.dart';
 import 'package:myapp/screens/details/details.dart';
 import 'package:myapp/screens/fight/start/start.dart';
@@ -71,6 +72,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
         TradingConfirmTrade.routeName: (BuildContext context) =>
             const TradingConfirmTrade(),
         Details.routeName: (BuildContext context) => const Details(),
+        CreatePreview.routeName: (BuildContext context) => const CreatePreview(),
       },
       debugShowCheckedModeBanner: false,
       scrollBehavior: MyCustomScrollBehavior(),
