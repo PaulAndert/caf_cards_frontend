@@ -263,7 +263,7 @@ class _CreateStartState extends State<CreateStart> {
               ),
             ),
             Expanded(
-              flex: 8,
+              flex: 3,
               child: Column(
                 children: [
                   Text(
