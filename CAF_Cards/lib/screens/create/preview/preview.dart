@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/services/card_service.dart';
+import 'package:myapp/services/user_service.dart';
 import 'package:myapp/utils.dart';
 
 import '../../../models/Gamecard.dart';
+import '../../../models/ability.dart';
 import '../../../models/screen_argument.dart';
+import '../../../models/user.dart';
 import '../../../widgets/big_card.dart';
 
 class CreatePreview extends StatefulWidget {
@@ -15,6 +19,18 @@ class CreatePreview extends StatefulWidget {
 }
 
 class _CreatePreview extends State<CreatePreview> {
+  String? deviceId;
+  User? user;
+
+  postCard(Gamecard card, String deviceId, Ability ability) async {
+    user = await UserService().getUserByDeviceId(deviceId);
+    if (user != null) {
+      card.userIds.add(user!.id);
+      card.abilityId = ability.id;
+      GamecardService().postGamecard(card);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as ScreenArgument;
@@ -89,7 +105,8 @@ class _CreatePreview extends State<CreatePreview> {
                 child: Center(
                   child: ElevatedButton(
                     onPressed: () {
-                      //Navigator.pushNamed(context, '/CreatePreview');
+                      postCard(args.card, args.deviceId, args.ability);
+                      Navigator.pushNamed(context, '/Home');
                     },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
