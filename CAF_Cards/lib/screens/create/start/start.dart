@@ -262,46 +262,47 @@ class _CreateStartState extends State<CreateStart> {
                 ],
               ),
             ),
-            Expanded(
-              // title5Cq (26:2289)
-              flex: 1,
-              child: Text(
-                'Select card energy costs',
-                style: SafeGoogleFont(
-                  'SF Pro Display',
-                  fontSize: 17 * ffem,
-                  fontWeight: FontWeight.w700,
-                  height: 1.2941176471 * ffem / fem,
-                  color: Color(0xffffffff),
-                ),
-              ),
-            ),
+
             Expanded(
               flex: 1,
-              child: SliderTheme(
-                data: SliderTheme.of(context).copyWith(
-                  valueIndicatorShape:
-                      const RectangularSliderValueIndicatorShape(),
-                  activeTrackColor: Colors.deepPurpleAccent,
-                  thumbColor: Colors.deepPurpleAccent,
-                  valueIndicatorColor: Colors.deepPurpleAccent,
-                  overlayColor: const Color(0x3d7c4dff),
-                  inactiveTrackColor: const Color(0x3d7c4dff),
-                  inactiveTickMarkColor: const Color(0xffffffff),
-                  activeTickMarkColor: const Color(0xffffffff),
-                ),
-                child: Slider(
-                  min: 0,
-                  max: 5,
-                  divisions: 5,
-                  value: _value,
-                  label: '$_value',
-                  onChanged: (value) {
-                    setState(() {
-                      _value = value;
-                    });
-                  },
-                ),
+              child: Column(
+                children: [
+                  Text(
+                    'Select card energy costs',
+                    style: SafeGoogleFont(
+                      'SF Pro Display',
+                      fontSize: 17 * ffem,
+                      fontWeight: FontWeight.w700,
+                      height: 1.2941176471 * ffem / fem,
+                      color: Color(0xffffffff),
+                    ),
+                  ),
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      valueIndicatorShape:
+                          const RectangularSliderValueIndicatorShape(),
+                      activeTrackColor: Colors.deepPurpleAccent,
+                      thumbColor: Colors.deepPurpleAccent,
+                      valueIndicatorColor: Colors.deepPurpleAccent,
+                      overlayColor: const Color(0x3d7c4dff),
+                      inactiveTrackColor: const Color(0x3d7c4dff),
+                      inactiveTickMarkColor: const Color(0xffffffff),
+                      activeTickMarkColor: const Color(0xffffffff),
+                    ),
+                    child: Slider(
+                      min: 0,
+                      max: 5,
+                      divisions: 5,
+                      value: _value,
+                      label: '$_value',
+                      onChanged: (value) {
+                        setState(() {
+                          _value = value;
+                        });
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
             Expanded(
