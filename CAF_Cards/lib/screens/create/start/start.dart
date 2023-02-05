@@ -311,7 +311,7 @@ class _CreateStartState extends State<CreateStart> {
             ),
             Expanded(
               flex: 3,
-              child: TextButton(
+              child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, CreatePoints.routeName,
                       arguments: BasicArgument(cardNameController.text,
@@ -319,26 +319,21 @@ class _CreateStartState extends State<CreateStart> {
                 },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
+                  backgroundColor: Colors.deepPurpleAccent,
                 ),
                 child: Container(
-                  width: double.infinity,
-                  height: 50 * fem,
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurpleAccent,
-                    borderRadius: BorderRadius.circular(12 * fem),
-                  ),
+                  width: 200 * fem,
+                  height: 25 * fem,
                   child: Center(
-                    child: Center(
-                      child: Text(
-                        'Continue',
-                        textAlign: TextAlign.center,
-                        style: SafeGoogleFont(
-                          'SF Pro Display',
-                          fontSize: 17 * ffem,
-                          fontWeight: FontWeight.w700,
-                          height: 1.2941176471 * ffem / fem,
-                          color: Color(0xffffffff),
-                        ),
+                    child: Text(
+                      'Continue',
+                      textAlign: TextAlign.center,
+                      style: SafeGoogleFont(
+                        'SF Pro Display',
+                        fontSize: 25 * ffem,
+                        fontWeight: FontWeight.w700,
+                        height: 1.2941176471 * ffem / fem,
+                        color: const Color(0xffffffff),
                       ),
                     ),
                   ),
