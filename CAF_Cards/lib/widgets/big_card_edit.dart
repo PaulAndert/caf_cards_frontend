@@ -55,7 +55,7 @@ class _BigCardEditState extends State<BigCardEdit> {
   }
 
   void updateAbilityList(){
-    availableAbilities = List.of(entries!.where((element) => element.cost <= availablePoints));
+    availableAbilities = List.of(entries!.where((element) => element.cost <= availablePoints + costs));
   }
 
   void decrementStrength() {
