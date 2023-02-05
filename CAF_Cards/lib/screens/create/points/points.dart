@@ -110,7 +110,7 @@ class _CreatePointsState extends State<CreatePoints> {
                     fem: fem,
                     ffem: ffem,
                     args: ScreenArgument(
-                      "0",
+                      deviceId!,
                       Gamecard(
                           id: 0,
                           name: args.name,

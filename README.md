@@ -19,16 +19,6 @@ Necessary:
 - models = like entitys in Spring = databundles that you can use everywhere in the project
 - main.dart = file that starts the whole app
 
-
-TODO for now:
-- Create:
-  - ability list more beautiful 
-  - ability list with working cost
-  - points page continue button working
-  - preview page 
-    - make create button work -> move to home page
-    - make a card post and add it to user
-
 Generel TODO:
 - Collection -> Detailed view -> move to edit 
 - trade navbar ändert sich nicht (wenn möglich ändern)
