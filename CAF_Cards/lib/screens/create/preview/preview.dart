@@ -24,6 +24,10 @@ class _CreatePreview extends State<CreatePreview> {
 
   postCard(Gamecard card, String deviceId, Ability ability) async {
     user = await UserService().getUserByDeviceId(deviceId);
+    print(user);
+    print(ability);
+    print(card);
+    print(deviceId);
     if (user != null) {
       card.userIds.add(user!.id);
       card.abilityId = ability.id;
