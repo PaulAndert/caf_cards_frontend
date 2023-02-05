@@ -3,11 +3,13 @@ import 'package:myapp/services/card_service.dart';
 import 'package:myapp/services/user_service.dart';
 import 'package:myapp/utils.dart';
 
+import '../../../main.dart';
 import '../../../models/Gamecard.dart';
 import '../../../models/ability.dart';
 import '../../../models/screen_argument.dart';
 import '../../../models/user.dart';
 import '../../../widgets/big_card.dart';
+import '../../home/home.dart';
 
 class CreatePreview extends StatefulWidget {
   const CreatePreview({super.key});
@@ -110,7 +112,9 @@ class _CreatePreview extends State<CreatePreview> {
                   child: ElevatedButton(
                     onPressed: () {
                       postCard(args.card, args.deviceId, args.ability);
-                      Navigator.pushNamed(context, '/Home');
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const MyApp(),
+                      ));
                     },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
