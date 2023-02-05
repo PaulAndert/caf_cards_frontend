@@ -26,7 +26,7 @@ class _CreatePointsState extends State<CreatePoints> {
   Ability ability = Ability(
     id: 1,
     cost: 0,
-    name: "press here to choose Ability",
+    name: "",
     cardIds: [],
   );
 
@@ -36,14 +36,6 @@ class _CreatePointsState extends State<CreatePoints> {
   var deviceIdLoaded = false;
   var abLoaded = false;
 
-  Map maxPoints = {
-    "0": "2",
-    "1": "5",
-    "2": "8",
-    "3": "11",
-    "4": "14",
-    "5": "17",
-  };
 
   String availablePoints = "";
 
@@ -61,6 +53,7 @@ class _CreatePointsState extends State<CreatePoints> {
     if (abilities!.length > 1) {
       setState(() {
         abLoaded = true;
+        updateAbility(widget.spell);
       });
     }
   }
@@ -71,53 +64,19 @@ class _CreatePointsState extends State<CreatePoints> {
     abilities?.add(ability);
     strength = widget.power;
     health = widget.hp;
-    ability.name = widget.spell;
     getDeviceId();
     getAllAbilities();
   }
 
-  void decrementStrength() {
-    if (strength > 0) {
-      setState(() {
-        strength--;
-      });
-    }
-  }
-
-  void incrementStrength() {
-    if (strength < 9) {
-      setState(() {
-        strength++;
-      });
-    }
-  }
-
-  void decrementHealth() {
-    if (health > 1) {
-      setState(() {
-        health--;
-      });
-    }
-  }
-
-  void incrementHealth() {
-    if (health < 9) {
-      setState(() {
-        health++;
-      });
-    }
-  }
-
   void updateAbility(String name) {
     setState(() {
-      ability.name = name;
+      ability = abilities!.firstWhere((element) => element.name == name);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as BasicArgument;
-    availablePoints = maxPoints[args.energy.toString()];
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;

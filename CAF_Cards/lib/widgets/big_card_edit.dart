@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:myapp/models/ability.dart';
 import '../models/screen_argument.dart';
@@ -26,6 +28,7 @@ class BigCardEdit extends StatefulWidget {
 class _BigCardEditState extends State<BigCardEdit> {
   String value = "test";
   List<Ability>? entries = [];
+  List<Ability>? availableAbilities = [];
   int strength = 0;
   int health = 1;
   String? deviceId;
@@ -40,6 +43,15 @@ class _BigCardEditState extends State<BigCardEdit> {
     deviceId = widget.args.deviceId;
     entries = widget.abilities;
     availablePoints = maxPoints[widget.args.card.energy]!;
+    availableAbilities = List.of(entries!.where((element) => element.cost <= availablePoints));
+  }
+
+  void updatePoints(int cost){
+    availablePoints -= cost;
+  }
+
+  void updateAbilityList(){
+    availableAbilities = List.of(entries!.where((element) => element.cost <= availablePoints));
   }
 
   void decrementStrength() {
@@ -48,6 +60,7 @@ class _BigCardEditState extends State<BigCardEdit> {
         strength--;
       });
       availablePoints += 1;
+      updateAbilityList();
     }
   }
 
@@ -58,6 +71,7 @@ class _BigCardEditState extends State<BigCardEdit> {
           strength++;
         });
         availablePoints -= 1;
+        updateAbilityList();
       }
     }
   }
@@ -68,6 +82,7 @@ class _BigCardEditState extends State<BigCardEdit> {
         health--;
       });
       availablePoints += 1;
+      updateAbilityList();
     }
   }
 
@@ -78,6 +93,7 @@ class _BigCardEditState extends State<BigCardEdit> {
           health++;
         });
         availablePoints -= 1;
+        updateAbilityList();
       }
     }
   }
@@ -308,7 +324,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                                                   child: ListView.separated(
                                                     padding:
                                                         const EdgeInsets.all(8),
-                                                    itemCount: entries!.length,
+                                                    itemCount: availableAbilities!.length,
                                                     itemBuilder:
                                                         (BuildContext context,
                                                             int index) {
@@ -317,14 +333,15 @@ class _BigCardEditState extends State<BigCardEdit> {
                                                           child: ElevatedButton(
                                                               onPressed: () {
                                                                 widget.getAbility(
-                                                                    entries![
+                                                                    availableAbilities![
                                                                             index]
                                                                         .name);
+                                                                updatePoints(availableAbilities![index].cost);
                                                                 Navigator.pop(
                                                                     context);
                                                               },
                                                               child: Text(
-                                                                  entries![
+                                                                  availableAbilities![
                                                                           index]
                                                                       .name)));
                                                     },
