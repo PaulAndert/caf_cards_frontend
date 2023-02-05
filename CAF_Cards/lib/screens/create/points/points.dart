@@ -99,7 +99,7 @@ class _CreatePointsState extends State<CreatePoints> {
               ),
               // Card
               Expanded(
-                flex: 43,
+                flex: 34,
                 child: Visibility(
                   visible: abLoaded,
                   replacement: const Center(
@@ -126,26 +126,6 @@ class _CreatePointsState extends State<CreatePoints> {
                       updateAbility(name);
                     },
                     abilities: abilities,
-                  ),
-                ),
-              ),
-              // Confirm Button
-              Expanded(
-                flex: 4,
-                child: Center(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Confirm',
-                      textAlign: TextAlign.center,
-                      style: SafeGoogleFont(
-                        'SF Pro Display',
-                        fontSize: 17 * ffem,
-                        fontWeight: FontWeight.w700,
-                        height: 1.2941176471 * ffem / fem,
-                        color: const Color(0xffffffff),
-                      ),
-                    ),
                   ),
                 ),
               ),
