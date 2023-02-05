@@ -63,7 +63,7 @@ class _TradeStartWidget extends State<TradeStartWidget> {
     }
     while (tradeLoaded == false) {
       getTrade();
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
     }
   }
 

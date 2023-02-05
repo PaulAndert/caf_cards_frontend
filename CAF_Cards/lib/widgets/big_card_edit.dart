@@ -553,6 +553,7 @@ class _BigCardEditState extends State<BigCardEdit> {
               ],
             ),
           ),
+
         ],
       ),
     );
