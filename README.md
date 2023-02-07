@@ -13,7 +13,7 @@ This project is part of the student project for the module Cross Device Interact
 
 download the project:
 ```console
-git clone https://github.com/tnutzmann/Umfragetool
+git clone https://github.com/kekolyt/caf_cards_backend
 ```
 
 install the dependencies
