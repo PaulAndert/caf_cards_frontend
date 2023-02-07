@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/models/ability.dart';
-import 'package:myapp/screens/collection/collection.dart';
 import 'package:myapp/screens/home/home.dart';
 import 'package:myapp/services/ability_service.dart';
 import 'package:myapp/services/card_service.dart';
 import 'package:myapp/services/user_service.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/small_card.dart';
-import '../../../main.dart';
 import '../../../models/Gamecard.dart';
 import '../../../models/trade.dart';
 import '../../../services/helper_service.dart';
 import '../../../services/trade_service.dart';
 
+// class head of the Confirm Trade page
 class TradingConfirmTrade extends StatefulWidget {
   const TradingConfirmTrade({super.key});
 
@@ -25,8 +24,12 @@ class TradingConfirmTrade extends StatefulWidget {
 class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
   String? deviceId;
   Trade? trade;
+
+  // variables for the two cards for the trade
   Gamecard? ownCard;
   Gamecard? friendsCard;
+
+  // variables for the two ability's for the trade
   Ability? ownAbility;
   Ability? friendsAbility;
 
@@ -50,6 +53,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
 
   Ability emptyAbility = Ability(id: 0, name: "...", cost: 0, cardIds: []);
 
+  // when starting the page this function is called
   @override
   void initState() {
     super.initState();
@@ -57,6 +61,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     getDeviceId();
   }
 
+  // function to get the current device ID
   getDeviceId() async {
     deviceId = await HelperService().getUserId();
     if (deviceId != null) {
@@ -70,6 +75,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     }
   }
 
+  // function to safely finish the trade so that both users get there cards traded and moved to the home page
   finishTrade(context) async {
     while (waiting == true) {
       await getTrade(deviceId);
@@ -84,11 +90,11 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
           builder: (context) => const Home(),
         ));
       }
-
       await Future.delayed(const Duration(seconds: 1));
     }
   }
 
+  // function to get the current trade
   getTrade(deviceId) async {
     trade = await TradeService().getTradeByDeviceId(deviceId);
     if (trade != null) {
@@ -99,6 +105,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     }
   }
 
+  // function to get the current cards into the variables and change the state
   getCards() async {
     if (deviceId == trade!.senderDeviceId) {
       ownCard = await GamecardService().getGamecardById(trade!.senderCardId);
@@ -123,6 +130,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     }
   }
 
+  // function to get all ability's for the cards from the backend
   getAbilities() async {
     ownAbility = await AbilityService().getAbilityById(ownCard!.abilityId);
     friendsAbility =
@@ -139,27 +147,30 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
     }
   }
 
+  // function to accept the trade
   accept(context) async {
     waiting = true;
     await TradeService().updateAccept(deviceId!, true);
     await finishTrade(context);
   }
 
+  // function to decline the trade
   decline() async {
     waiting = false;
     await TradeService().updateAccept(deviceId!, false);
   }
 
+  // function to safely delete the trade
   deleteTrade() async {
     await TradeService().deleteTradeByDeviceId(deviceId!);
   }
 
+  // main widget for this page
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-
     return Material(
       child: Container(
         width: double.infinity,
@@ -172,6 +183,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // Button row on the top
               Expanded(
                 flex: 2,
                 child: Row(
@@ -224,10 +236,12 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                   ],
                 ),
               ),
+              // Spacing
               Expanded(
                 flex: 2,
                 child: Container(),
               ),
+              // display both text boxes
               Expanded(
                 flex: 1,
                 child: Row(
@@ -270,6 +284,7 @@ class _TradingConfirmTradeState extends State<TradingConfirmTrade> {
                   ],
                 ),
               ),
+              // display both cards
               Expanded(
                 flex: 10,
                 child: Container(

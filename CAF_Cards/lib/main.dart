@@ -14,17 +14,16 @@ import 'package:myapp/screens/home/home.dart';
 
 int selectedIndex = 2;
 
+// start the whole app
 void main() => runApp(const MyApp());
 
+// this is the main app call
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  static const String _title = 'Flutter Code Sample';
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: _title,
       home: MyStatefulWidget(),
     );
   }
@@ -39,12 +38,14 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidget extends State<MyStatefulWidget> {
 
+  // function to change the navbar item
   void _onItemTapped(int index) {
     setState(() {
       selectedIndex = index;
     });
   }
 
+  // list for all the navbar routes
   List pages = [
     const FightStart(),
     const TradeStart(),
@@ -53,6 +54,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
     const Collection(),
   ];
 
+  // main widget for the app
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

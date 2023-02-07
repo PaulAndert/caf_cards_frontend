@@ -33,11 +33,12 @@ class _HomeState extends State<Home> {
         getUser(deviceId);
       });
     }
+    print(deviceId);
   }
 
   getUser(deviceId) async {
     user = await UserService().getUserByDeviceId(deviceId);
-
+    print(user);
     user ??= await UserService().postUser(User(
         id: 0,
         deviceId: deviceId,
@@ -52,6 +53,7 @@ class _HomeState extends State<Home> {
         userLoaded = true;
       });
     }
+    print(user);
   }
 
   @override

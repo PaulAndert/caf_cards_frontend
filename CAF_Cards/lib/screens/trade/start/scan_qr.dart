@@ -10,6 +10,7 @@ import '../../../services/helper_service.dart';
 import '../../../services/user_service.dart';
 import '../select_card/select_card.dart';
 
+// class head of the QR code scaning page
 class MyQRView extends StatefulWidget {
   const MyQRView({super.key});
 
@@ -28,12 +29,14 @@ class _MyQRView extends State<MyQRView> {
   var userLoaded = false;
   var tradeLoaded = false;
 
+  // when starting the page this function is called
   @override
   void initState() {
     super.initState();
     getDeviceId();
   }
 
+  // function to get the current device ID
   getDeviceId() async {
     deviceId = await HelperService().getUserId();
     if (deviceId != null) {
@@ -43,6 +46,7 @@ class _MyQRView extends State<MyQRView> {
     }
   }
 
+  // function to get the current User
   getUser(deviceId) async {
     user = await UserService().getUserByDeviceId(deviceId);
     if (user != null) {
@@ -52,6 +56,7 @@ class _MyQRView extends State<MyQRView> {
     }
   }
 
+  // function to post a new trade to tha backend
   postTrade(sendId, receivedId) async {
     Trade trade = Trade(
         id: 0,
@@ -68,6 +73,7 @@ class _MyQRView extends State<MyQRView> {
     });
   }
 
+  // function to help with the camera view, its different
   @override
   void reassemble() {
     super.reassemble();
@@ -77,17 +83,21 @@ class _MyQRView extends State<MyQRView> {
     controller!.resumeCamera();
   }
 
+  // main widget for this page
   @override
   Widget build(BuildContext context) {
+    // if there is a result scanned then
     if (result != null) {
       getUser(result!.code);
       if (userLoaded && deviceIdLoaded) {
         if (!tradeLoaded) {
           postTrade(deviceId, result!.code);
         }
+        // move to the next page
         return const TradeSelectCard();
       }
     }
+    // else build the current page
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -95,7 +105,9 @@ class _MyQRView extends State<MyQRView> {
         ),
         child: Column(
           children: <Widget>[
+            // the QR view widget
             Expanded(flex: 4, child: _buildQrView(context)),
+            // Text and Buttons
             Expanded(
               flex: 1,
               child: FittedBox(
@@ -200,6 +212,7 @@ class _MyQRView extends State<MyQRView> {
     );
   }
 
+  // Widget to build the camera and scanner
   Widget _buildQrView(BuildContext context) {
     var scanArea = (MediaQuery.of(context).size.width < 400 ||
             MediaQuery.of(context).size.height < 400)
@@ -218,6 +231,7 @@ class _MyQRView extends State<MyQRView> {
     );
   }
 
+  // create the scanner for the QR codes
   void _onQRViewCreated(QRViewController controller) {
     setState(() {
       this.controller = controller;
@@ -229,6 +243,7 @@ class _MyQRView extends State<MyQRView> {
     });
   }
 
+  // check for permissions
   void _onPermissionSet(BuildContext context, QRViewController ctrl, bool p) {
     log('${DateTime.now().toIso8601String()}_onPermissionSet $p');
     if (!p) {
@@ -238,6 +253,7 @@ class _MyQRView extends State<MyQRView> {
     }
   }
 
+  // delete the controller
   @override
   void dispose() {
     controller?.dispose();

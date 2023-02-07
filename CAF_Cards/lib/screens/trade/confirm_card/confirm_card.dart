@@ -5,6 +5,7 @@ import '../../../models/screen_argument.dart';
 import '../../../models/trade.dart';
 import '../../../widgets/big_card.dart';
 
+// class head of the Confirm Card page
 class TradeConfirmCard extends StatefulWidget {
   const TradeConfirmCard({super.key});
 
@@ -16,7 +17,6 @@ class TradeConfirmCard extends StatefulWidget {
 
 class _TradeConfirmCardState extends State<TradeConfirmCard> {
   Trade? trade;
-
   bool tradeLoaded = false;
 
   updateTradeCardId(deviceId, cardId) async {
@@ -28,6 +28,7 @@ class _TradeConfirmCardState extends State<TradeConfirmCard> {
     }
   }
 
+  // main widget for this page
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as ScreenArgument;
@@ -44,7 +45,9 @@ class _TradeConfirmCardState extends State<TradeConfirmCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // Spacing Container
             Expanded(flex: 1, child: Container()),
+            // Button row at the top
             Expanded(
               flex: 1,
               child: Row(
@@ -77,6 +80,7 @@ class _TradeConfirmCardState extends State<TradeConfirmCard> {
                 ],
               ),
             ),
+            // display a big card
             Expanded(
               flex: 10,
               child: BigCard(
@@ -85,6 +89,7 @@ class _TradeConfirmCardState extends State<TradeConfirmCard> {
                 args: args,
               ),
             ),
+            // Spacing Container
             Expanded(
               flex: 2,
               child: Container(),

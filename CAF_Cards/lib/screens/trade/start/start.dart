@@ -14,6 +14,7 @@ import '../confirm_trade/confirm_trade.dart';
 import 'scan_qr.dart';
 import '../select_card/select_card.dart';
 
+// class head of the Trade Start page
 class TradeStart extends StatelessWidget {
   const TradeStart({super.key});
 
@@ -36,6 +37,7 @@ class TradeStart extends StatelessWidget {
         TradingConfirmTrade.routeName: (BuildContext context) =>
             const TradingConfirmTrade(),
       },
+      // call the TradeStart Widget
       home: const TradeStartWidget(),
     );
   }
@@ -54,6 +56,7 @@ class _TradeStartWidget extends State<TradeStartWidget> {
   Trade? trade;
   var tradeLoaded = false;
 
+  // function to get the current device ID
   getDeviceId() async {
     deviceId = await HelperService().getUserId();
     if (deviceId != null) {
@@ -67,6 +70,7 @@ class _TradeStartWidget extends State<TradeStartWidget> {
     }
   }
 
+  // function to get the current trade
   getTrade() async {
     if (deviceIdLoaded == true) {
       trade = await TradeService().getTradeByDeviceId(deviceId!);
@@ -78,12 +82,14 @@ class _TradeStartWidget extends State<TradeStartWidget> {
     }
   }
 
+  // when starting the page this function is called
   @override
   void initState() {
     super.initState();
     getDeviceId();
   }
 
+  // main widget for this page
   @override
   Widget build(BuildContext context) {
     double baseWidth = 393;

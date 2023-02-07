@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 class TradeService {
   static const IP = String.fromEnvironment(
     'IP',
-    defaultValue: '192.168.178.100',
+    defaultValue: '192.168.0.12',
   );
   static const api = "http://$IP:8080/api/trade";
 
