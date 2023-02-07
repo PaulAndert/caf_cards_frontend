@@ -12,6 +12,7 @@ List<Ability> abilityListFromJson(String str) => List<Ability>.from(json.decode(
 
 String abilityListToJson(List<Ability> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
+// defines what an ability is
 class Ability {
   Ability({
     required this.id,

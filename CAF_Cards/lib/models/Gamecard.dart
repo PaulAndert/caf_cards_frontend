@@ -12,6 +12,7 @@ List<Gamecard> cardListFromJson(String str) => List<Gamecard>.from(json.decode(s
 
 String cardListToJson(List<Gamecard> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
+// defines what a card is
 class Gamecard {
   Gamecard({
     required this.id,

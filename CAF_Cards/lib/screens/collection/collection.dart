@@ -44,6 +44,7 @@ class GridBuilderState extends State<GridBuilder> {
     getDeviceId();
   }
 
+  // get device id = user
   getDeviceId() async {
     deviceId = await HelperService().getUserId();
     if (deviceId != null) {
@@ -56,6 +57,7 @@ class GridBuilderState extends State<GridBuilder> {
     }
   }
 
+  // create list of cards of user
   getCardsByUser(deviceId) async {
     cards = await GamecardService().getGamecardsByUser(deviceId);
     if (cards != null) {
@@ -68,6 +70,7 @@ class GridBuilderState extends State<GridBuilder> {
     }
   }
 
+  // gets the ability for each card
   getAbilities() async {
     for (var card in cards!) {
       Ability? ability = await AbilityService().getAbilityById(card.abilityId);
@@ -101,6 +104,7 @@ class GridBuilderState extends State<GridBuilder> {
             ),
           ),
           child: Center(
+            // shows cards in a grid view
             child: GridView.builder(
               itemCount: cards?.length ?? 0,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

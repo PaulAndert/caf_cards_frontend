@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final user = userFromJson(jsonString);
-
 import 'dart:convert';
 
 User userFromJson(String str) => User.fromJson(json.decode(str));
@@ -12,6 +8,7 @@ List<User> userListFromJson(String str) => List<User>.from(json.decode(str).map(
 
 String userListToJson(List<User> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
+// defines what an user is and the shown stats in home screen
 class User {
   User({
     required this.id,

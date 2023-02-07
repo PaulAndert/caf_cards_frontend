@@ -11,6 +11,7 @@ import '../../../models/user.dart';
 import '../../../widgets/big_card.dart';
 import '../../home/home.dart';
 
+// shows the detailed card you just build and lets you post and create it now
 class CreatePreview extends StatefulWidget {
   const CreatePreview({super.key});
 
@@ -24,6 +25,7 @@ class _CreatePreview extends State<CreatePreview> {
   String? deviceId;
   User? user;
 
+  //create the Card in database
   postCard(Gamecard card, String deviceId, Ability ability) async {
     user = await UserService().getUserByDeviceId(deviceId);
     print(user);

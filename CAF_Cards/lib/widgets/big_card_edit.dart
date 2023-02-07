@@ -5,6 +5,8 @@ import '../models/screen_argument.dart';
 import '../screens/create/preview/preview.dart';
 import '../utils.dart';
 
+//Big View of Card with Edit Buttons
+
 class BigCardEdit extends StatefulWidget {
   const BigCardEdit({
     Key? key,
@@ -48,6 +50,7 @@ class _BigCardEditState extends State<BigCardEdit> {
         List.of(entries!.where((element) => element.cost <= availablePoints));
   }
 
+  //refresh points after choosing an ability
   void updatePoints(int cost) {
     availablePoints += costs;
     availablePoints -= cost;
@@ -55,10 +58,12 @@ class _BigCardEditState extends State<BigCardEdit> {
     updateAbilityList();
   }
 
+  //refreshing the list of abilities to select
   void updateAbilityList(){
     availableAbilities = List.of(entries!.where((element) => element.cost <= availablePoints + costs));
   }
 
+  //strength -1
   void decrementStrength() {
     if (strength > 0) {
       setState(() {
@@ -69,6 +74,7 @@ class _BigCardEditState extends State<BigCardEdit> {
     }
   }
 
+  //strength +1
   void incrementStrength() {
     if (strength < 9) {
       if (availablePoints > 0) {
@@ -81,6 +87,7 @@ class _BigCardEditState extends State<BigCardEdit> {
     }
   }
 
+  //health -1
   void decrementHealth() {
     if (health > 1) {
       setState(() {
@@ -91,6 +98,7 @@ class _BigCardEditState extends State<BigCardEdit> {
     }
   }
 
+  //health +1
   void incrementHealth() {
     if (health < 9) {
       if (availablePoints > 0) {
@@ -308,6 +316,7 @@ class _BigCardEditState extends State<BigCardEdit> {
                                 margin: EdgeInsets.fromLTRB(
                                     30 * fem, 0 * fem, 30 * fem, 0 * fem),
                                 child: InkWell(
+                                  //opens new dialog with list of abilities
                                   onTap: () {
                                     showGeneralDialog(
                                       context: context,
