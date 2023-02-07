@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../models/screen_argument.dart';
 import '../utils.dart';
 
+
+//detailed view of one card
 class BigCard extends StatelessWidget {
   const BigCard({
     Key? key,

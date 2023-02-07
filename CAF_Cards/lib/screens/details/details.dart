@@ -24,6 +24,7 @@ class Details extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(flex: 1, child: Container()),
+            // back and edit button
             Expanded(
               flex: 1,
               child: Row(
@@ -43,6 +44,7 @@ class Details extends StatelessWidget {
                 ],
               ),
             ),
+            // detailed big card
             Expanded(
               flex: 10,
               child: BigCard(fem: fem, ffem: ffem, args: args),

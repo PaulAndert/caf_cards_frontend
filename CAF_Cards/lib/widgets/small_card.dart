@@ -8,6 +8,8 @@ import '../models/screen_argument.dart';
 import '../models/ability.dart';
 import '../models/Gamecard.dart';
 
+
+//Widget for small Cards with no description in the App
 class CollectionCardWidget extends StatelessWidget {
   const CollectionCardWidget({
     Key? key,

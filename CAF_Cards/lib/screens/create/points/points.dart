@@ -9,6 +9,7 @@ import 'package:myapp/widgets/big_card_edit.dart';
 import '../../../services/helper_service.dart';
 import '../preview/preview.dart';
 
+// create window to edit strength, health and ability
 class CreatePoints extends StatefulWidget {
   const CreatePoints({super.key});
 
@@ -40,6 +41,7 @@ class _CreatePointsState extends State<CreatePoints> {
 
   String availablePoints = "";
 
+  // get device id = user
   getDeviceId() async {
     deviceId = await HelperService().getUserId();
     if (deviceId != null) {
@@ -49,6 +51,7 @@ class _CreatePointsState extends State<CreatePoints> {
     }
   }
 
+  //get list of all abilities in database
   getAllAbilities() async {
     abilities = await AbilityService().getAbilities();
     if (abilities!.length > 1) {
@@ -69,6 +72,7 @@ class _CreatePointsState extends State<CreatePoints> {
     getAllAbilities();
   }
 
+  // updates the shown ability
   void updateAbility(String name) {
     setState(() {
       ability = abilities!.firstWhere((element) => element.name == name);
@@ -97,11 +101,11 @@ class _CreatePointsState extends State<CreatePoints> {
                 flex: 1,
                 child: Container(),
               ),
-              // Card
+              // Card, only visible when the user is loaded
               Expanded(
                 flex: 32,
                 child: Visibility(
-                  visible: abLoaded,
+                  visible: abLoaded & deviceIdLoaded,
                   replacement: const Center(
                       child: CircularProgressIndicator(
                     color: Colors.deepPurpleAccent,

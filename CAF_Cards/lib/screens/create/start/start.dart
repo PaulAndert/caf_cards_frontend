@@ -41,6 +41,7 @@ class _CreateStartState extends State<CreateStart> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // Name and description inputs
             Expanded(
               flex: 9,
               child: Stack(
@@ -262,6 +263,7 @@ class _CreateStartState extends State<CreateStart> {
                 ],
               ),
             ),
+            // slider to select energy costs
             Expanded(
               flex: 3,
               child: Column(
@@ -304,6 +306,7 @@ class _CreateStartState extends State<CreateStart> {
                 ],
               ),
             ),
+            // continue button - using inputs
             Expanded(
               flex: 1,
               child: Container(),

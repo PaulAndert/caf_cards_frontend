@@ -12,6 +12,7 @@ List<Trade> tradeListFromJson(String str) => List<Trade>.from(json.decode(str).m
 
 String tradeListToJson(List<Trade> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
+//defines what a trade is and which data is needed for a successful trade
 class Trade {
   Trade({
     required this.id,
