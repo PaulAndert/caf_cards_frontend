@@ -1,6 +1,6 @@
 # caf_cards_frontend
 
-This project is part of the student project for the module Cross Device Interaction of the [TH Brandenburg](https://www.th-brandenburg.de/startseite/) in the winter semester 2022. You can find the associated [backend here](https://github.com/tnutzmann/Umfragetool-Frontend).
+This project is part of the student project for the module Cross Device Interaction of the [TH Brandenburg](https://www.th-brandenburg.de/startseite/) in the winter semester 2022. You can find the associated [backend here](https://github.com/kekolyt/caf_cards_backend).
 
 
 ## Requirements
@@ -13,7 +13,7 @@ This project is part of the student project for the module Cross Device Interact
 
 download the project:
 ```console
-git clone https://github.com/kekolyt/caf_cards_backend
+git clone https://github.com/PaulAndert/caf_cards_frontend
 ```
 
 install the dependencies
