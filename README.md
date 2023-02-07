@@ -23,6 +23,6 @@ flutter pub get
 
 and then run the projekt via Android Studio on your Smartphone or Emulator
 
-##Modify the Run configuration
-at "Additional run args" insert "--no-sound-null-safety --dart-define=IP=YOUR_IP_ADDRESS"
+## Modify the Run configuration
+at "Additional run args" insert "--no-sound-null-safety --dart-define=IP=YOUR_IP_ADDRESS"  
 -> instead of YOUR_IP_ADDRESS write your current local ip, that is needed because android studio doest work with just localhost 
