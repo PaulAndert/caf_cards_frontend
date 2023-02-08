@@ -21,7 +21,8 @@ install the dependencies
 flutter pub get
 ```
 
-and then run the projekt via Android Studio on your Smartphone or Emulator
+and then run the projekt via Android Studio on your Smartphone or Emulator  
+or open the caf_cards_frontend/CAF_Cards/ios folder in Xcode and connect your Iphone in Developer Mode via cable, then just press Start in XCode
 
 ## Modify the Run configuration
 at "Additional run args" insert "--no-sound-null-safety --dart-define=IP=YOUR_IP_ADDRESS"  
