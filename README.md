@@ -21,8 +21,8 @@ install the dependencies
 flutter pub get
 ```
 
-and then run the projekt via Android Studio on your Smartphone or Emulator  
-or open the caf_cards_frontend/CAF_Cards/ios folder in Xcode and connect your Iphone in Developer Mode via cable, then just press Start in XCode (with this methode you need to change the default ip to your current local ip in the 4 files in the lib/services : ability_service.dart, card_service.dart, trade_service.dart and user_service.dart)
+and then run the projekt via Android Studio on your [Smartphone or Emulator](https://docs.flutter.dev/get-started/install/windows#android-setup)  
+IOS Setup: open the caf_cards_frontend/CAF_Cards/ios folder in Xcode and connect your Iphone in Developer Mode via cable, then just press Start in XCode (with this methode you need to change the default ip to your current local ip in the 4 files in the lib/services : ability_service.dart, card_service.dart, trade_service.dart and user_service.dart)
 
 ## Modify the Run configuration
 at "Additional run args" insert "--no-sound-null-safety --dart-define=IP=YOUR_IP_ADDRESS"  
